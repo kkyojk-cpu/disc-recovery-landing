@@ -108,6 +108,7 @@
 
     <!-- 승인 -->
     <div id="result-approve" class="hidden">
+      <button class="back-btn" id="btn-back-approve">← 이전으로</button>
       <div class="result-icon">💛</div>
       <p class="msg">
         카카오 채팅으로<br>
@@ -184,6 +185,11 @@
 
   document.getElementById('btn-back-reject').addEventListener('click', function() {
     document.getElementById('result-reject').classList.add('hidden');
+    document.getElementById('step-screen').classList.remove('hidden');
+  });
+
+  document.getElementById('btn-back-approve').addEventListener('click', function() {
+    document.getElementById('result-approve').classList.add('hidden');
     document.getElementById('step-screen').classList.remove('hidden');
   });
 </script>
