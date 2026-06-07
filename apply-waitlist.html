@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>회복 나침반 그룹 프로그램 — 참여 신청</title>
+  <title>회복 나침반 그룹 프로그램 — 2기 대기 신청</title>
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,6 +32,10 @@
     .field label { display: block; font-size: 13px; font-weight: 700; color: #374151; margin-bottom: 7px; }
     .field input[type=text], .field input[type=tel] { width: 100%; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 12px 14px; font-size: 14px; font-family: inherit; outline: none; transition: border-color .2s; color: #1a1a2e; }
     .field input[type=text]:focus, .field input[type=tel]:focus { border-color: #2d5a8e; }
+
+    .closed-box { background: #fff7ed; border: 1.5px solid #fed7aa; border-radius: 14px; padding: 16px 18px; margin-bottom: 20px; }
+    .closed-box .cb-title { font-size: 13px; font-weight: 800; color: #c2410c; margin-bottom: 6px; }
+    .closed-box .cb-desc { font-size: 13px; color: #7c2d12; line-height: 1.8; }
 
     .notice-box { background: #f0f7ff; border: 1.5px solid #bfdbfe; border-radius: 14px; padding: 16px 18px; margin-bottom: 22px; }
     .notice-box .nb-title { font-size: 13px; font-weight: 800; color: #1e40af; margin-bottom: 8px; }
@@ -84,23 +88,19 @@
     .outline-btn { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; padding: 13px; border-radius: 14px; background: #fff; border: 1.5px solid #ddd6fe; color: #5b21b6; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer; text-decoration: none; transition: background .15s; }
     .outline-btn:hover { background: #f5f3ff; }
 
-    .approve-box { background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: 16px; padding: 20px; margin-bottom: 16px; }
-    .acct-label { font-size: 11px; font-weight: 700; color: #6b7280; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; }
-    .acct-num { font-size: 20px; font-weight: 800; color: #1a1a2e; letter-spacing: .04em; margin-bottom: 4px; }
-    .acct-name { font-size: 13px; color: #6b7280; }
-    .divider { height: 1px; background: #d1fae5; margin: 14px 0; }
-    .notice-line { font-size: 13px; color: #065f46; line-height: 1.7; }
-    .copy-btn { display: flex; align-items: center; justify-content: center; gap: 6px; background: #fff; border: 1.5px solid #bbf7d0; color: #059669; font-weight: 700; font-size: 13px; padding: 10px 16px; border-radius: 10px; cursor: pointer; font-family: inherit; margin-top: 10px; width: 100%; transition: background .15s; }
-    .copy-btn:hover { background: #dcfce7; }
+    .waitlist-box { background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: 16px; padding: 20px; margin-bottom: 16px; }
+    .waitlist-box .wb-title { font-size: 13px; font-weight: 800; color: #065f46; margin-bottom: 10px; }
+    .waitlist-box .wb-desc { font-size: 13px; color: #064e3b; line-height: 1.8; }
+    .waitlist-box .wb-keyword { display: inline-block; background: #dcfce7; border: 1px solid #bbf7d0; border-radius: 8px; padding: 4px 12px; font-size: 14px; font-weight: 800; color: #065f46; margin-top: 8px; letter-spacing: .02em; }
 
-    .price-badge { display: inline-block; background: #1e3a5f; color: #fff; font-size: 13px; font-weight: 800; border-radius: 8px; padding: 4px 10px; margin-bottom: 14px; }
+    .warn-line { font-size: 12.5px; color: #ef4444; text-align: center; margin-top: 12px; font-weight: 600; }
   </style>
 </head>
 <body>
 <div class="card">
   <div class="card-header">
     <div class="card-eyebrow">회복 나침반 · 그룹 프로그램</div>
-    <div class="card-title">참여 전 안전 확인</div>
+    <div class="card-title">2기 대기 신청</div>
     <div class="card-sub">모든 분께 맞는 프로그램이 아닙니다.<br>아래 질문에 솔직하게 답해주세요.</div>
   </div>
 
@@ -115,12 +115,19 @@
 
     <!-- STEP 1 -->
     <div id="step1">
+      <div class="closed-box">
+        <div class="cb-title">🔒 1기 모집 마감</div>
+        <div class="cb-desc">
+          현재 1기 정원이 마감되었습니다.<br>
+          2기 대기 신청을 해두시면 모집 시작 시 가장 먼저 안내 드립니다.
+        </div>
+      </div>
+
       <div class="notice-box">
-        <div class="nb-title">📋 그룹 프로그램 1기 모집 안내</div>
+        <div class="nb-title">📋 그룹 프로그램 안내</div>
         <div class="nb-row">
-          모집일: 5월 25일 ~ 6월 7일<br>
-          시작일: 6월 8일 (함께 시작합니다)<br>
-          정원: 20명
+          참여 금액: <strong>79,000원/월</strong><br>
+          진행기간: 12주 그룹 커리큘럼
         </div>
         <div class="nb-quote">
           "단순 호기심으로 찾아주시지 않길 바랍니다. 마지막 지푸라기를 호소해 주시는 분들이 많습니다. 저도 제 간절함을 걸고 임하는 프로그램입니다."
@@ -135,7 +142,7 @@
         <label>연락처 <span style="color:#ef4444">*</span></label>
         <input type="tel" id="inp-phone" placeholder="010-0000-0000">
       </div>
-      <button class="btn btn-primary" id="btn-next1">다음</button>
+      <button class="btn btn-primary" id="btn-next1">다음 — 안전 확인</button>
     </div>
 
     <!-- STEP 2 -->
@@ -166,10 +173,9 @@
       <div class="privacy-box">
         <div class="pv-title">개인정보 수집 및 이용 동의</div>
         <div class="pv-body">
-          수집 항목: 이름, 휴대폰 번호 · 수집 목적: 파일 링크 전송 및 참여 안내<br>
+          수집 항목: 이름, 휴대폰 번호 · 수집 목적: 대기 명단 관리 및 모집 안내<br>
           보유 기간: 수집 목적 달성 시까지 (관련 법령에 따름)<br>
-          동의 거부 시 신청이 정상 접수되지 않습니다.<br><br>
-          본 프로그램은 디지털 콘텐츠로, 결제 후 즉시 제공되는 특성상 단순 변심에 의한 환불은 제한될 수 있으며, 합리적 사유가 있는 경우 개별 환불이 진행될 수 있습니다.
+          동의 거부 시 신청이 정상 접수되지 않습니다.
         </div>
         <label class="privacy-agree">
           <input type="checkbox" id="privacy-cb">
@@ -197,33 +203,28 @@
         </div>
         <a class="outline-btn" href="https://recovery-log-production.up.railway.app/go1" target="_blank">🧭 1:1 나침반 알아보기</a>
         <div style="margin-top:12px;"></div>
-        <div class="result-desc" style="margin-bottom:12px;">선별 기준에 이의신청이나<br>선별 질문에 담지 못한 이야기가 있다면<br>카톡으로 직접 전해주세요. 언제든 상의합니다.</div>
+        <div class="result-desc" style="margin-bottom:12px;">선별 기준에 이의신청이나<br>담지 못한 이야기가 있다면<br>카톡으로 직접 전해주세요.</div>
         <a class="kakao-btn" href="http://pf.kakao.com/_xmnxfyn" target="_blank">💬 카카오 채널로 문의하기</a>
       </div>
 
-      <!-- 승인 -->
+      <!-- 대기 승인 -->
       <div id="result-approve" class="hidden">
         <button class="back-btn" id="btn-back-approve">← 이전으로</button>
-        <div class="result-icon">✅</div>
-        <div class="result-title">참여 가능합니다!</div>
-        <div class="approve-box">
-          <div style="margin-bottom:14px;">
-            <span style="font-size:13px;color:#94a3b8;text-decoration:line-through;margin-right:8px;">99,000원</span>
-            <span style="font-size:22px;font-weight:900;color:#1e3a5f;">79,000원</span>
-            <span style="font-size:12px;font-weight:700;color:#ef4444;background:#fef2f2;border-radius:6px;padding:2px 7px;margin-left:6px;">특가</span>
-          </div>
-          <div class="acct-label">입금 계좌</div>
-          <div class="acct-num">농협 301-0143-2678-11</div>
-          <div class="acct-name">예금주: 김*영</div>
-          <button class="copy-btn" id="copy-btn">📋 계좌번호 복사</button>
-          <div class="divider"></div>
-          <div class="notice-line">
-            • 입금 후 카카오 채널로 입금 완료를 채팅으로 알려주세요<br>
-            • 채팅 주실 때 신청자 성함과 입금자 성함을 동일하게 적어주세요<br>
-            • 확인 후 그룹 오픈채팅방 초대링크를 보내드립니다
+        <div class="result-icon">📋</div>
+        <div class="result-title">대기 신청 가능합니다!</div>
+        <div class="result-desc">아래 카카오 채널에서 채팅을 보내주셔야<br>대기 명단 등록이 완료됩니다.</div>
+
+        <div class="waitlist-box">
+          <div class="wb-title">💬 카카오 채널로 아래 내용을 보내주세요</div>
+          <div class="wb-desc">
+            채널 추가 후 채팅창에 아래 키워드와 성함을 보내주세요.
+            <br>
+            <span class="wb-keyword">그룹2기 홍길동</span>
           </div>
         </div>
-        <a class="kakao-btn" href="http://pf.kakao.com/_xmnxfyn" target="_blank">💬 입금 완료 카카오로 알리기</a>
+
+        <a class="kakao-btn" href="http://pf.kakao.com/_xmnxfyn" target="_blank">💛 카카오 채널 추가하기</a>
+        <p class="warn-line">⚠️ 채팅을 보내주셔야 대기 명단에 등록됩니다</p>
       </div>
 
     </div>
@@ -233,7 +234,6 @@
 <script>
   var walkAnswer = null;
 
-  // STEP 1 → 2
   document.getElementById('btn-next1').addEventListener('click', function() {
     var name = document.getElementById('inp-name').value.trim();
     var phone = document.getElementById('inp-phone').value.trim();
@@ -241,14 +241,10 @@
     showStep(2);
   });
 
-  // STEP 2 뒤로
   document.getElementById('btn-back2').addEventListener('click', function() { showStep(1); });
-
-  // STEP 3 뒤로
   document.getElementById('btn-back-reject').addEventListener('click', function() { showStep(2); resetStep3(); });
   document.getElementById('btn-back-approve').addEventListener('click', function() { showStep(2); resetStep3(); });
 
-  // 안전 확인 체크박스
   document.querySelectorAll('#safety-list .opt').forEach(function(opt) {
     opt.addEventListener('click', function() {
       var cb = opt.querySelector('input');
@@ -261,24 +257,19 @@
             d.classList.remove('sel-danger');
           });
           opt.classList.add('sel-safe');
-        } else {
-          opt.classList.remove('sel-safe');
-        }
+        } else { opt.classList.remove('sel-safe'); }
       } else {
         if (cb.checked) {
           var safeOpt = document.querySelector('#safety-list .opt[data-val=safe]');
           safeOpt.querySelector('input').checked = false;
           safeOpt.classList.remove('sel-safe');
           opt.classList.add('sel-danger');
-        } else {
-          opt.classList.remove('sel-danger');
-        }
+        } else { opt.classList.remove('sel-danger'); }
       }
       checkStep2();
     });
   });
 
-  // 걷기
   document.querySelectorAll('#walk-list .opt').forEach(function(opt) {
     opt.addEventListener('click', function() {
       walkAnswer = opt.getAttribute('data-walk');
@@ -292,7 +283,6 @@
     });
   });
 
-  // 개인정보 동의
   document.getElementById('privacy-cb').addEventListener('change', checkStep2);
 
   function checkStep2() {
@@ -300,18 +290,13 @@
     var anyDanger = false;
     document.querySelectorAll('#safety-list .opt[data-val=danger] input').forEach(function(cb) { if (cb.checked) anyDanger = true; });
     var privacyOk = document.getElementById('privacy-cb').checked;
-    document.getElementById('btn-result').disabled = !(( safeChecked || anyDanger) && walkAnswer !== null && privacyOk);
+    document.getElementById('btn-result').disabled = !((safeChecked || anyDanger) && walkAnswer !== null && privacyOk);
   }
 
-  // 결과
   document.getElementById('btn-result').addEventListener('click', function() {
     var anyDanger = false;
     document.querySelectorAll('#safety-list .opt[data-val=danger] input').forEach(function(cb) { if (cb.checked) anyDanger = true; });
     var rejected = anyDanger || walkAnswer === 'no';
-    fetch('https://recovery-log-production.up.railway.app/screening-result', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ result: rejected ? 'fail' : 'pass' })
-    }).catch(function() {});
     if (!rejected) {
       var name = document.getElementById('inp-name').value.trim();
       var phone = document.getElementById('inp-phone').value.trim();
@@ -330,15 +315,6 @@
     } else {
       document.getElementById('result-approve').classList.remove('hidden');
     }
-  });
-
-  // 계좌 복사
-  document.getElementById('copy-btn').addEventListener('click', function() {
-    var btn = this;
-    navigator.clipboard.writeText('301-0143-2678-11').then(function() {
-      btn.textContent = '✅ 복사됐습니다';
-      setTimeout(function() { btn.textContent = '📋 계좌번호 복사'; }, 2000);
-    });
   });
 
   function showStep(n) {
