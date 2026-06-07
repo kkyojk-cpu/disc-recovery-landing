@@ -15,36 +15,12 @@
     .card-sub { font-size: 13.5px; color: rgba(255,255,255,.75); line-height: 1.6; }
     .card-body { padding: 28px; }
 
-    .steps { display: flex; align-items: center; margin-bottom: 28px; }
-    .step { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; color: #94a3b8; }
-    .step.active { color: #1e3a5f; }
-    .step.done { color: #10b981; }
-    .step-dot { width: 24px; height: 24px; border-radius: 50%; border: 2px solid currentColor; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; }
-    .step.done .step-dot { background: #10b981; border-color: #10b981; color: #fff; }
-    .step.active .step-dot { background: #1e3a5f; border-color: #1e3a5f; color: #fff; }
-    .step-line { flex: 1; height: 2px; background: #e2e8f0; margin: 0 8px; }
-    .step-line.done { background: #10b981; }
-
     .back-btn { display: flex; align-items: center; gap: 5px; background: none; border: none; font-size: 13px; font-weight: 600; color: #94a3b8; cursor: pointer; font-family: inherit; padding: 0; margin-bottom: 20px; transition: color .15s; }
     .back-btn:hover { color: #475569; }
 
-    .field { margin-bottom: 20px; }
-    .field label { display: block; font-size: 13px; font-weight: 700; color: #374151; margin-bottom: 7px; }
-    .field input[type=text], .field input[type=tel] { width: 100%; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 12px 14px; font-size: 14px; font-family: inherit; outline: none; transition: border-color .2s; color: #1a1a2e; }
-    .field input[type=text]:focus, .field input[type=tel]:focus { border-color: #2d5a8e; }
-
-    .closed-box { background: #fff7ed; border: 1.5px solid #fed7aa; border-radius: 14px; padding: 16px 18px; margin-bottom: 20px; }
-    .closed-box .cb-title { font-size: 13px; font-weight: 800; color: #c2410c; margin-bottom: 6px; }
-    .closed-box .cb-desc { font-size: 13px; color: #7c2d12; line-height: 1.8; }
-
-    .notice-box { background: #f0f7ff; border: 1.5px solid #bfdbfe; border-radius: 14px; padding: 16px 18px; margin-bottom: 22px; }
-    .notice-box .nb-title { font-size: 13px; font-weight: 800; color: #1e40af; margin-bottom: 8px; }
-    .notice-box .nb-row { font-size: 13px; color: #1e3a5f; line-height: 1.8; }
-    .notice-box .nb-quote { margin-top: 10px; padding-top: 10px; border-top: 1px solid #bfdbfe; font-size: 12.5px; color: #374151; line-height: 1.7; font-style: italic; }
-
     .q-label { font-size: 13px; font-weight: 700; color: #374151; margin-bottom: 4px; }
     .q-desc { font-size: 12px; color: #6b7280; margin-bottom: 12px; line-height: 1.5; }
-    .opt-list { display: flex; flex-direction: column; gap: 8px; }
+    .opt-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
     .opt { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border: 1.5px solid #e2e8f0; border-radius: 12px; cursor: pointer; transition: all .15s; background: #fff; user-select: none; }
     .opt:hover { border-color: #cbd5e1; background: #f8fafc; }
     .opt input { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; cursor: pointer; pointer-events: none; }
@@ -58,14 +34,7 @@
     .opt.sel-no { border-color: #ef4444; background: #fef2f2; }
     .opt.sel-no span { color: #dc2626; }
 
-    .privacy-box { background: #f8f9fb; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 14px 16px; margin-top: 20px; }
-    .privacy-box .pv-title { font-size: 12px; font-weight: 700; color: #374151; margin-bottom: 6px; }
-    .privacy-box .pv-body { font-size: 11.5px; color: #6b7280; line-height: 1.7; }
-    .privacy-agree { display: flex; align-items: center; gap: 8px; margin-top: 10px; cursor: pointer; }
-    .privacy-agree input { width: 16px; height: 16px; cursor: pointer; }
-    .privacy-agree span { font-size: 12.5px; font-weight: 600; color: #374151; }
-
-    .btn { width: 100%; padding: 15px; border-radius: 14px; font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer; border: none; transition: all .2s; margin-top: 12px; }
+    .btn { width: 100%; padding: 15px; border-radius: 14px; font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer; border: none; transition: all .2s; margin-top: 4px; }
     .btn-primary { background: #1e3a5f; color: #fff; }
     .btn-primary:hover { background: #16304f; }
     .btn-primary:disabled { background: #cbd5e1; color: #fff; cursor: not-allowed; }
@@ -74,7 +43,6 @@
 
     .result-icon { font-size: 48px; margin-bottom: 16px; text-align: center; }
     .result-title { font-size: 20px; font-weight: 800; margin-bottom: 12px; line-height: 1.4; text-align: center; }
-    .result-desc { font-size: 14px; color: #6b7280; line-height: 1.7; margin-bottom: 20px; text-align: center; }
 
     .reject-box { background: #fef2f2; border: 1.5px solid #fecaca; border-radius: 16px; padding: 18px; margin-bottom: 20px; }
     .reject-box p { font-size: 13.5px; color: #7f1d1d; line-height: 1.7; }
@@ -83,17 +51,12 @@
     .upsell-box .us-title { font-size: 13px; font-weight: 800; color: #5b21b6; margin-bottom: 6px; }
     .upsell-box .us-desc { font-size: 13px; color: #4c1d95; line-height: 1.6; }
 
-    .kakao-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px; border-radius: 14px; background: #FEE500; color: #000; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer; border: none; text-decoration: none; transition: opacity .2s; margin-bottom: 10px; }
+    .msg { font-size: 15px; color: #374151; line-height: 1.9; margin-bottom: 28px; text-align: center; }
+
+    .kakao-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 15px; border-radius: 14px; background: #FEE500; color: #000; font-size: 15px; font-weight: 700; font-family: inherit; cursor: pointer; border: none; text-decoration: none; transition: opacity .2s; margin-bottom: 10px; }
     .kakao-btn:hover { opacity: .88; }
     .outline-btn { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; padding: 13px; border-radius: 14px; background: #fff; border: 1.5px solid #ddd6fe; color: #5b21b6; font-size: 14px; font-weight: 700; font-family: inherit; cursor: pointer; text-decoration: none; transition: background .15s; }
     .outline-btn:hover { background: #f5f3ff; }
-
-    .waitlist-box { background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: 16px; padding: 20px; margin-bottom: 16px; }
-    .waitlist-box .wb-title { font-size: 13px; font-weight: 800; color: #065f46; margin-bottom: 10px; }
-    .waitlist-box .wb-desc { font-size: 13px; color: #064e3b; line-height: 1.8; }
-    .waitlist-box .wb-keyword { display: inline-block; background: #dcfce7; border: 1px solid #bbf7d0; border-radius: 8px; padding: 4px 12px; font-size: 14px; font-weight: 800; color: #065f46; margin-top: 8px; letter-spacing: .02em; }
-
-    .warn-line { font-size: 12.5px; color: #ef4444; text-align: center; margin-top: 12px; font-weight: 600; }
   </style>
 </head>
 <body>
@@ -105,145 +68,62 @@
   </div>
 
   <div class="card-body">
-    <div class="steps">
-      <div class="step active" id="s1"><div class="step-dot" id="sd1">1</div><span>기본 정보</span></div>
-      <div class="step-line" id="l1"></div>
-      <div class="step" id="s2"><div class="step-dot" id="sd2">2</div><span>안전 확인</span></div>
-      <div class="step-line" id="l2"></div>
-      <div class="step" id="s3"><div class="step-dot" id="sd3">3</div><span>결과</span></div>
-    </div>
 
-    <!-- STEP 1 -->
-    <div id="step1">
-      <div class="closed-box">
-        <div class="cb-title">🔒 1기 모집 마감</div>
-        <div class="cb-desc">
-          현재 1기 정원이 마감되었습니다.<br>
-          2기 대기 신청을 해두시면 모집 시작 시 가장 먼저 안내 드립니다.
-        </div>
+    <!-- 선별 질문 -->
+    <div id="step-screen">
+      <div class="q-label">⚠️ 안전 확인 <span style="color:#ef4444">*</span></div>
+      <div class="q-desc">해당되는 항목을 모두 선택해 주세요. 해당 없으면 마지막 항목을 선택하세요.</div>
+      <div class="opt-list" id="safety-list">
+        <div class="opt" data-val="danger"><input type="checkbox"><span>가만히만 있어도 순식간에 통증이 강하게 증가한다</span></div>
+        <div class="opt" data-val="danger"><input type="checkbox"><span>대소변 실수를 한 적 있다</span></div>
+        <div class="opt" data-val="danger"><input type="checkbox"><span>땅에 발을 닿이기만해도 통증이 심하다</span></div>
+        <div class="opt" data-val="danger"><input type="checkbox"><span>하반신에 힘이 빠지거나 감각이 둔해진 상태다</span></div>
+        <div class="opt" data-val="danger"><input type="checkbox"><span>수술 또는 시술 받은지 10주가 지나지 않았다</span></div>
+        <div class="opt" data-val="safe"><input type="checkbox"><span>해당되는 항목 없음</span></div>
       </div>
 
-      <div class="notice-box">
-        <div class="nb-title">📋 그룹 프로그램 안내</div>
-        <div class="nb-row">
-          참여 금액: <strong>79,000원/월</strong><br>
-          진행기간: 12주 그룹 커리큘럼
-        </div>
-        <div class="nb-quote">
-          "단순 호기심으로 찾아주시지 않길 바랍니다. 마지막 지푸라기를 호소해 주시는 분들이 많습니다. 저도 제 간절함을 걸고 임하는 프로그램입니다."
-        </div>
-      </div>
-
-      <div class="field">
-        <label>성함 <span style="color:#ef4444">*</span></label>
-        <input type="text" id="inp-name" placeholder="홍길동">
-      </div>
-      <div class="field">
-        <label>연락처 <span style="color:#ef4444">*</span></label>
-        <input type="tel" id="inp-phone" placeholder="010-0000-0000">
-      </div>
-      <button class="btn btn-primary" id="btn-next1">다음 — 안전 확인</button>
-    </div>
-
-    <!-- STEP 2 -->
-    <div id="step2" class="hidden">
-      <button class="back-btn" id="btn-back2">← 이전으로</button>
-
-      <div class="field">
-        <div class="q-label">⚠️ 안전 확인 <span style="color:#ef4444">*</span></div>
-        <div class="q-desc">해당되는 항목을 모두 선택해 주세요. 해당 없으면 마지막 항목을 선택하세요.</div>
-        <div class="opt-list" id="safety-list">
-          <div class="opt" data-val="danger"><input type="checkbox"><span>가만히만 있어도 순식간에 통증이 강하게 증가한다</span></div>
-          <div class="opt" data-val="danger"><input type="checkbox"><span>대소변 실수를 한 적 있다</span></div>
-          <div class="opt" data-val="danger"><input type="checkbox"><span>땅에 발을 닿이기만해도 통증이 심하다</span></div>
-          <div class="opt" data-val="danger"><input type="checkbox"><span>하반신에 힘이 빠지거나 감각이 둔해진 상태다</span></div>
-          <div class="opt" data-val="danger"><input type="checkbox"><span>수술 또는 시술 받은지 10주가 지나지 않았다</span></div>
-          <div class="opt" data-val="safe"><input type="checkbox"><span>해당되는 항목 없음</span></div>
-        </div>
-      </div>
-
-      <div class="field">
-        <div class="q-label">현재 10분 걷기가 원활히 가능하신가요? <span style="color:#ef4444">*</span></div>
-        <div class="opt-list" style="margin-top:8px;" id="walk-list">
-          <div class="opt" data-walk="yes"><input type="radio" name="walk"><span>예, 가능합니다</span></div>
-          <div class="opt" data-walk="no"><input type="radio" name="walk"><span>아니오, 어렵습니다</span></div>
-        </div>
-      </div>
-
-      <div class="privacy-box">
-        <div class="pv-title">개인정보 수집 및 이용 동의</div>
-        <div class="pv-body">
-          수집 항목: 이름, 휴대폰 번호 · 수집 목적: 대기 명단 관리 및 모집 안내<br>
-          보유 기간: 수집 목적 달성 시까지 (관련 법령에 따름)<br>
-          동의 거부 시 신청이 정상 접수되지 않습니다.
-        </div>
-        <label class="privacy-agree">
-          <input type="checkbox" id="privacy-cb">
-          <span>개인정보 수집 및 이용에 동의합니다 <span style="color:#ef4444">*</span></span>
-        </label>
+      <div class="q-label">현재 10분 걷기가 원활히 가능하신가요? <span style="color:#ef4444">*</span></div>
+      <div class="opt-list" style="margin-top:8px;" id="walk-list">
+        <div class="opt" data-walk="yes"><input type="radio" name="walk"><span>예, 가능합니다</span></div>
+        <div class="opt" data-walk="no"><input type="radio" name="walk"><span>아니오, 어렵습니다</span></div>
       </div>
 
       <button class="btn btn-primary" id="btn-result" disabled>결과 확인</button>
     </div>
 
-    <!-- STEP 3 -->
-    <div id="step3" class="hidden">
-
-      <!-- 거절 -->
-      <div id="result-reject" class="hidden">
-        <button class="back-btn" id="btn-back-reject">← 이전으로</button>
-        <div class="result-icon">🙏</div>
-        <div class="result-title">지금 당장은<br>참여가 어렵습니다</div>
-        <div class="reject-box">
-          <p>선택하신 항목이 현재 프로그램 참여불가 기준에 해당됩니다. 안전한 회복을 위해 지금은 의료적 관리가 우선입니다.<br><br>회복의 여정에서 함께하지 못해 진심으로 아쉽습니다.</p>
-        </div>
-        <div class="upsell-box">
-          <div class="us-title">🎯 1:1 나침반 프로그램을 알아보세요</div>
-          <div class="us-desc">그룹이 어렵더라도, 상황에 맞는 1:1 밀착 코칭으로 회복의 첫 걸음을 함께할 수 있습니다.</div>
-        </div>
-        <a class="outline-btn" href="https://recovery-log-production.up.railway.app/go1" target="_blank">🧭 1:1 나침반 알아보기</a>
-        <div style="margin-top:12px;"></div>
-        <div class="result-desc" style="margin-bottom:12px;">선별 기준에 이의신청이나<br>담지 못한 이야기가 있다면<br>카톡으로 직접 전해주세요.</div>
-        <a class="kakao-btn" href="http://pf.kakao.com/_xmnxfyn" target="_blank">💬 카카오 채널로 문의하기</a>
+    <!-- 거절 -->
+    <div id="result-reject" class="hidden">
+      <button class="back-btn" id="btn-back-reject">← 이전으로</button>
+      <div class="result-icon">🙏</div>
+      <div class="result-title">지금 당장은<br>참여가 어렵습니다</div>
+      <div class="reject-box">
+        <p>선택하신 항목이 현재 프로그램 참여불가 기준에 해당됩니다. 안전한 회복을 위해 지금은 의료적 관리가 우선입니다.<br><br>회복의 여정에서 함께하지 못해 진심으로 아쉽습니다.</p>
       </div>
-
-      <!-- 대기 승인 -->
-      <div id="result-approve" class="hidden">
-        <button class="back-btn" id="btn-back-approve">← 이전으로</button>
-        <div class="result-icon">📋</div>
-        <div class="result-title">대기 신청 가능합니다!</div>
-        <div class="result-desc">아래 카카오 채널에서 채팅을 보내주셔야<br>대기 명단 등록이 완료됩니다.</div>
-
-        <div class="waitlist-box">
-          <div class="wb-title">💬 카카오 채널로 아래 내용을 보내주세요</div>
-          <div class="wb-desc">
-            채널 추가 후 채팅창에 아래 키워드와 성함을 보내주세요.
-            <br>
-            <span class="wb-keyword">그룹2기 홍길동</span>
-          </div>
-        </div>
-
-        <a class="kakao-btn" href="http://pf.kakao.com/_xmnxfyn" target="_blank">💛 카카오 채널 추가하기</a>
-        <p class="warn-line">⚠️ 채팅을 보내주셔야 대기 명단에 등록됩니다</p>
+      <div class="upsell-box">
+        <div class="us-title">🎯 1:1 나침반 프로그램을 알아보세요</div>
+        <div class="us-desc">그룹이 어렵더라도, 상황에 맞는 1:1 밀착 코칭으로 회복의 첫 걸음을 함께할 수 있습니다.</div>
       </div>
-
+      <a class="outline-btn" href="https://recovery-log-production.up.railway.app/go1" target="_blank">🧭 1:1 나침반 알아보기</a>
     </div>
+
+    <!-- 승인 -->
+    <div id="result-approve" class="hidden">
+      <div class="result-icon">💛</div>
+      <p class="msg">
+        카카오 채팅으로<br>
+        <strong>그룹 2기 성함</strong>을 보내주시면<br>
+        2기 모집 시작 시 가장 먼저 안내드립니다.
+      </p>
+      <a class="kakao-btn" href="http://pf.kakao.com/_xmnxfyn" target="_blank">
+        💛 카카오톡으로 신청하기
+      </a>
+    </div>
+
   </div>
 </div>
 
 <script>
   var walkAnswer = null;
-
-  document.getElementById('btn-next1').addEventListener('click', function() {
-    var name = document.getElementById('inp-name').value.trim();
-    var phone = document.getElementById('inp-phone').value.trim();
-    if (!name || !phone) { alert('성함과 연락처를 입력해 주세요.'); return; }
-    showStep(2);
-  });
-
-  document.getElementById('btn-back2').addEventListener('click', function() { showStep(1); });
-  document.getElementById('btn-back-reject').addEventListener('click', function() { showStep(2); resetStep3(); });
-  document.getElementById('btn-back-approve').addEventListener('click', function() { showStep(2); resetStep3(); });
 
   document.querySelectorAll('#safety-list .opt').forEach(function(opt) {
     opt.addEventListener('click', function() {
@@ -266,7 +146,7 @@
           opt.classList.add('sel-danger');
         } else { opt.classList.remove('sel-danger'); }
       }
-      checkStep2();
+      checkForm();
     });
   });
 
@@ -279,37 +159,22 @@
       });
       opt.querySelector('input').checked = true;
       opt.classList.add(walkAnswer === 'yes' ? 'sel-ok' : 'sel-no');
-      checkStep2();
+      checkForm();
     });
   });
 
-  document.getElementById('privacy-cb').addEventListener('change', checkStep2);
-
-  function checkStep2() {
+  function checkForm() {
     var safeChecked = document.querySelector('#safety-list .opt[data-val=safe] input').checked;
     var anyDanger = false;
     document.querySelectorAll('#safety-list .opt[data-val=danger] input').forEach(function(cb) { if (cb.checked) anyDanger = true; });
-    var privacyOk = document.getElementById('privacy-cb').checked;
-    document.getElementById('btn-result').disabled = !((safeChecked || anyDanger) && walkAnswer !== null && privacyOk);
+    document.getElementById('btn-result').disabled = !((safeChecked || anyDanger) && walkAnswer !== null);
   }
 
   document.getElementById('btn-result').addEventListener('click', function() {
     var anyDanger = false;
     document.querySelectorAll('#safety-list .opt[data-val=danger] input').forEach(function(cb) { if (cb.checked) anyDanger = true; });
     var rejected = anyDanger || walkAnswer === 'no';
-    if (!rejected) {
-      var name = document.getElementById('inp-name').value.trim();
-      var phone = document.getElementById('inp-phone').value.trim();
-      fetch('https://recovery-log-production.up.railway.app/api/apply-submit', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name, phone: phone, program: 'group' })
-      }).catch(function() {});
-    }
-    setStepDone(2);
-    document.getElementById('l2').classList.add('done');
-    document.getElementById('s3').classList.add('active');
-    document.getElementById('step2').classList.add('hidden');
-    document.getElementById('step3').classList.remove('hidden');
+    document.getElementById('step-screen').classList.add('hidden');
     if (rejected) {
       document.getElementById('result-reject').classList.remove('hidden');
     } else {
@@ -317,31 +182,10 @@
     }
   });
 
-  function showStep(n) {
-    document.getElementById('step1').classList.add('hidden');
-    document.getElementById('step2').classList.add('hidden');
-    document.getElementById('step3').classList.add('hidden');
-    document.getElementById('step' + n).classList.remove('hidden');
-    ['s1','s2','s3'].forEach(function(s, i) {
-      document.getElementById(s).classList.remove('active','done');
-      document.getElementById('sd' + (i+1)).textContent = i+1;
-    });
-    for (var i = 1; i < n; i++) setStepDone(i);
-    document.getElementById('s' + n).classList.add('active');
-  }
-
-  function setStepDone(n) {
-    document.getElementById('s' + n).classList.add('done');
-    document.getElementById('sd' + n).textContent = '✓';
-  }
-
-  function resetStep3() {
+  document.getElementById('btn-back-reject').addEventListener('click', function() {
     document.getElementById('result-reject').classList.add('hidden');
-    document.getElementById('result-approve').classList.add('hidden');
-    document.getElementById('l2').classList.remove('done');
-    document.getElementById('s3').classList.remove('active','done');
-    document.getElementById('sd3').textContent = '3';
-  }
+    document.getElementById('step-screen').classList.remove('hidden');
+  });
 </script>
 </body>
 </html>
