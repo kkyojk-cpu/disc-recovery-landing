@@ -231,6 +231,12 @@
 </div>
 
 <script>
+  // 모집 모드 확인 — 마감이면 대기 페이지로 이동
+  fetch('https://recovery-log-production.up.railway.app/api/enrollment-mode?program=group')
+    .then(function(r) { return r.json(); })
+    .then(function(d) { if (d.mode === 'waitlist') location.replace('./apply-waitlist.html'); })
+    .catch(function() {});
+
   var walkAnswer = null;
 
   // STEP 1 → 2

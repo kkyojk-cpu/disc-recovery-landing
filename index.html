@@ -4014,7 +4014,7 @@
       <p>1기 정원 20명, 마감 시 다음 기수로 넘어갑니다. <br/>9월 이전 1·2·3기는 79,000원 동결 — 지금이 가장 좋은 시작점이에요.</p>
 
       <a class="btn-accent" href="./apply.html" target="_blank" rel="noopener" id="applyBtn">
-        1기 신청하기 · 79,000원
+        <span id="applyBtnText">1기 신청하기 · 79,000원</span>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
 
@@ -4197,6 +4197,29 @@
   // Apply button links directly to Google Form (handled via href)
 </script>
 
+<script>
+  fetch('https://recovery-log-production.up.railway.app/api/enrollment-mode?program=group')
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      if (d.mode === 'waitlist') {
+        var n = d.nextCohort || 2;
+        // 모든 apply.html 링크를 대기 페이지로
+        document.querySelectorAll('a[href="./apply.html"]').forEach(function(a) {
+          a.href = './apply-waitlist.html';
+        });
+        // 주요 버튼 텍스트 업데이트
+        var txt = document.getElementById('applyBtnText');
+        if (txt) { txt.textContent = n + '기 대기 신청하기'; }
+        // top-cta 텍스트
+        var topCta = document.querySelector('.top-cta');
+        if (topCta) {
+          var span = topCta.querySelector('span:not(.dot)');
+          if (span) span.textContent = n + '기 대기 신청하기';
+        }
+      }
+    })
+    .catch(function() {});
+</script>
 </body>
 </html>
 
