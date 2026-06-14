@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>회복 나침반 그룹 프로그램 — 2기 대기 신청</title>
+  <title>회복 나침반 그룹 프로그램 — 참여 대기 신청</title>
   <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -63,7 +63,7 @@
 <div class="card">
   <div class="card-header">
     <div class="card-eyebrow">회복 나침반 · 그룹 프로그램</div>
-    <div class="card-title">2기 대기 신청</div>
+    <div class="card-title">참여 대기 신청</div>
     <div class="card-sub">모든 분께 맞는 프로그램이 아닙니다.<br>아래 질문에 솔직하게 답해주세요.</div>
   </div>
 
@@ -111,9 +111,9 @@
       <button class="back-btn" id="btn-back-approve">← 이전으로</button>
       <div class="result-icon">💛</div>
       <p class="msg">
-        카카오 채팅으로<br>
-        <strong>그룹 <span id="wl-next">2</span>기 성함</strong>을 보내주시면<br>
-        <span id="wl-next2">2</span>기 모집 시작 시 가장 먼저 안내드립니다.
+        지금은 모집이 일시 중단됐습니다.<br>
+        카카오 채팅으로 <strong>성함</strong>을 보내주시면<br>
+        모집 재개 시 가장 먼저 안내드립니다.
       </p>
       <a class="kakao-btn" href="http://pf.kakao.com/_xmnxfyn" target="_blank">
         💛 카카오톡으로 신청하기
@@ -124,15 +124,6 @@
 </div>
 
 <script>
-  // 기수 번호 동적 표시
-  fetch('https://recovery-log-production.up.railway.app/api/enrollment-mode?program=group')
-    .then(function(r) { return r.json(); })
-    .then(function(d) {
-      var n = d.nextCohort || 2;
-      document.getElementById('wl-next').textContent = n;
-      document.getElementById('wl-next2').textContent = n;
-    })
-    .catch(function() {});
 
   var walkAnswer = null;
 
