@@ -2355,6 +2355,102 @@
     .tm-hero .tm-quote { font-size: 18px; line-height: 1.6; }
   }
 
+  /* ===== Testimonials V2 ===== */
+  .tmv-section {
+    background: #0d1b2a;
+    padding: 100px 0 80px;
+    border-top: none;
+  }
+  .tmv-head { text-align: center; max-width: 740px; margin: 0 auto 52px; }
+  .tmv-head .sec-title { color: #f0ece6; margin: 14px 0 16px; }
+  .tmv-head .sec-sub { color: #7a8fa3; margin: 0 auto; }
+  .tmv-head .sec-eyebrow { color: #d97757; border-color: rgba(217,119,87,.3); }
+  .tmv-context {
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-top: 22px; padding: 10px 18px;
+    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+    border-radius: 999px; font-size: 13px; color: #7a8fa3;
+  }
+  .tmv-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #3dca7a; flex: 0 0 7px;
+    animation: pulse 2s infinite;
+  }
+  .tmv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .tmv-card {
+    background: #162336;
+    border: 1px solid rgba(255,255,255,.07);
+    border-left: 3px solid #d97757;
+    border-radius: 14px;
+    padding: 26px 22px 22px;
+    display: flex; flex-direction: column;
+    transition: transform .2s, border-left-color .2s;
+  }
+  .tmv-card:hover { transform: translateY(-3px); }
+  .tmv-card.tmv-green { border-left-color: #3dca7a; }
+  .tmv-card.tmv-blue  { border-left-color: #5aa0c8; }
+  .tmv-card.tmv-purple { border-left-color: #a564dc; }
+  .tmv-card.tmv-stat  { border-left: none; border-top: 3px solid #d97757; }
+  .tmv-hero  { grid-column: span 2; padding: 34px 30px 28px; }
+  .tmv-wide  { grid-column: span 2; }
+  .tmv-tag {
+    display: inline-block; font-size: 10px; font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 999px; margin-bottom: 12px;
+    background: rgba(217,119,87,.15); color: #d97757;
+  }
+  .tmv-tag.tmv-green  { background: rgba(61,202,122,.15); color: #3dca7a; }
+  .tmv-tag.tmv-blue   { background: rgba(90,160,200,.15); color: #7ab8d8; }
+  .tmv-tag.tmv-purple { background: rgba(165,100,220,.15); color: #c080e8; }
+  .tmv-quote {
+    font-size: 15px; line-height: 1.72; color: #d8e4ef;
+    margin: 0 0 18px; font-weight: 400; flex: 1;
+  }
+  .tmv-hero .tmv-quote { font-size: 18px; color: #f0ece6; font-weight: 500; line-height: 1.75; }
+  .tmv-quote strong { color: #d97757; font-weight: 700; }
+  .tmv-card.tmv-green .tmv-quote strong { color: #3dca7a; }
+  .tmv-card.tmv-blue  .tmv-quote strong { color: #7ab8d8; }
+  .tmv-card.tmv-purple .tmv-quote strong { color: #c080e8; }
+  .tmv-attr {
+    font-size: 11.5px; color: #4a6078; font-weight: 500;
+    letter-spacing: .04em; margin-top: auto;
+    padding-top: 14px; border-top: 1px solid rgba(255,255,255,.07);
+  }
+  /* stat card */
+  .tmv-stat-num {
+    font-size: 52px; font-weight: 800; color: #d97757;
+    letter-spacing: -.04em; line-height: 1; margin-bottom: 4px;
+  }
+  .tmv-stat-sub { font-size: 12px; color: #4a6078; margin-bottom: 14px; }
+  .tmv-stat-body { font-size: 15px; font-weight: 600; color: #d8e4ef; line-height: 1.6; flex: 1; }
+  .tmv-stat-bar {
+    height: 4px; background: rgba(255,255,255,.08);
+    border-radius: 2px; overflow: hidden; margin: 16px 0 12px;
+  }
+  .tmv-stat-fill {
+    height: 100%; width: 85%;
+    background: linear-gradient(90deg, #d97757, #e8a93a);
+    border-radius: 2px;
+  }
+  .tmv-closer {
+    margin-top: 44px; text-align: center;
+    padding-top: 36px; border-top: 1px solid rgba(255,255,255,.07);
+  }
+  .tmv-closer p { font-size: 12px; color: #374f63; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+  @media (max-width: 860px) {
+    .tmv-grid { grid-template-columns: 1fr 1fr; }
+    .tmv-hero { grid-column: span 2; }
+  }
+  @media (max-width: 560px) {
+    .tmv-grid { grid-template-columns: 1fr; }
+    .tmv-hero, .tmv-wide { grid-column: span 1; }
+    .tmv-section { padding: 72px 0 60px; }
+  }
+
   /* ===== Comprehensive mobile polish ===== */
   @media (max-width: 560px) {
     /* Topbar */
@@ -2638,140 +2734,105 @@
   </div>
 </section>
 
-<!-- ===== Testimonials ===== -->
-<section class="testimonials" id="testimonials">
-  <div class="wrap">
-    <div class="tm-head reveal">
-      <div class="sec-eyebrow">참여자의 목소리</div>
-      <h2 class="sec-title">그 무게에서<br/>한 걸음 빠져나온 사람들의 말</h2>
-      <p class="sec-sub" style="margin: 0 auto;">
-        편집하지 않은 실제 후기를 그대로 옮겼습니다. 
-        같은 길을 먼저 걷고 있는 분들이 어떻게 느꼈는지 들어보세요.
-      </p>
-      <div class="tm-context">
-        <span class="tmc-dot"></span>
-        <span><strong>5월 15일~</strong> 진행 중인 무료 베타 · 참여자 <strong>10명</strong>의 실제 후기입니다</span>
+<!-- ===== Testimonials V2 ===== -->
+<section class=”tmv-section” id=”testimonials”>
+  <div class=”wrap”>
+    <div class=”tmv-head reveal”>
+      <div class=”sec-eyebrow” style=”color:#d97757;border-color:rgba(217,119,87,.3)”>참여자의 목소리</div>
+      <h2 class=”sec-title”>그 무게에서<br/>한 걸음 빠져나온 사람들의 말</h2>
+      <p class=”sec-sub” style=”color:#7a8fa3;margin:0 auto”>편집하지 않은 실제 후기를 그대로 옮겼습니다.</p>
+      <div class=”tmv-context”>
+        <span class=”tmv-dot”></span>
+        <span>5월 15일~ 진행 중인 그룹 프로그램 참여자의 실제 후기입니다</span>
       </div>
     </div>
 
-    <div class="tm-grid">
-      <!-- HERO QUOTE - 고립/우울 + 같이 회복 -->
-      <div class="tm-card tm-hero reveal">
-        <p class="tm-quote">
-          잊고 지나갈 수 있었던 부분들을 세밀하게 기록하고 나눌 수 있어서 좋았어요. 
-          아프면서 <strong>고립되고 우울한 생각도 많이 드는데</strong>, 
+    <div class=”tmv-grid”>
+
+      <!-- HERO -->
+      <div class=”tmv-card tmv-hero reveal”>
+        <div class=”tmv-tag”>커뮤니티</div>
+        <p class=”tmv-quote”>
+          잊고 지나갈 수 있었던 부분들을 세밀하게 기록하고 나눌 수 있어서 좋았어요.
+          아프면서 <strong>고립되고 우울한 생각도 많이 드는데</strong>,
           <strong>같이 회복하는 느낌</strong>도 좋아요.
         </p>
-        <div class="tm-attr">
-          <span class="tm-avatar">●</span>
-          <span>참여자 후기</span>
-        </div>
+        <div class=”tmv-attr”>참여자 후기</div>
       </div>
 
-      <!-- STAT - 나침반 위젯 만족도 -->
-      <div class="tm-card tm-stat tm-widget-stat reveal">
-        <div class="tws-top">
-          <div class="tws-eyebrow">응답자 전원 (6/6) 답변</div>
-          <div class="tws-main">나침반 위젯<br/><span>안내 실력이 좋다</span></div>
-        </div>
-        <div class="tws-bar"><div class="tws-fill"></div><span class="tws-pct">100%</span></div>
-        <div class="tws-foot">위젯의 매일 안내가 회복기 의사결정에 실제로 작동했다는 신호</div>
+      <!-- STAT -->
+      <div class=”tmv-card tmv-stat reveal”>
+        <div class=”tmv-stat-num”>85%</div>
+        <div class=”tmv-stat-sub”>22/26명 응답</div>
+        <p class=”tmv-stat-body”>매일 뭘 해야 할지 몰랐던 사람들.<br/><strong style=”color:#d97757”>나침반 자동 안내 기능이 판단을 도왔다.</strong></p>
+        <div class=”tmv-stat-bar”><div class=”tmv-stat-fill”></div></div>
+        <div class=”tmv-attr”>나침반 위젯 만족도</div>
       </div>
 
-      <!-- MD - 자기인식 -->
-      <div class="tm-card tm-md tm-green reveal">
-        <div class="tm-mark">"</div>
-        <p class="tm-quote">
-          내 몸이 하고자 하는 이야기를 잘 들으려고 하고, 일어나는 감정들에 대해 알아차렸습니다.
-          <strong>나에게 부정적인 영향을 주는 미디어들을 차단</strong>하고, 
-          더 건강한 일상으로 돌아갈 수 있도록 노력했습니다.
+      <!-- 혼자였으면 포기 -->
+      <div class=”tmv-card tmv-purple reveal”>
+        <div class=”tmv-tag tmv-purple”>지속력</div>
+        <p class=”tmv-quote”>
+          혼자였으면 통증이 올라오는 순간<br/><strong>’이 방법은 아니다’</strong> 하고 포기할 것들이,<br/>강도를 조절해서 계속 해보려고 했다.
         </p>
-        <div class="tm-attr">
-          <span class="tm-avatar">●</span>
-          <span>참여자 후기 · 자기 인식의 변화</span>
-        </div>
+        <div class=”tmv-attr”>참여자 후기</div>
       </div>
 
-      <!-- MD - 걸으러 나가는 나 -->
-      <div class="tm-card tm-md tm-warm reveal">
-        <div class="tm-mark">"</div>
-        <p class="tm-quote">
-          <strong>신체적·정신적으로 힘들어도</strong>, 
-          그래도 <strong>걸으러 나가는 나를 볼 때</strong> 스스로 대견하다고 느꼈습니다.
+      <!-- 불안감 사라짐 -->
+      <div class=”tmv-card tmv-green reveal”>
+        <div class=”tmv-tag tmv-green”>통증</div>
+        <p class=”tmv-quote”><strong>불안감과 걱정이 사라짐.</strong></p>
+        <div class=”tmv-attr”>참여자 후기</div>
+      </div>
+
+      <!-- 속도 욕심 -->
+      <div class=”tmv-card tmv-green reveal”>
+        <div class=”tmv-tag tmv-green”>회복</div>
+        <p class=”tmv-quote”>
+          속도를 높이거나 거리를 늘리는 데 저도 모르게 <strong>욕심이 생겼어요.</strong><br/>
+          그만큼 <strong>많이 나아진 거겠죠.</strong>
         </p>
-        <div class="tm-attr">
-          <span class="tm-avatar">●</span>
-          <span>참여자 후기 · 스스로가 대견했던 순간</span>
-        </div>
+        <div class=”tmv-attr”>참여자 후기</div>
       </div>
 
-      <!-- SM - 통증 관찰 용이 -->
-      <div class="tm-card tm-sm reveal">
-        <div class="tm-mark">"</div>
-        <p class="tm-quote">
-          <strong>어디로 어떤 통증이 있는지</strong>, 
-          변화 관찰이 용이합니다.
+      <!-- 걷기 우선순위 -->
+      <div class=”tmv-card tmv-wide reveal”>
+        <div class=”tmv-tag tmv-purple”>일상 변화</div>
+        <p class=”tmv-quote”>
+          <strong>걷기 수행을 다른 활동보다 먼저 한다.</strong><br/>
+          나의 회복을 우선순위에 두는 일상이 만들어졌어요.<br/>매일 활동을 한 것, 그 자체가 스스로 대견했던 순간입니다.
         </p>
-        <div class="tm-attr">
-          <span class="tm-avatar">●</span>
-          <span>참여자 후기</span>
-        </div>
+        <div class=”tmv-attr”>참여자 후기 · 우선순위가 바뀐 일상</div>
       </div>
 
-      <!-- SM - 라이브 -->
-      <div class="tm-card tm-sm tm-warm reveal">
-        <div class="tm-mark">"</div>
-        <p class="tm-quote">
-          라이브에서 <strong>실시간으로 질문하는 게 너무 좋았음.</strong>
+      <!-- 멘탈 -->
+      <div class=”tmv-card tmv-blue reveal”>
+        <div class=”tmv-tag tmv-blue”>멘탈</div>
+        <p class=”tmv-quote”>멘탈 회복에 도움이 되었습니다.<br/><strong>혼자가 아닌 기분.</strong></p>
+        <div class=”tmv-attr”>참여자 후기</div>
+      </div>
+
+      <!-- 라이브 -->
+      <div class=”tmv-card tmv-blue reveal”>
+        <div class=”tmv-tag tmv-blue”>라이브</div>
+        <p class=”tmv-quote”>라이브에서 <strong>실시간으로 질문하는 게 너무 좋았음.</strong></p>
+        <div class=”tmv-attr”>참여자 후기 · 그룹 라이브</div>
+      </div>
+
+      <!-- 비오는데 뛰었어요 -->
+      <div class=”tmv-card tmv-green reveal”>
+        <div class=”tmv-tag tmv-green”>회복 순간</div>
+        <p class=”tmv-quote”>
+          비오는데 뛰었어요. 걷는 수준으로 뛰는데<br/>
+          <strong>심장이 쿵쾅되고 땀도 나는 게 신기해요.</strong>
         </p>
-        <div class="tm-attr">
-          <span class="tm-avatar">●</span>
-          <span>참여자 후기 · 그룹 라이브</span>
-        </div>
+        <div class=”tmv-attr”>참여자 후기</div>
       </div>
 
-      <!-- SM - 매일 기록 -->
-      <div class="tm-card tm-sm tm-green reveal">
-        <div class="tm-mark">"</div>
-        <p class="tm-quote">
-          프로그램 앱이 점점 업그레이드되어 좋았다. 
-          <strong>매일의 기록을 볼 수 있어서 좋다.</strong>
-        </p>
-        <div class="tm-attr">
-          <span class="tm-avatar">●</span>
-          <span>참여자 후기</span>
-        </div>
-      </div>
-
-      <!-- LG - 걷기 수행 -->
-      <div class="tm-card tm-lg reveal">
-        <div class="tm-mark">"</div>
-        <p class="tm-quote">
-          <strong>걷기 수행을 다른 활동보다 먼저 한다.</strong>
-          나의 회복을 우선순위에 두는 일상이 만들어졌어요. 
-          매일 활동을 한 것, 그 자체가 스스로 대견했던 순간입니다.
-        </p>
-        <div class="tm-attr">
-          <span class="tm-avatar">●</span>
-          <span>참여자 후기 · 우선순위가 바뀐 일상</span>
-        </div>
-      </div>
-
-      <!-- Bottom-right qualitative -->
-      <div class="tm-card tm-stat tm-warm reveal" style="grid-column: span 2;">
-        <div class="ts-num" style="color: var(--accent); font-size: clamp(38px, 4.6vw, 52px); letter-spacing: -.04em;">“같이”</div>
-        <div class="ts-label">반복되는 키워드</div>
-        <div class="ts-sub">‘고립’에서 ‘같이로’ — 후기 전반의 정서 변화</div>
-        <div class="ts-bar" style="background: var(--accent-soft);"><div class="ts-fill" style="background: linear-gradient(90deg, var(--accent), #e89472);"></div></div>
-      </div>
     </div>
 
-    <div class="tm-closer reveal">
-      <h3>
-        이건 단순한 만족이 아닙니다.<br/>
-        <em>"고립에서 같이로"</em> — 회복기에 가장 필요한 변화입니다.
-      </h3>
-      <p>※ 2026년 5월 15일~ 진행 중인 무료 베타 10명 중 설문 응답자 6명의 실제 후기. 본인 동의 하에 게재되었으며 개인 식별 정보는 익명 처리되었습니다.</p>
+    <div class=”tmv-closer reveal”>
+      <p>※ 2026년 5월 15일~ 진행 중인 그룹 프로그램 참여자의 실제 후기. 본인 동의 하에 게재되었으며 개인 식별 정보는 익명 처리되었습니다.</p>
     </div>
   </div>
 </section>
