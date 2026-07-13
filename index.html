@@ -176,7 +176,6 @@
     margin-bottom: 36px;
   }
 
-  .hero-cta-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
   .btn-primary {
     display: inline-flex; align-items: center; gap: 10px;
     padding: 16px 24px; border-radius: 14px;
@@ -186,14 +185,14 @@
     box-shadow: 0 8px 22px -10px rgba(30,40,50,.45);
   }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -10px rgba(30,40,50,.5); }
-  .btn-ghost {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 16px 22px; border-radius: 14px;
-    background: transparent; color: var(--ink);
-    border: 1px solid var(--line);
-    font-weight: 600; font-size: 15px;
+  .scroll-hint {
+    display: flex; align-items: center; gap: 10px;
+    font-size: clamp(19px, 2.2vw, 24px); color: var(--ink); font-weight: 800;
+    margin-top: 6px; letter-spacing: -.01em;
   }
-  .btn-ghost:hover { background: var(--paper); }
+  .scroll-hint .arrow { display: inline-block; animation: hint-bounce 1.5s ease-in-out infinite; }
+  @keyframes hint-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(7px); } }
+  @media (prefers-reduced-motion: reduce) { .scroll-hint .arrow { animation: none; } }
 
   .hero-stats {
     display: grid; grid-template-columns: repeat(3, minmax(0,1fr));
@@ -2267,8 +2266,7 @@
     .h-display { font-size: 34px !important; line-height: 1.08; letter-spacing: -.03em; }
     .h-lede { font-size: 15.5px; margin-bottom: 28px; }
     .eyebrow { font-size: 11.5px; padding: 5px 10px; }
-    .btn-primary, .btn-ghost { padding: 14px 18px; font-size: 14px; width: 100%; justify-content: center; }
-    .hero-cta-row { flex-direction: column; align-items: stretch; }
+    .btn-primary { padding: 14px 18px; font-size: 14px; width: 100%; justify-content: center; }
     .hero-stats { margin-top: 36px; padding-top: 22px; gap: 14px; }
     .stat-num { font-size: 26px; }
     .stat-lbl { font-size: 12.5px !important; }
@@ -2539,13 +2537,7 @@
       회복 방향에 도달합니다.
     </p>
 
-    <div class="hero-cta-row reveal">
-      <a class="btn-primary" href="./apply.html" target="_blank" rel="noopener">
-        다같이 그룹 참여하기
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
-      <a class="btn-ghost" href="#how">프로그램 자세히 보기</a>
-    </div>
+    <p class="scroll-hint reveal"><span class="arrow">↓</span> 아래로 내려 확인하세요</p>
 
     <div class="hero-stats reveal">
       <div>
