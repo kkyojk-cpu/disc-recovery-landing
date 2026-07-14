@@ -312,6 +312,10 @@
 
   // 결과
   document.getElementById('btn-result').addEventListener('click', function() {
+    var btnResult = document.getElementById('btn-result');
+    if (btnResult.disabled) return;
+    btnResult.disabled = true;
+    btnResult.textContent = '제출 완료 ✓';
     var anyDanger = false;
     document.querySelectorAll('#safety-list .opt[data-val=danger] input').forEach(function(cb) { if (cb.checked) anyDanger = true; });
     var rejected = anyDanger || walkAnswer === 'no';
@@ -372,6 +376,9 @@
     document.getElementById('l2').classList.remove('done');
     document.getElementById('s3').classList.remove('active','done');
     document.getElementById('sd3').textContent = '3';
+    var btnResult = document.getElementById('btn-result');
+    btnResult.textContent = '결과 확인';
+    checkStep2();
   }
 </script>
 </body>
