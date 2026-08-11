@@ -2510,6 +2510,51 @@
    애니메이션을 포기하고 항상 보이게 고정한다. 새 앞판(.rv)의 등장 효과는 그대로 유지. */
 .reveal{opacity:1!important;transform:none!important;transition:none!important}
 
+
+.eyebrow-strong{
+  font-size:15px!important;font-weight:900!important;
+  color:var(--accent)!important;letter-spacing:.06em!important;
+  background:var(--accent-soft);padding:8px 16px;border-radius:100px;
+  display:inline-block;margin-bottom:22px!important;
+}
+
+/* 판단의 갈림길 */
+.fork{background:var(--paper)}
+.forks{margin-top:36px;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+.forks li{list-style:none;padding:19px 0;border-bottom:1px solid var(--line);
+  font-size:clamp(16px,2.6vw,18px);color:var(--ink-2);line-height:1.6}
+.forks li b{color:var(--ink);font-weight:800}
+.fork-out{margin-top:34px;font-size:clamp(18px,3.1vw,23px);font-weight:800;
+  line-height:1.55;letter-spacing:-.03em;color:var(--ink)}
+.fork-out b{color:var(--blue-700)}
+
+/* 목적이 다른 도구 */
+.pl u{text-decoration:none;background:linear-gradient(transparent 60%,rgba(217,119,87,.35) 60%)}
+.diff{margin:26px 0 0;padding:26px 24px;background:var(--paper);
+  border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-md)}
+.diff-lead{font-size:16px;color:var(--ink-2);margin-bottom:20px;line-height:1.7}
+.diff-lead b{color:var(--ink);font-weight:800}
+.diff-row{display:grid;grid-template-columns:132px 1fr;gap:16px;padding:14px 0;
+  border-top:1px dashed var(--line);align-items:start}
+.diff-k{font-size:13px;font-weight:800;color:var(--ink-3);padding-top:3px;letter-spacing:-.01em}
+.diff-v{font-size:15.5px;color:var(--ink-2);line-height:1.65}
+.diff-v b{color:var(--blue-900);font-weight:800}
+@media(max-width:600px){.diff-row{grid-template-columns:1fr;gap:5px}.diff-k{padding-top:0}}
+.diff-out{margin-top:20px;padding-top:18px;border-top:1px solid var(--line);
+  font-size:clamp(16px,2.8vw,19px);line-height:1.6;letter-spacing:-.03em;color:var(--blue-900)}
+
+/* 무기 4 */
+.arms{margin-top:16px;display:flex;flex-direction:column;gap:10px}
+.arm{display:grid;grid-template-columns:30px 1fr;gap:14px;align-items:start;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);padding:17px 19px}
+.arm span{width:26px;height:26px;border-radius:50%;background:var(--blue-50);color:var(--blue-700);
+  font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.arm p{font-size:15px;color:var(--ink-2);line-height:1.68}
+.arm p b{color:var(--ink);font-weight:800}
+.arm.hi{border-color:var(--accent);background:#fffaf7}
+.arm.hi span{background:var(--accent);color:#fff}
+.arm.hi p b{color:#b45f42}
+
 /* ===== 새 앞판 CSS ===== */
 
 :root{
@@ -2832,13 +2877,28 @@ h2{font-size:clamp(25px,4.7vw,39px)}
   </div>
 </section>
 
+<!-- 7-2 판단의 문제 -->
+<section class="fork">
+  <div class="wrap">
+    <div class="eyebrow rv eyebrow-strong">그런데 하다 보면</div>
+    <h2 class="rv">매번 혼자<br>정해야 합니다.</h2>
+    <ul class="forks rv">
+      <li>오늘 아픈데 <b>나가야 하나, 쉬어야 하나</b></li>
+      <li>좀 괜찮아졌는데 <b>늘려도 되나, 아직인가</b></li>
+      <li>며칠째 제자리인데 <b>뭘 잘못하고 있는 건가</b></li>
+      <li>다시 아파졌는데 <b>처음부터 다시인가</b></li>
+    </ul>
+    <p class="fork-out rv">한 번 잘못 정하면 며칠을 잃습니다.<br>
+      <b>그리고 물어볼 곳이 없습니다.</b></p>
+  </div>
+</section>
+
 <!-- 8 USP -->
 <section class="usp">
   <div class="wrap">
     <div class="eyebrow rv" style="color:var(--blue-700)">이게 저희가 다른 점입니다</div>
-    <h2 class="rv">막힐 때마다,<br>이미 답이 준비돼 있습니다.</h2>
+    <h2 class="rv">그 갈림길마다,<br>이미 답이 준비돼 있습니다.</h2>
     <p class="lead rv" style="max-width:640px">
-      허리는 상황마다 답이 다릅니다. 검색해도 다 다른 말이 나오는 이유입니다.
       저희는 참여자들이 실제로 막혔던 지점을 모아 <b>8가지 판단 기준</b>으로 정리해,
       <b>모바일 앱 안에 그대로 담아뒀습니다.</b> 앞으로 겪으실 상황도 대부분 이 안에 있습니다.
     </p>
@@ -2852,7 +2912,7 @@ h2{font-size:clamp(25px,4.7vw,39px)}
       <span>거리·페이스 목표</span>
       <span>혼자 해도 될 때는 언제인지</span>
     </div>
-    <p class="usp-note rv">교과서에서 가져온 게 아닙니다. <b>실제 참여자 기록에서 뽑아낸 기준입니다.</b></p>
+    <p class="usp-note rv">교과서에서 가져온 게 아닙니다. <b>실제 참여자 회복 데이터에서 뽑아낸 기준입니다.</b></p>
   </div>
 </section>
 
@@ -2870,7 +2930,28 @@ h2{font-size:clamp(25px,4.7vw,39px)}
       <tr><td>디스크 수술</td><td>500~1,500만원</td></tr>
     </table>
     <div class="price rv">
-      <p class="pl">주사를 몇 번 맞고 수술을 받아도, 돌아가는 일상이 그대로면 같은 자리로 옵니다.</p>
+      <p class="pl">주사를 몇 번 맞고 수술을 받아도,<br>돌아가는 일상이 그대로면 <u>통증은</u> 같은 자리로 옵니다.</p>
+
+      <div class="diff">
+        <p class="diff-lead">저 방법들이 부족해서가 아닙니다. <b>목적이 다른 도구</b>라서 그렇습니다.</p>
+        <div class="diff-row">
+          <div class="diff-k">저 방법들이 잘하는 일</div>
+          <div class="diff-v">지금 아픈 것을 <b>없애는 것</b></div>
+        </div>
+        <div class="diff-row">
+          <div class="diff-k">여기서 풀어야 할 일</div>
+          <div class="diff-v">다시 <b>안 아프게 사는 것</b>. 그리고 평생 <b>의존하지 않고 스스로 관리하는 것</b></div>
+        </div>
+        <p class="diff-out"><b>다른 곳은 가야 유지됩니다. 안 가면 원점입니다.<br>
+          회복나침반은 끝나고도 남습니다.</b></p>
+      </div>
+
+      <div class="arms">
+        <div class="arm"><span>1</span><p><b>무리하는 날이 없어집니다.</b> 재발은 대개 “좀 괜찮아져서 무리한 날”에 옵니다. 위젯이 매일 그 선을 잡아줍니다.</p></div>
+        <div class="arm"><span>2</span><p><b>버티는 힘 자체가 커집니다.</b> 6분 뛰던 분이 30분을 뜁니다. 통증만 준 게 아니라 몸이 감당하는 범위가 넓어진 겁니다.</p></div>
+        <div class="arm"><span>3</span><p><b>다시 아파져도 대처법이 있습니다.</b> 예전엔 그때가 무너지는 지점이었습니다. 이제는 순서가 있습니다.</p></div>
+        <div class="arm hi"><span>4</span><p><b>마지막엔 프로그램 없이도 됩니다.</b> 12주 3단계의 끝은 위젯 없이도 적정 강도를 아는 상태입니다. 관리하는 힘이 몸에 남습니다.</p></div>
+      </div>
       <div class="pbox">
         <div class="pb-l">회복나침반 그룹</div>
         <div class="pb-n">79,000<span>원 / 4주</span></div>
