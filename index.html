@@ -1,35 +1,13 @@
 <!doctype html>
-<html lang="ko" translate="no">
+<html lang="ko">
 <head>
-<meta charset="utf-8" />
-<meta name="google" content="notranslate" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>회복나침반 그룹 회복 프로그램 · 허리디스크 회복연구소</title>
-<meta name="description" content="병원·치료·운동을 거쳐오신 분께. 회복 나침반은 매일 작동하는 회복 의사결정 도구로 일상 속 자기 관리 구조를 함께 만드는 그룹 프로그램입니다. 79,000원 / 4주." />
-<!-- Open Graph (카카오톡, 페이스북 등 미리보기) -->
-<meta property="og:type" content="website" />
-<meta property="og:title" content="회복 나침반 그룹 회복 프로그램 · 상시 모집 중" />
-<meta property="og:description" content="병원 전 단계의 자기 관리 구조. 회복연구소가 매일 동행합니다. 79,000원 / 4주 · 신청 즉시 시작." />
-<meta property="og:image" content="img/og-image.png" />
-<template id="__bundler_thumbnail" data-bg-color="#2e4d5e">
-  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-    <rect width="1200" height="800" fill="#2e4d5e"/>
-    <circle cx="600" cy="360" r="150" fill="none" stroke="#ffffff" stroke-width="14" opacity="0.9"/>
-    <path d="M600 270 L645 405 L600 450 L555 405 Z" fill="#ffffff" opacity="0.95"/>
-    <circle cx="600" cy="360" r="14" fill="#2e4d5e"/>
-    <text x="600" y="600" font-family="sans-serif" font-size="56" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="-2">회복 나침반 · 그룹</text>
-  </svg>
-</template>
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="회복 나침반 그룹 회복 프로그램 · 상시 모집 중" />
-<meta name="twitter:description" content="병원 전 단계의 자기 관리 구조. 79,000원 / 4주." />
-<meta name="twitter:image" content="img/og-image.png" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>회복나침반 — 다시 일상으로</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
 <style>
+/* ===== 기존 랜딩 CSS (살린 섹션용) ===== */
+
   :root {
     /* Brand */
     --blue-900: #2e4d5e;
@@ -268,6 +246,27 @@
     margin: 14px 0 8px; font-size: 19px; letter-spacing: -.02em; line-height: 1.35;
   }
   .problem-card p { margin: 0; color: var(--ink-2); font-size: 14.5px; }
+
+  .transform-section { padding: 96px 0 88px; }
+  .transform-grid {
+    display: grid; gap: 14px;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    margin-top: 44px;
+  }
+  .transform-card {
+    display: flex; align-items: center; gap: 16px;
+    background: var(--paper); border: 1px solid var(--line);
+    border-radius: var(--r-lg); padding: 22px 24px;
+    box-shadow: var(--shadow-sm);
+  }
+  .tc-before { color: var(--ink-3); font-size: 15px; font-weight: 600; flex: 1; }
+  .tc-arrow { color: var(--blue-400); font-size: 20px; flex-shrink: 0; }
+  .tc-after { color: var(--blue-900); font-size: 17px; font-weight: 800; flex: 1; }
+  @media (max-width: 760px) {
+    .transform-grid { grid-template-columns: 1fr; }
+    .transform-card { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .tc-arrow { align-self: center; }
+  }
 
   .why-banner {
     margin-top: 72px;
@@ -2499,1180 +2498,451 @@
     .midcta { padding: 64px 0; }
     .midcta .btn-primary { width: 100%; max-width: 360px; justify-content: center; }
   }
+
+
+
+.stat-lbl >div { font-size: 15px !important }
+.stat-lbl >div { font-size: 200px !important }
+.stat-lbl >div { font-size: 20px !important }
+
+
+/* 가져온 섹션은 원본의 스크롤 스크립트가 없으면 영영 투명하게 남는다.
+   애니메이션을 포기하고 항상 보이게 고정한다. 새 앞판(.rv)의 등장 효과는 그대로 유지. */
+.reveal{opacity:1!important;transform:none!important;transition:none!important}
+
+/* ===== 새 앞판 CSS ===== */
+
+:root{
+  --blue-900:#2e4d5e; --blue-700:#4a7a93; --blue-500:#6e9ab0;
+  --blue-400:#8db4c7; --blue-200:#cfe0e8; --blue-50:#eef4f7;
+  --ink:#1d2730; --ink-2:#46535e; --ink-3:#7a8893;
+  --line:#e6e8eb; --bg:#f7f6f3; --paper:#fff;
+  --accent:#d97757; --accent-soft:#fbece4;
+  --r-md:14px; --r-lg:22px;
+  --shadow-md:0 6px 18px rgba(30,60,90,.08),0 1px 4px rgba(30,60,90,.06);
+  --shadow-lg:0 24px 60px -20px rgba(30,60,90,.25),0 6px 20px rgba(30,60,90,.08);
+  --dark:#141c23; --dark-line:#2b3945;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:'Pretendard Variable','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.72;letter-spacing:-.017em;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+section{padding:96px 0}
+@media(max-width:640px){section{padding:70px 0}}
+h1,h2{letter-spacing:-.036em;line-height:1.33;font-weight:800}
+h1{font-size:clamp(31px,6.6vw,54px)}
+h2{font-size:clamp(25px,4.7vw,39px)}
+.lead{font-size:clamp(16px,2.3vw,18.5px);color:var(--ink-2);margin-top:24px}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--blue-400);text-transform:uppercase;margin-bottom:18px}
+
+/* 1 HERO */
+.hero{background:var(--dark);color:#e9eef2;padding:112px 0 100px}
+.hero h1{color:#fff}
+.hero h1 em{font-style:normal;color:var(--blue-400)}
+.lost{margin:0 0 36px;display:flex;flex-direction:column;gap:11px}
+.lost li{
+  list-style:none;font-size:clamp(16px,2.7vw,19px);font-weight:600;color:#b9c8d3;
+  padding-left:22px;position:relative;line-height:1.6;
+}
+.lost li:before{content:'';position:absolute;left:0;top:.72em;width:11px;height:2px;background:#4a5f6e}
+.hero .lead{color:#9fb0bd;max-width:580px}
+
+/* 2 NOBODY */
+.says{background:var(--paper)}
+.says-q{
+  margin-top:38px;padding:30px 28px;background:var(--bg);border-radius:var(--r-lg);
+  border-left:4px solid var(--blue-400);
+}
+.says-q p{font-size:clamp(18px,3vw,22px);font-weight:700;color:var(--ink);letter-spacing:-.03em;line-height:1.5}
+.says-q span{display:block;margin-top:12px;font-size:14px;color:var(--ink-3);font-weight:500;letter-spacing:0}
+.punch{margin-top:44px;font-size:clamp(20px,3.6vw,28px);font-weight:800;line-height:1.5;letter-spacing:-.032em}
+.punch u{text-decoration:none;background:linear-gradient(transparent 62%,var(--blue-200) 62%)}
+
+/* 3 COST */
+.cost{background:var(--bg)}
+.cost-box{
+  margin-top:40px;padding:34px 30px;background:var(--dark);color:#e9eef2;border-radius:var(--r-lg);
+}
+.cost-box p{font-size:clamp(18px,3.2vw,24px);font-weight:800;line-height:1.55;letter-spacing:-.03em}
+.cost-box p+p{margin-top:16px;font-size:15.5px;font-weight:500;color:#9fb0bd;letter-spacing:-.015em}
+.cost-box q{color:#c8d6e0;font-style:normal}
+
+/* 4 TURN */
+.turn{background:var(--paper);text-align:center}
+.turn-rule{width:46px;height:3px;background:var(--accent);margin:0 auto 30px;border-radius:2px}
+.turn h2 em{font-style:normal;color:var(--blue-700)}
+.turn .lead{max-width:560px;margin-left:auto;margin-right:auto}
+
+/* 5 STORY */
+.days{background:var(--blue-50)}
+.tag{display:inline-block;background:var(--accent-soft);color:#b45f42;font-size:12px;font-weight:800;padding:5px 12px;border-radius:100px;margin-bottom:20px}
+.tl{margin-top:44px;border-left:2px solid var(--blue-200);padding-left:26px;display:flex;flex-direction:column;gap:14px}
+.tl-item{position:relative}
+.tl-item:before{content:'';position:absolute;left:-33px;top:19px;width:10px;height:10px;border-radius:50%;background:var(--blue-400);border:2px solid var(--blue-50)}
+.tl-item.hi:before{background:var(--accent);width:14px;height:14px;left:-35px}
+.tl-d{font-size:12px;font-weight:800;color:var(--blue-700);letter-spacing:.03em;margin-bottom:5px}
+.tl-item.hi .tl-d{color:#b45f42}
+.tl-c{background:var(--paper);border-radius:var(--r-md);padding:16px 19px;box-shadow:var(--shadow-md);font-size:15.5px;font-weight:500;color:var(--ink);line-height:1.66}
+.tl-item.hi .tl-c{font-weight:700;border:1px solid var(--accent);font-size:16.5px}
+.days-out{margin-top:34px;font-size:clamp(18px,3.1vw,23px);font-weight:800;letter-spacing:-.03em;line-height:1.55}
+.days-out b{color:var(--blue-700)}
+.note{font-size:12.5px;color:var(--ink-3);margin-top:20px}
+
+/* 6 OTHERS */
+.others{background:var(--paper)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r-md);padding:20px 22px}
+.card-b{font-size:13.5px;color:var(--ink-3);font-weight:600;margin-bottom:7px}
+.card-a{font-size:16.5px;font-weight:800;color:var(--blue-900);letter-spacing:-.025em;line-height:1.5}
+
+.big{font-size:clamp(34px,7.4vw,58px)!important;line-height:1.24}
+.voice{margin-top:40px;background:var(--dark);border-radius:var(--r-lg);padding:34px 30px}
+.v-h{font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--blue-400);text-transform:uppercase;margin-bottom:22px}
+.voice blockquote{
+  font-size:16.5px;line-height:1.75;color:#c8d6e0;font-weight:500;
+  padding-left:18px;border-left:2px solid #33454f;margin-bottom:20px;letter-spacing:-.02em;
+}
+.voice blockquote b{color:#fff;font-weight:800}
+.voice blockquote.last{
+  margin-bottom:0;border-left-color:var(--accent);
+  font-size:clamp(19px,3.3vw,24px);font-weight:800;color:#fff;letter-spacing:-.03em;line-height:1.5;
+}
+.voice blockquote.last b{color:var(--accent)}
+
+/* 7 하는 일 */
+.how{background:var(--bg)}
+.steps{margin-top:44px;display:flex;flex-direction:column;gap:12px}
+.step{
+  display:grid;grid-template-columns:96px 1fr;gap:22px;align-items:start;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:22px 24px;box-shadow:var(--shadow-md);
+}
+.st-k{font-size:13px;font-weight:800;color:var(--blue-700);letter-spacing:-.01em;padding-top:2px}
+.st-b{font-size:15.5px;color:var(--ink-2);line-height:1.7}
+.st-b b{color:var(--ink);font-weight:800}
+@media(max-width:600px){
+  .step{grid-template-columns:1fr;gap:7px}
+  .st-k{padding-top:0}
+}
+
+/* 8 USP */
+.usp{background:var(--paper)}
+.usp .lead b{color:var(--blue-900);font-weight:800}
+.proto{display:flex;flex-wrap:wrap;gap:9px;margin-top:34px}
+.proto span{
+  background:var(--blue-50);color:var(--blue-900);border:1px solid var(--blue-200);
+  border-radius:100px;padding:9px 17px;font-size:14.5px;font-weight:700;letter-spacing:-.02em;
+}
+.usp-note{margin-top:28px;font-size:15.5px;color:var(--ink-2)}
+.usp-note b{color:var(--ink);font-weight:800}
+
+/* 9 비용 */
+.cost2{background:var(--bg)}
+.ptable{width:100%;border-collapse:collapse;margin-top:38px;background:var(--paper);
+  border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow-md)}
+.ptable td{padding:15px 20px;border-bottom:1px solid var(--line);font-size:15px}
+.ptable tr:last-child td{border-bottom:0}
+.ptable td:first-child{color:var(--ink-2);font-weight:600}
+.ptable td:first-child span{color:var(--ink-3);font-size:12.5px;font-weight:500;margin-left:5px}
+.ptable td:last-child{text-align:right;font-weight:800;color:var(--ink);white-space:nowrap}
+.ptable td:last-child em{font-style:normal;font-weight:600;color:var(--ink-3);font-size:12.5px}
+.price{margin-top:34px}
+.pl{font-size:clamp(17px,2.9vw,21px);font-weight:800;line-height:1.55;letter-spacing:-.03em;margin-bottom:22px}
+.pbox{background:var(--dark);color:#fff;border-radius:var(--r-lg);padding:30px 28px;text-align:center}
+.pb-l{font-size:13px;font-weight:800;color:var(--blue-400);letter-spacing:.02em;margin-bottom:8px}
+.pb-n{font-size:clamp(32px,6vw,46px);font-weight:800;letter-spacing:-.04em;line-height:1.15}
+.pb-n span{font-size:17px;font-weight:700;margin-left:4px;letter-spacing:-.02em}
+.pb-s{margin-top:12px;font-size:13.5px;color:#9fb0bd}
+
+/* 10 VS */
+.vs{background:var(--dark);color:#e9eef2;text-align:center}
+.vs h2{color:#fff}
+.vs-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;margin-top:46px;text-align:left}
+.vs-col{padding:28px 24px;border-radius:var(--r-lg);border:1px solid var(--dark-line)}
+.vs-col h3{font-size:17.5px;font-weight:800;letter-spacing:-.03em;margin-bottom:13px;line-height:1.45}
+.vs-col p{font-size:14.5px;line-height:1.72}
+.vs-a{background:#1a2229}.vs-a h3{color:#8f9fac}.vs-a p{color:#75858f}
+.vs-b{background:linear-gradient(160deg,#22333f,#1c2a34);border-color:var(--blue-700)}
+.vs-b h3{color:#fff}.vs-b p{color:#b6c7d3}
+.vs-mid{align-self:center;font-size:13px;font-weight:800;color:#5d6f7c;letter-spacing:.1em}
+@media(max-width:640px){.vs-grid{grid-template-columns:1fr;gap:12px}.vs-mid{text-align:center}}
+.vs-close{margin-top:44px;font-size:clamp(17px,3vw,22px);font-weight:800;color:#fff;line-height:1.55;letter-spacing:-.03em}
+
+/* CTA */
+.cta{background:var(--paper);text-align:center}
+.btn{display:inline-block;background:var(--blue-900);color:#fff;padding:19px 46px;border-radius:100px;
+  font-size:17px;font-weight:800;text-decoration:none;box-shadow:var(--shadow-lg);letter-spacing:-.02em;
+  transition:transform .18s ease,background .18s ease}
+.btn:hover{transform:translateY(-2px);background:#25404f}
+.btn:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.cta small{display:block;margin-top:18px;font-size:13.5px;color:var(--ink-3)}
+
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
 </style>
 </head>
 <body>
 
-<!-- ===== TOP BAR ===== -->
-<header class="topbar" id="topbar">
-  <div class="wrap topbar-inner">
-    <div class="brand">
-      <div class="brand-mark" aria-hidden="true"><img src="img/brand-logo.png" alt="허리디스크 회복연구소" /></div>
-      <div class="brand-meta">
-        <strong>허리디스크 회복연구소</strong>
-        <small>Disc Recovery Lab</small>
-      </div>
-    </div>
-    <a class="top-cta" href="./apply.html" target="_blank" rel="noopener">
-      <span class="dot" aria-hidden="true"></span>
-      모집 중 · 신청하기
-    </a>
+<!-- 1 -->
+<header class="hero">
+  <div class="wrap">
+    <ul class="lost rv">
+      <li>아침에 양말 신는 게 안 됩니다</li>
+      <li>밥 한 끼 먹으러 나가는 게 겁납니다</li>
+      <li>차 타고 30분 가면 그날 하루를 버립니다</li>
+      <li>모임에 나가면 내가 민폐 같습니다</li>
+    </ul>
+    <h1 class="rv">아픈 것도 아프지만,<br><em>못 하게 된 게 더 서럽습니다.</em></h1>
+    <p class="lead rv">
+      허리 때문에 포기한 게 하나둘이 아닙니다. 그런데 남들 눈엔 멀쩡해 보여서
+      설명하기도 지쳤습니다.
+    </p>
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
-<section class="hero">
+<!-- 2 -->
+<section class="says">
   <div class="wrap">
-    <div class="eyebrow reveal">
-      <span>2026 NEW</span> · <b>회복 나침반 그룹 회복 프로그램</b> 상시 모집 중
+    <div class="eyebrow rv">더 답답한 건</div>
+    <h2 class="rv">낫는 방법, 낫는 과정을<br>말해주는 사람이 없다는 겁니다.</h2>
+    <div class="says-q rv">
+      <p>“평생 관리하면서 사셔야 합니다.”</p>
+      <span>병원에서 3분 만에 듣고 나온 말. 그 뒤로 아무도 그 다음 얘기를 안 해줍니다.</span>
     </div>
-    <h1 class="h-display reveal">
-      병원 문을 나선 순간,<br/>
-      <span class="accent-line">방향</span>을 알려준 사람은<br/>
-      아무도 없었습니다.
-    </h1>
-    <p class="h-lede reveal" style="font-size: 22px; max-width: 640px;">
-      혼자가 아닌 <strong>‘함께’</strong> 고민하고,<br/>
-      <strong>1,000건 이상의 실제 참여자 기록</strong>으로 만든<br/>
-      <strong>회복비서 나침반</strong>과 <strong>그룹 루틴</strong>으로<br/>
-      회복 방향에 도달합니다.
-    </p>
+    <p class="punch rv">그래서 결국 <u>참는 게 전부인 하루</u>가 반복됩니다.</p>
+  </div>
+</section>
 
-    <p class="scroll-hint reveal"><span class="arrow">↓</span> 아래로 내려 확인하세요</p>
-
-    <div class="hero-stats reveal">
-      <div>
-        <div class="stat-num"><span>1,000<small style="font-size:.55em;color:var(--ink-3);font-weight:700;">건+</small></span></div>
-        <div class="stat-lbl" style="font-size: 30px">참여자 기록 데이터<br/><span style="font-size:.5em;color:var(--ink-3);">누적 집계</span></div>
-      </div>
-      <div>
-        <div class="stat-num"><span>매일</span></div>
-        <div class="stat-lbl" style="font-size: 22px">앱에 탑재된 회복비서가<br/><span style="font-size:.7em;color:var(--ink-3);">(오늘 뭘 해야 할지 알려드려요)</span></div>
-      </div>
-      <div>
-        <div class="stat-num"><span>주 1회</span></div>
-        <div class="stat-lbl" style="font-size: 30px">연구소 × 그룹원 라이브 토의</div>
-      </div>
+<!-- 3 -->
+<section class="cost">
+  <div class="wrap">
+    <div class="eyebrow rv">참기만 하면</div>
+    <h2 class="rv">1년이 지나도<br>포기한 것들은 그대로입니다.</h2>
+    <div class="cost-box rv">
+      <p>내년 이맘때도 양말 하나 신기 버겁고,<br>일상은 계속 스트레스로 가득 찹니다.</p>
+      <p>실제로 한 참여자는 저희를 만나기 전 이렇게 적었습니다.
+        <q>“휴일이 싫어진다. 벌써 일 년 반을, 모임에도 민폐가 되는 느낌이다.”</q></p>
     </div>
   </div>
 </section>
 
-<!-- ===== PROBLEM ===== -->
-<section class="section alt" id="why">
-  <div class="wrap" style="font-size: 20px">
-    <div class="sec-head reveal">
-      <div class="sec-eyebrow">The Problem</div>
-      <h2 class="sec-title">지금까지 그 누구도<br/>내 통증에 대해 알아주지 않았죠.</h2>
-      <p class="sec-sub" style="font-size: 6px">
-        수많은 병원을 돌아다녀도 똑같이 들었던 말,
-        <span class="strike" style="text-decoration: line-through; color: var(--ink-3);">“쉬세요, 걸어보세요.”</span>
-        그 두마디로 허리디스크는 절대 만만하게 낫지 않습니다.
-      </p>
-    </div>
-
-    <div class="problem-card-grid">
-      <div class="problem-card reveal">
-        <div class="num">01 / 현란한 치료의 굴레</div>
-        <h4>수술 · 시술 · 도수 · 물리치료…</h4>
-        <p>다양한 방법을 다 거쳤지만 같은 자리에 머무는 분들이, 결국 여기에 모였습니다.</p>
-      </div>
-      <div class="problem-card reveal">
-        <div class="num">02 / 자기 관리의 부재</div>
-        <h4>스스로 움직일 수 있는<br/>‘관리 방식’이 없다면</h4>
-        <p>치료가 끝나도 일상으로 돌아오면 다시 도돌이표. 통증은 같은 패턴으로 돌아옵니다.</p>
-      </div>
-      <div class="problem-card reveal">
-        <div class="num">03 / 다시 도돌이표</div>
-        <h4>또 디스크를 잘라달라,<br/>나사를 박아달라 해야 하나요?</h4>
-        <p style="font-size: 15px">되돌아가지 않으려면 ‘내 몸의 흐름’을 데이터로 잡아두는 다른 접근이 필요합니다.</p>
-      </div>
-    </div>
-
-    <div class="why-banner reveal">
-      <div class="why-tag">WHY?</div>
-      <h3 class="why-title">이게 안 끝나니까요.</h3>
-      <p style="max-width: 540px; color: #c5d2e4;">
-        ( 거기서 해결이 안 돼서 우린 여기에 모였어요 — 까먹으시면 안 됩니다. )
-      </p>
-      <div class="why-loop">
-        <span class="loop-pill">통증</span>
-        <span class="loop-arrow">→</span>
-        <span class="loop-pill">병원</span>
-        <span class="loop-arrow">→</span>
-        <span class="loop-pill">치료</span>
-        <span class="loop-arrow">→</span>
-        <span class="loop-pill">일상 복귀</span>
-        <span class="loop-arrow">→</span>
-        <span class="loop-pill">재발</span>
-        <span class="loop-cycle">↻ 반복</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Empathy / Emotional weight ===== -->
-<section class="empathy-section" id="empathy">
-  <div class="empathy-inner">
-    <div class="empathy-eyebrow reveal"><span>그리고 한 가지 더</span></div>
-    <h2 class="empathy-title reveal">
-      아픈 것 그 자체보다,<br/>
-      그 옆에 따라오는 것들이<br/>
-      더 무겁습니다.
-    </h2>
-
-    <div class="empathy-body">
-      <p class="reveal">
-        아침부터 찾아오는 <strong>다리 저림과 찌릿함</strong>. 
-        오늘은 또 어떻게 움직여야 할지, 무엇을 조심해야 할지부터 먼저 떠오르는 하루.
-      </p>
-
-      <p class="reveal">
-        옆 사람들의 <strong>평범한 웃음소리</strong>, 가벼운 발걸음. 
-        한때는 너무 당연했던 것들이, 어느 순간부터 멀게만 느껴져요.
-      </p>
-
-      <p class="reveal">
-        사소한 동작 하나에서, 하다못해 <strong>의자에 잠깐 앉는 순간마저</strong>
-        겁을 먹어야 한다는 사실. 그 자체가
-        <em>자괴감이 되고, 상실감이 됩니다.</em>
-      </p>
-
-      <div class="empathy-divider reveal"></div>
-
-      <p class="reveal">
-        이 고통이 길어질수록 깨닫게 되는 게 있어요. 
-        단순히 아픈 걸 참는 게 아니라 
-        — <em>정신적인 상처들도 함께 쌓여가고 있었다</em>는 것.
-      </p>
-
-      <p class="reveal">
-        병원에서는 약을 주고, 다음 치료를 권할 뿐. 
-        하지만 새벽에 깨어 ‘오늘 도수치료를 한 번 더 받을지’ 고민하는 그 마음에 대해서는,
-        지금까지 누구도 묻지 않았습니다.
-      </p>
-    </div>
-
-    <p class="empathy-close reveal">
-      그래서 우리에게 필요한 건<br/>
-      또 한 번의 치료가 아니라,<br/>
-      <em>안정된 활동으로 리스크를 관리하며<br/>일상의 흐름을 다시 잡는 구조</em>입니다.
+<!-- 4 -->
+<section class="turn">
+  <div class="wrap">
+    <div class="turn-rule rv"></div>
+    <h2 class="rv">저희가 해드리는 건<br><em>통증을 줄이고,<br>포기했던 걸 돌려드리는 겁니다.</em></h2>
+    <p class="lead rv">
+      공부시키지 않습니다. 오늘 뭘 얼마나 하면 되는지 알려드리고, 막히면 같이 풉니다.
+      그러면 포기했던 것들이 하나씩 돌아옵니다.
     </p>
   </div>
 </section>
 
-<!-- ===== Recovery Journey (the spine) ===== -->
-<section class="journey-section" id="journey">
+<!-- 5 -->
+<section class="days">
   <div class="wrap">
-    <div class="journey-head reveal">
-      <span class="jh-eyebrow">당신의 회복 여정</span>
-      <h2>“그래서 제가, <em>어떻게 회복되는데요?”</em></h2>
-      <p>기능을 나열하기 전에, 먼저 보여드릴게요. 회복 나침반 안에서 당신은 이런 길을 걷게 됩니다. <strong>혼자가 아니라, 함께.</strong></p>
+    <span class="tag rv">실제 참여자 기록 원문</span>
+    <h2 class="rv">저림이 심했던 참여자의<br>한 달 변화입니다.</h2>
+    <div class="tl">
+      <div class="tl-item rv"><div class="tl-d">첫날 · 5월 29일 · 통증 <b>6</b></div>
+        <div class="tl-c">방사통이 심해져서 <b>저림이 근래 가장 심해짐.</b> 이날은 운동을 못 하고 쉼</div></div>
+      <div class="tl-item rv"><div class="tl-d">일주일 뒤 · 6월 5일 · 통증 3</div>
+        <div class="tl-c">걷기 20분. <b>통증이 점점 줄어들고 있다</b></div></div>
+      <div class="tl-item rv"><div class="tl-d">6월 7일 · 통증 <b>1</b></div>
+        <div class="tl-c">운전도 하고 걷기도 했는데 <b>컨디션 좋음. 방사통 줄어들었다</b></div></div>
+      <div class="tl-item rv"><div class="tl-d">6월 12일 · 슬로우조깅 시작</div>
+        <div class="tl-c">30분 걷기 했을 때에도 <b>통증이 오지 않아 다행이었고</b></div></div>
+      <div class="tl-item hi rv"><div class="tl-d">한 달 뒤 · 6월 28일 · 통증 <b>1</b></div>
+        <div class="tl-c">어제 <b>한 시간 반</b>을 활동했는데도 <b>큰 방사통 없이</b> 일어났을 때에도 괜찮았고, <b>오늘도 30분 슬로우조깅 완료</b></div></div>
+    </div>
+    <p class="days-out rv">저림이 가장 심해 쉬기만 했던 분이,<br><b>한 달 만에 통증 6에서 1로, 30분을 뜁니다.</b></p>
+    <p class="note rv">앱에 남긴 기록 원문 그대로입니다. 개인 보호를 위해 이름은 표기하지 않았습니다.</p>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="others">
+  <div class="wrap">
+    <h2 class="big rv">한 사람만이<br>아닙니다.</h2>
+    <p class="lead rv" style="margin-bottom:6px">돌아온 것들입니다.</p>
+    <div class="grid">
+      <div class="card rv"><div class="card-b">시술받고 8일째<br>20분 걷는 게 전부였던 분이</div><div class="card-a">두 달 뒤 통증 0으로 하루 한 시간을 걷습니다</div></div>
+      <div class="card rv"><div class="card-b">6분 뛰고 멈추던 분이</div><div class="card-a">30분을 편안하게 뜁니다</div></div>
+      <div class="card rv"><div class="card-b">약을 달고 살던 분이</div><div class="card-a">일주일째 약을 끊었습니다</div></div>
+      <div class="card rv"><div class="card-b">영화관은 엄두도 못 내던 분이</div><div class="card-a">2시간 반짜리 영화를 통증 없이 보고, 다리 저림도 아예 없습니다</div></div>
+      <div class="card rv"><div class="card-b">30분 걷는 것도 불편하던 분이</div><div class="card-a">슬로우조깅을 하고 나면 정상 허리 느낌이 든다고 적습니다</div></div>
+      <div class="card rv"><div class="card-b">양말 신기부터 막히던 분이</div><div class="card-a">아침에 일어날 때 통증이 하나도 없습니다</div></div>
     </div>
 
-    <div class="journey-map">
-      <!-- START -->
-      <div class="j-node start reveal">
-        <div class="j-dot">START</div>
-        <div class="j-body">
-          <div class="j-stage">출발 · 첫 단추부터 함께</div>
-          <h3 class="j-title">철저하고 안전한 <em>시작 기준</em>을 함께 설정합니다</h3>
-          <p class="j-desc">앱을 켜면 몇 가지 질문이 차례로 펼쳐집니다. 그 답을 따라가면, 지금 내 상태에 꼭 맞는 안전한 시작 기준이 잡힙니다.</p>
-          <div class="j-help"><span class="jh-chip">기록지 앱</span><strong>앱을 켜자마자 펼쳐지는 질문들이 여러분의 시작 기준 설정을 돕습니다</strong></div>
-        </div>
-      </div>
-
-      <!-- STEP 1 -->
-      <div class="j-node reveal">
-        <div class="j-dot">1</div>
-        <div class="j-body">
-          <div class="j-stage">1단계 · 내 몸의 반응 읽기</div>
-          <h3 class="j-title">나에게 맞는 적정 강도를 탐색하고, <em>통증에 대응하는 법</em>을 익힙니다</h3>
-          <p class="j-desc">활동에 내 몸이 어떻게 반응하는지 관찰합니다. 통증이 올라올 때 당황하지 않고 대응하는 전략을 함께 세웁니다.</p>
-          <div class="j-help"><span class="jh-chip">회복비서</span><strong>매일 안전한 활동량 범위를 안내받습니다</strong></div>
-        </div>
-      </div>
-
-      <!-- STEP 2 -->
-      <div class="j-node reveal">
-        <div class="j-dot">2</div>
-        <div class="j-body">
-          <div class="j-stage">2단계 · 몸이 적응하는 구간</div>
-          <h3 class="j-title">짜여진 순서를 따라 <em>적응력을 쌓아갑니다</em></h3>
-          <p class="j-desc">하루의 점이 아니라 한 주의 흐름으로 봅니다. 흔들릴 땐 방향을 다시 잡으며, 몸이 활동에 적응하는 토대를 만듭니다.</p>
-          <div class="j-help"><span class="jh-chip">주말 리포트 · 라이브</span><strong>한 주 흐름을 점검하고, 막힐 땐 함께 풀어갑니다</strong></div>
-        </div>
-      </div>
-
-      <!-- STEP 3 -->
-      <div class="j-node reveal">
-        <div class="j-dot">3</div>
-        <div class="j-body">
-          <div class="j-stage">3단계 · 안정 궤도에 올리기</div>
-          <h3 class="j-title">나만의 강도에서 슬로우조깅 반복하고, <em>몸이 편해지는 페이스</em>로 조정합니다</h3>
-          <p class="j-desc">남의 속도가 아니라 내 속도로. 무리 없이 활동량을 늘려가며, 안정적으로 이어갈 수 있는 지점을 찾아갑니다.</p>
-          <div class="j-help"><span class="jh-chip">주차별 가이드 영상</span><strong>각 단계를 어떻게 통과할지 영상으로 안내합니다</strong></div>
-        </div>
-      </div>
-
-      <!-- FINISH -->
-      <div class="j-node finish reveal">
-        <div class="j-dot">✦</div>
-        <div class="j-body">
-          <div class="j-stage">도착 · 그리고 그 다음</div>
-          <h3 class="j-title">통증이 안정적으로 줄어들고,<br/><em>스스로 관리할 수 있는 상태</em>로</h3>
-          <p class="j-desc">이 여정의 끝은 ‘프로그램에 의존하는 것’이 아닙니다. 도움 없이도 내 몸의 흐름을 읽고, 스스로 관리하는 활동으로 완전한 일상 복구를 해냅니다.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Promise band (safe, strong) -->
-    <div class="promise-band reveal">
-      <div class="pb-tag">우리가 드리는 약속</div>
-      <h3>혼자선 막막했던 그 방향을,<br/><em>데이터와 함께 끝까지 찾아갑니다.</em></h3>
-      <p>회복의 속도와 반응은 사람마다 다릅니다. 그래서 결과를 단정하지 않습니다. 다만, 방향을 잃지 않도록 매일 함께 걷겠습니다.</p>
+    <div class="voice rv">
+      <div class="v-h">한 참여자가 오픈채팅방에 남긴 말</div>
+      <blockquote>오늘은 처음으로 단독 18분을 뛰었습니다. 슬조 후반 매우 편함, 슬조 직후 — <b>디스크 터지기 전 정상 허리 상태</b> 느낌이네요.</blockquote>
+      <blockquote>슬조 25분 진행했습니다. 보통 → 매우 편함 → 매우 편함으로 이어졌고 <b>허리 컨디션이 많이 좋았습니다.</b></blockquote>
+      <blockquote>저는 그걸 <b>허리에 “내성”이 생겼다</b>고 느끼는 중입니다. 평소의 걸음걸이 방법까지 살펴보면서 <b>많이 좋아졌습니다.</b></blockquote>
+      <blockquote class="last">항상 저 사례들에 나오는 내용은 <b>꿈같았는데 어느새…</b></blockquote>
     </div>
   </div>
 </section>
 
-<!-- ===== Mid CTA (urgency) ===== -->
-<section class="midcta" id="midcta">
+<!-- 7 하는 일 -->
+<section class="how">
   <div class="wrap">
-    <div class="midcta-inner">
-      <p class="mc-urgency reveal">
-        이번에도 미루면, <em>아픈 시간도<br/>고민하는 시간도</em> 그만큼 길어집니다.
-      </p>
-      <p class="mc-sub reveal">
-        <strong>행동이 확신을 만듭니다.</strong> 그 한 걸음을, 지금 함께 떼세요.
-      </p>
-      <a class="btn-primary reveal" href="./apply.html" target="_blank" rel="noopener">
-        망설임은 여기까지 · 지금 시작하기
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
-      <div class="mc-meta reveal">79,000원 / 4주 · 신청 즉시 시작 · 상시 모집</div>
+    <div class="eyebrow rv">그래서 뭘 하게 되나</div>
+    <h2 class="rv">혼자 알아내실 것이 없습니다.<br>매일 5분이면 됩니다.</h2>
+    <div class="steps">
+      <div class="step rv">
+        <div class="st-k">매일매일</div>
+        <div class="st-b">전용 <b>모바일 앱</b>을 드립니다. 그 안의 <b>회복비서 나침반 위젯</b>이 오늘 얼마나 움직이면 되는지 매일 알려줍니다. 무리인지 부족인지 판단하실 필요 없습니다.</div>
+      </div>
+      <div class="step rv">
+        <div class="st-k">하루에 한 번</div>
+        <div class="st-b"><b>앱에서 간단한 체크와 메모면 충분합니다.</b> 그게 쌓여서 내 몸의 흐름이 됩니다.</div>
+      </div>
+      <div class="step rv">
+        <div class="st-k">오픈채팅</div>
+        <div class="st-b"><b>회복연구소와 그룹원들이 함께 있습니다.</b> 오늘 달라진 것을 나누고, 같은 자리를 지나온 사람들의 변화를 매일 봅니다.</div>
+      </div>
+      <div class="step rv">
+        <div class="st-k">직접 피드백</div>
+        <div class="st-b">활동 <b>자세와 페이스를 회복연구소가 직접 봐드립니다.</b> 혼자 하면 평생 모를 부분입니다.</div>
+      </div>
+      <div class="step rv">
+        <div class="st-k">주말마다</div>
+        <div class="st-b"><b>처음과 지금이 어떻게 달라졌는지</b> 한눈에 보여드립니다. 지난주가 아니라 <b>시작점과 비교</b>합니다.</div>
+      </div>
+      <div class="step rv">
+        <div class="st-k">주 1회</div>
+        <div class="st-b"><b>그룹 라이브.</b> 그룹원들끼리 이야기하면서 각자 막힌 문제를 <b>함께 풀어냅니다.</b></div>
+      </div>
+      <div class="step rv">
+        <div class="st-k">월 1회</div>
+        <div class="st-b"><b>앉아있기 · 걷기 · 서있기 · 수면 · 들기 · 사회생활 · 이동과 운전.</b>
+          이 일곱 가지가 실제로 좋아졌는지 매달 점검합니다. 느낌이 아니라 확인입니다.</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== Testimonials ===== -->
-<section class="testimonials" id="testimonials">
+<!-- 8 USP -->
+<section class="usp">
   <div class="wrap">
-    <div class="tm-head reveal">
-      <div class="sec-eyebrow">참여자의 목소리</div>
-      <h2 class="sec-title">그 무게에서<br/>한 걸음 빠져나온 사람들의 말</h2>
-      <p class="sec-sub" style="margin: 0 auto;">
-        편집하지 않은 실제 후기를 그대로 옮겼습니다.
-      </p>
-      <div class="tm-context">
-        <span class="tmc-dot"></span>
-        <span><strong>5월 15일~</strong> 진행 중인 그룹 프로그램 참여자의 실제 후기입니다</span>
-      </div>
-    </div>
-
-    <div class="tm-grid">
-      <!-- HERO · 일상 회복 -->
-      <div class="tm-card tm-hero tm-green reveal">
-        <span class="tm-cat">일상 회복</span>
-        <p class="tm-quote">
-          10분만 앉아도 불편해서 최대 30분이 한계였는데,
-          <strong>이제는 1시간 30분~2시간 정도 앉아있을 수 있어요.</strong>
-        </p>
-        <div class="tm-attr"><span class="tm-avatar">●</span><span>참여자 후기</span></div>
-      </div>
-
-      <!-- STAT · 나침반 -->
-      <div class="tm-card tm-stat reveal">
-        <div>
-          <span class="tm-cat">나침반</span>
-          <div class="ts-title">나침반 위젯<br/>일일 안내비서</div>
-          <div class="ts-rate"><span class="ts-num">85<small>%</small></span><span class="ts-rate-lbl">가 안내 실력을<br/>인정했습니다</span></div>
-          <div class="ts-label">22 / 26명 응답</div>
-        </div>
-        <div class="ts-bar"><div class="ts-fill" style="width:85%"></div></div>
-        <div class="ts-foot">매일 뭘 해야 할지 몰랐던 사람들. 나침반 자동 안내 기능이 판단을 도왔습니다.</div>
-      </div>
-
-      <!-- 통증 (짧게) -->
-      <div class="tm-card tm-c2 reveal">
-        <span class="tm-cat">통증</span>
-        <p class="tm-quote" style="font-size:18px;font-weight:600;">불안감과 걱정이 사라짐.</p>
-        <div class="tm-attr"><span class="tm-avatar">●</span><span>참여자 후기</span></div>
-      </div>
-
-      <!-- 회복 -->
-      <div class="tm-card tm-c2 tm-green reveal">
-        <span class="tm-cat">회복</span>
-        <p class="tm-quote">속도를 높이거나 거리를 늘리는 데 <strong>저도 모르게 욕심이 생겼어요.</strong> 그만큼 많이 나아진 거겠죠.</p>
-        <div class="tm-attr"><span class="tm-avatar">●</span><span>참여자 후기</span></div>
-      </div>
-
-      <!-- 멘탈 -->
-      <div class="tm-card tm-c2 reveal">
-        <span class="tm-cat">멘탈</span>
-        <p class="tm-quote">멘탈 회복에 도움이 되었습니다. <strong>혼자가 아닌 기분.</strong></p>
-        <div class="tm-attr"><span class="tm-avatar">●</span><span>참여자 후기</span></div>
-      </div>
-
-      <!-- 라이브 -->
-      <div class="tm-card tm-c3 tm-warm reveal">
-        <span class="tm-cat">라이브</span>
-        <p class="tm-quote">라이브에서 <strong>실시간으로 질문하는 게 너무 좋았음.</strong></p>
-        <div class="tm-attr"><span class="tm-avatar">●</span><span>참여자 후기 · 그룹 라이브</span></div>
-      </div>
-
-      <!-- 회복 순간 -->
-      <div class="tm-card tm-c3 tm-green reveal">
-        <span class="tm-cat">회복 순간</span>
-        <p class="tm-quote">비오는데 뛰었어요. 걷는 수준으로 뛰는데 <strong>심장이 쿵쾅되고 땀도 나는 게</strong> 신기해요.</p>
-        <div class="tm-attr"><span class="tm-avatar">●</span><span>참여자 후기</span></div>
-      </div>
-
-      <!-- 터닝포인트 (WIDE) -->
-      <div class="tm-card tm-c4 tm-green reveal">
-        <span class="tm-cat">터닝포인트</span>
-        <p class="tm-quote">
-          그룹 참여 전엔 혼자 슬조 시간을 정해도 확신이 없어서 매번 심리적으로 무너졌는데,
-          지금은 완전히 달라졌습니다. <strong>15분 슬로우조깅을 혼자 힘으로 해내고
-          예전 허리 멀쩡했을 때 느낌을 다시 받았을 때, 눈물이 날 것 같았습니다.</strong>
-        </p>
-        <div class="tm-attr"><span class="tm-avatar">●</span><span>참여자 후기 · 실시간 피드백의 힘</span></div>
-      </div>
-
-      <!-- 통증 감소 -->
-      <div class="tm-card tm-c2 tm-green reveal">
-        <span class="tm-cat">통증</span>
-        <p class="tm-quote">저는 통증이 조금씩 계속 줄고 있습니다. 운전, 앉기, 업무만 안 하면 꽤 통증이 줄었습니다. <strong>조금만 움직이면 통증이 올라왔던 예민한 허리가 조금은 튼튼해지고 무디게 된 거 같습니다.</strong> 앉기 시간도 늘은 거 같습니다.</p>
-        <div class="tm-attr"><span class="tm-avatar">●</span><span>참여자 후기 · 오픈채팅방</span></div>
-      </div>
-
-      <!-- 회복신호 -->
-      <div class="tm-card tm-c2 reveal">
-        <span class="tm-cat">회복신호</span>
-        <p class="tm-quote" style="font-size:18px;font-weight:600;">회복신호로는 재채기 할 때 통증이 어느 순간 사라져있네요.</p>
-        <div class="tm-attr"><span class="tm-avatar">●</span><span>참여자 후기 · 오픈채팅방</span></div>
-      </div>
-
-      <!-- 슬로우조깅 -->
-      <div class="tm-card tm-c2 tm-warm reveal">
-        <span class="tm-cat">슬로우조깅</span>
-        <p class="tm-quote">요새 통증이 많이 줄어들었습니다. 슬조를 꾸준히 하니 우리하게 있던 엉치통증도 많이 나아진 거 같아요, <strong>슬조 시작이 신의한수였어요.</strong></p>
-        <div class="tm-attr"><span class="tm-avatar">●</span><span>참여자 후기 · 오픈채팅방</span></div>
-      </div>
-
-      <!-- 공감 -->
-      <div class="tm-card tm-c2 tm-warm reveal">
-        <span class="tm-cat">공감</span>
-        <p class="tm-quote">혼자 막막하고 우울했는데, <strong>'아픈 사람이 나 혼자가 아니구나'</strong>라는 생각이 들었어요.</p>
-        <div class="tm-attr"><span class="tm-avatar">●</span><span>참여자 후기</span></div>
-      </div>
-
-      <!-- WIDE · 일상 변화 (구체적) -->
-      <div class="tm-card tm-c4 tm-green reveal">
-        <span class="tm-cat">일상 변화</span>
-        <p class="tm-quote">
-          <strong>운전대에서 내릴 때 통증이 줄었고, 30분짜리 설거지를 한번에 끝낼 수 있고,
-          폼롤러로 등 마사지할 때 통증이 줄었어요.</strong>
-          오른다리 저린 통증도 파스 바른 것 같은 느낌으로 달라졌어요.
-        </p>
-        <div class="tm-attr"><span class="tm-avatar">●</span><span>참여자 후기 · 일주일 만의 변화</span></div>
-      </div>
-
-      <!-- 다짐 -->
-      <div class="tm-card tm-c2 tm-warm reveal">
-        <span class="tm-cat">다짐</span>
-        <p class="tm-quote">회복은 직선이 아니란 말을 믿기에, 왔다갔다 하면서도 <strong>결국 좋아지는 경험을 했기에 꾸준히 해볼랍니다.</strong></p>
-        <div class="tm-attr"><span class="tm-avatar">●</span><span>참여자 후기</span></div>
-      </div>
-
-      <!-- 커뮤니티 (원래 히어로) -->
-      <div class="tm-card tm-c2 tm-warm reveal">
-        <span class="tm-cat">커뮤니티</span>
-        <p class="tm-quote">잊고 지나갈 수 있었던 부분들을 세밀하게 기록하고 나눌 수 있어서 좋았어요. 아프면서 <strong>고립되고 우울한 생각</strong>도 드는데, <strong>같이 회복하는 느낌</strong>도 좋아요.</p>
-        <div class="tm-attr"><span class="tm-avatar">●</span><span>참여자 후기</span></div>
-      </div>
-
-      <!-- 나침반 -->
-      <div class="tm-card tm-c2 reveal">
-        <span class="tm-cat">나침반</span>
-        <p class="tm-quote" style="font-size:18px;font-weight:600;">막연한 저의 회복여정에 <strong>나침반 같은 느낌</strong>입니다.</p>
-        <div class="tm-attr"><span class="tm-avatar">●</span><span>참여자 후기</span></div>
-      </div>
-
-      <!-- 희망 -->
-      <div class="tm-card tm-c2 tm-warm reveal">
-        <span class="tm-cat">희망</span>
-        <p class="tm-quote">이제까지는 통증에 대응하는 게 전부였는데, 처음으로 <strong>회복 기전을 만들어간다는 게</strong> 심리적으로 희망적이에요. 여기 있는 사람들 모두와 연결되어 있습니다.</p>
-        <div class="tm-attr"><span class="tm-avatar">●</span><span>참여자 후기</span></div>
-      </div>
-
-    </div>
-
-    <div class="tm-closer reveal">
-      <p>※ 2026년 5월 15일~ 진행 중인 그룹 프로그램 참여자의 실제 후기. 본인 동의 하에 게재되었으며 개인 식별 정보는 익명 처리되었습니다.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== USP / Why Us ===== -->
-<section class="usp-section" id="why-us">
-  <div class="wrap">
-    <div class="usp-head reveal">
-      <div class="sec-eyebrow">Why us</div>
-      <h2 class="sec-title">병원에서 강조하는<br/>‘환자 스스로 관리’.<br/>그걸 <em style="color:var(--blue-400); font-style:normal;">실제로 구조화한 곳</em>입니다.</h2>
-      <p class="usp-quote">
-        병원은 말합니다. <em>"환자 스스로 관리가 중요합니다."</em> 
-        하지만 <strong>그걸 실제 경험과 데이터로 프로토콜화한 곳</strong>은 거의 없었어요. 
-        그래서 우리는 어떻게든 방법을 찾아 나서야 하는 국면에 놓여 있습니다.<br/><br/>
-        <strong>달리는 동작</strong>이 회복에 기여한 사례들은 이미 여러 채널에서 공유되고 있습니다. 
-        회복 나침반은 그 회복 흐름에 <strong>안정적으로 도달하기 위한 도구</strong>로 <em>'슬로우조깅'</em>을 사용하고, 
-        그 위에 활동 기록 기반의 자기 관리 구조를 1대1 1~7기 참여자들의 실제 데이터로 구체화했습니다.
-      </p>
-    </div>
-
-    <div class="usp-grid">
-      <div class="usp-card reveal">
-        <div class="uc-n">USP 01 · 검증된 데이터</div>
-        <h4>1대1 1~7기 운영 + 1,000건 이상 참여자 기록 데이터</h4>
-        <p>커리큘럼은 추측이 아니라 <strong>실제 참여자의 1,000건 이상 기록</strong>으로 설계됐습니다. 다른 회복 콘텐츠와 가장 다른 점이에요.</p>
-      </div>
-      <div class="usp-card reveal">
-        <div class="uc-n">USP 02 · 매일 능동 안내</div>
-        <h4>정적 콘텐츠가 아닌, 매일 작동하는 위젯</h4>
-        <p>책·영상·앱을 ‘보는 것’이 아니라, 회복비서 나침반 위젯이 <strong>매일 활동량과 컨디션을 보고 능동적으로 안내</strong>합니다.</p>
-      </div>
-      <div class="usp-card reveal">
-        <div class="uc-n">USP 03 · 몸 반응 기준</div>
-        <h4>시간을 강제하지 않는 진행 방식</h4>
-        <p>주차는 시간이 아닌 <strong>몸의 반응 기준</strong>으로 운영. 준비가 되지 않으면 해당 단계에 머뭅니다. 무리해서 다음으로 넘어가지 않아요.</p>
-      </div>
-      <div class="usp-card reveal">
-        <div class="uc-n">USP 04 · 자립이 목표</div>
-        <h4>의존을 만드는 게 아니라, 단독 안착</h4>
-        <p>3단계의 마지막은 <strong>‘혼자서도 할 수 있게’</strong>. 평생 의존하게 만드는 구조가 아니라, 일상에서 스스로 회복 관리하는 감각을 남깁니다.</p>
-      </div>
-    </div>
-
-    <div class="usp-tagline reveal">
-      <div class="ut-tag">Positioning</div>
-      <h3>병원도, PT도, 필라테스도 아닌 — <em>병원 전 단계</em>의 자기 관리 구조.</h3>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Compare: 다른 곳 vs 회복 나침반 ===== -->
-<section class="compare-section" id="compare">
-  <div class="wrap">
-    <div class="cs-head reveal">
-      <div class="sec-eyebrow">A different approach</div>
-      <h2 class="sec-title">병원·치료·운동을 거쳐오신 분과,<br/>한 줄씩 짚어봅니다.</h2>
-      <p class="sec-sub" style="margin: 0 auto;">
-        가치를 깎으려는 게 아닙니다. 같은 ‘회복 도움’의 카테고리지만, 
-        결이 다르다는 점만 정확히 보여드립니다.
-      </p>
-    </div>
-
-    <div class="cs-list">
-      <div class="cs-row reveal">
-        <div class="cs-side cs-old">
-          <span class="cs-tag">병원 진료</span>
-          <div class="cs-text">5분 진료 후 <strong>“쉬세요, 걸어보세요”</strong> 두 마디. 그 다음은 본인 몫.</div>
-        </div>
-        <div class="cs-arrow">→</div>
-        <div class="cs-side cs-new">
-          <span class="cs-tag">회복 나침반</span>
-          <div class="cs-text"><strong>매일 정밀한 안내</strong>. 그 다음을 혼자 떠안지 않습니다.</div>
-        </div>
-      </div>
-
-      <div class="cs-row reveal">
-        <div class="cs-side cs-old">
-          <span class="cs-tag">도수치료·시술</span>
-          <div class="cs-text">받는 <strong>그 시점에만</strong> 효과. 일상으로 돌아가면 다시 도돌이표.</div>
-        </div>
-        <div class="cs-arrow">→</div>
-        <div class="cs-side cs-new">
-          <span class="cs-tag">회복 나침반</span>
-          <div class="cs-text"><strong>매일 작동하는 시스템</strong>. 일상 그 자체가 관리 구조가 됩니다.</div>
-        </div>
-      </div>
-
-      <div class="cs-row reveal">
-        <div class="cs-side cs-old">
-          <span class="cs-tag">일반적인 코칭/PT</span>
-          <div class="cs-text">“이거 하세요” <strong>한 마디 듣고</strong> 그날의 진행이 끝납니다.</div>
-        </div>
-        <div class="cs-arrow">→</div>
-        <div class="cs-side cs-new">
-          <span class="cs-tag">회복 나침반</span>
-          <div class="cs-text"><strong>매일</strong> 알고리즘 안내, 매주 가이드 영상으로 <strong>맥락이 이어집니다.</strong></div>
-        </div>
-      </div>
-
-      <div class="cs-row reveal">
-        <div class="cs-side cs-old">
-          <span class="cs-tag">정해진 시간표</span>
-          <div class="cs-text">‘오늘 못 하면 따라잡아야 한다’는 <strong>시간 기준</strong>으로 강제됩니다.</div>
-        </div>
-        <div class="cs-arrow">→</div>
-        <div class="cs-side cs-new">
-          <span class="cs-tag">회복 나침반</span>
-          <div class="cs-text"><strong>몸 반응 기준</strong>으로 운영. 준비가 되지 않으면 그 단계에 머뭅니다.</div>
-        </div>
-      </div>
-
-      <div class="cs-row reveal">
-        <div class="cs-side cs-old">
-          <span class="cs-tag">운동만 안내</span>
-          <div class="cs-text">컨디션·통증은 묻지 않고, <strong>운동 메뉴만</strong> 주어집니다.</div>
-        </div>
-        <div class="cs-arrow">→</div>
-        <div class="cs-side cs-new">
-          <span class="cs-tag">회복 나침반</span>
-          <div class="cs-text"><strong>컨디션 · 통증 · 활동량 흐름</strong>을 함께 분석해 그 날의 안전선을 안내합니다.</div>
-        </div>
-      </div>
-
-      <div class="cs-row reveal">
-        <div class="cs-side cs-old">
-          <span class="cs-tag">의존 구조</span>
-          <div class="cs-text">코칭이 끝나면 <strong>다시 길을 잃습니다.</strong> 의존이 누적되는 구조.</div>
-        </div>
-        <div class="cs-arrow">→</div>
-        <div class="cs-side cs-new">
-          <span class="cs-tag">회복 나침반</span>
-          <div class="cs-text">목표는 <strong>‘혼자서도 할 수 있게’.</strong> 일상에서의 자기 관리 감각이 남습니다.</div>
-        </div>
-      </div>
-
-      <div class="cs-row reveal">
-        <div class="cs-side cs-old">
-          <span class="cs-tag">반복되는 비용</span>
-          <div class="cs-text">PT·도수·필라테스가 <strong>월 30~96만원</strong>씩 누적됩니다.</div>
-        </div>
-        <div class="cs-arrow">→</div>
-        <div class="cs-side cs-new">
-          <span class="cs-tag">회복 나침반</span>
-          <div class="cs-text"><strong>79,000원 / 4주</strong>. 도구는 평생, 가이드북은 영구 업데이트.</div>
-        </div>
-      </div>
-    </div>
-
-    <p class="cs-footnote reveal">
-      모든 회복 방법에는 자리가 있습니다. <br/>
-      회복 나침반의 자리는 <strong>‘병원 전 단계의 자기 관리 구조’</strong> — 그 한 자리에 집중합니다.
+    <div class="eyebrow rv" style="color:var(--blue-700)">이게 저희가 다른 점입니다</div>
+    <h2 class="rv">막힐 때마다,<br>이미 답이 준비돼 있습니다.</h2>
+    <p class="lead rv" style="max-width:640px">
+      허리는 상황마다 답이 다릅니다. 검색해도 다 다른 말이 나오는 이유입니다.
+      저희는 참여자들이 실제로 막혔던 지점을 모아 <b>8가지 판단 기준</b>으로 정리해,
+      <b>모바일 앱 안에 그대로 담아뒀습니다.</b> 앞으로 겪으실 상황도 대부분 이 안에 있습니다.
     </p>
+    <div class="proto rv">
+      <span>어디서부터 시작할지</span>
+      <span>슬로우조깅은 언제 시작할지</span>
+      <span>통증이 심해졌을 때</span>
+      <span>얼마나 빨리 늘릴지</span>
+      <span>제자리걸음 같을 때</span>
+      <span>다시 아파졌을 때</span>
+      <span>거리·페이스 목표</span>
+      <span>혼자 해도 될 때는 언제인지</span>
+    </div>
+    <p class="usp-note rv">교과서에서 가져온 게 아닙니다. <b>실제 참여자 기록에서 뽑아낸 기준입니다.</b></p>
   </div>
 </section>
 
-<!-- ===== SOLUTION INTRO ===== -->
-<section class="section" id="how">
+<!-- 9 비용 -->
+<section class="cost2">
   <div class="wrap">
-    <div class="sec-head reveal" style="max-width: 760px;">
-      <div class="intro-flag">회복나침반 그룹 회복 프로그램</div>
-      <h2 class="sec-title" style="margin-top: 18px;">
-        우리는 우리의 <em style="color: var(--blue-700); font-style: normal;">실제 활동 데이터</em>와<br/>
-        <em style="color: var(--blue-700); font-style: normal;">변화 기록</em>을 가지고 나아갑니다.
-      </h2>
-      <p class="sec-sub">
-        혼자가 아닌 <strong>‘함께’</strong> 고민하고, 꾸준히 이어나가, 회복 방향에 도달시키는
-        그룹 단위의 회복 루틴입니다.
-      </p>
-    </div>
-
-    <div class="pillars">
-      <div class="pillar reveal">
-        <div class="ico">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-        </div>
-        <h4>함께 고민</h4>
-        <p>혼자 검색·고민하지 않고, 같은 길을 걷는 사람들과 연구소가 같이 답을 찾습니다.</p>
-      </div>
-      <div class="pillar reveal">
-        <div class="ico">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg>
-        </div>
-        <h4>꾸준히 이어가기</h4>
-        <p>매일의 활동·컨디션을 기록하고, 위젯이 그날의 강도를 안내합니다.</p>
-      </div>
-      <div class="pillar reveal">
-        <div class="ico">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 L2 7 l10 5 10-5 -10-5z"/><path d="M2 17 l10 5 10-5"/><path d="M2 12 l10 5 10-5"/></svg>
-        </div>
-        <h4>회복 방향 도달</h4>
-        <p>‘오늘의 한 점’이 아니라 ‘몇 주의 흐름’으로 회복 추세를 만들어 갑니다.</p>
+    <div class="eyebrow rv">참고로</div>
+    <h2 class="rv">그냥 두면<br>결국 여기로 갑니다.</h2>
+    <table class="ptable rv">
+      <tr><td>도수치료 <span>월 4회</span></td><td>28~60만원 <em>/ 월</em></td></tr>
+      <tr><td>체형교정 <span>월 4회</span></td><td>32~60만원 <em>/ 월</em></td></tr>
+      <tr><td>1:1 필라테스 <span>월 8회</span></td><td>56~96만원 <em>/ 월</em></td></tr>
+      <tr><td>신경차단주사</td><td>10~25만원 <em>/ 회</em></td></tr>
+      <tr><td>디스크 시술</td><td>200~500만원</td></tr>
+      <tr><td>디스크 수술</td><td>500~1,500만원</td></tr>
+    </table>
+    <div class="price rv">
+      <p class="pl">주사를 몇 번 맞고 수술을 받아도, 돌아가는 일상이 그대로면 같은 자리로 옵니다.</p>
+      <div class="pbox">
+        <div class="pb-l">회복나침반 그룹</div>
+        <div class="pb-n">79,000<span>원 / 4주</span></div>
+        <div class="pb-s">12주 이상 이어가시면 59,000원</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FEATURE 1 : Widget ===== -->
-<section class="section alt">
+
+
+<!-- ===== 기존 랜딩에서 그대로 가져온 섹션들 ===== -->
+
+<!-- 원본 유지: 대상자 안내 -->
+<section class="audience-section" id="audience">
   <div class="wrap">
-    <div class="sec-head reveal" style="text-align:center; margin: 0 auto 24px; max-width: 760px;">
-      <div class="sec-eyebrow">디스크 회복 루틴 · 01</div>
-      <h2 class="sec-title">회복비서 나침반 위젯 v2.1</h2>
+    <div class="aud-head reveal">
+      <div class="sec-eyebrow">Who is this for</div>
+      <h2 class="sec-title">이 프로그램이 맞는지<br/>먼저 확인해주세요.</h2>
       <p class="sec-sub" style="margin: 0 auto;">
-        1,000건 이상의 실제 참여자 기록 데이터를 분석해, 매일 회복 비서가 되어 진행을 돕는 위젯을 앱에 탑재합니다.
+        그룹 프로그램은 운영자의 개입이 <strong>주 1회 라이브 방송</strong>에 집중되는 구조입니다. 
+        그만큼 <strong>일상 속에서 무리없이 움직이실 수 있는 분</strong>에게 적합해요. <br/><strong style="color: var(--danger);">안전이 최우선이기 때문에</strong>, 신청 전 자기 점검을 권합니다.
       </p>
     </div>
 
-    <div class="feature-row">
-      <div class="feature-copy reveal">
-        <div class="feature-tag">FEATURE 01 · <span>매일의 비서</span></div>
-        <h3 class="feature-title">오늘의 활동량이 적정선인지,<br/>위젯이 먼저 알려줍니다.</h3>
-        <p class="feature-desc">
-          1대1 프로그램 참여자들의 회복 활동 데이터로 개발된 알고리즘이,
-          매일 아침 상태와 활동량 추이를 함께 보고 ‘오늘은 어떻게 움직일지’ 안내합니다.
-        </p>
-        <ul class="feature-bullets">
-          <li>컨디션 &amp; 활동량 추이 모니터링 멘트</li>
-          <li>활동 × 다음날 아침 상태 계산 기반 활동량 감시 비서</li>
-          <li>총 보행수 + 외부변수 여부에 따른 판단 도우미</li>
+    <div class="aud-split">
+      <!-- 적합 -->
+      <div class="aud-card aud-fit reveal">
+        <span class="ac-tag">이런 분께 권합니다</span>
+        <h3>총체적으로 혼란스러운 디스크 회복기에 있는 분</h3>
+        <p>회복 나침반은 ‘다음 한 걸음’이 보이지 않는 분들을 위해 설계됐어요. 다음 항목에 자신을 비춰보세요.</p>
+        <ul class="aud-list">
+          <li><span class="mark"></span><span>디스크 통증에서 헤어나오지 못하고, <strong>병원만 수십 곳 다니며</strong> 이 고통에 매몰된 분</span></li>
+          <li><span class="mark"></span><span>어떻게 움직여야 하는지, 어떻게 빠져나와야 하는지 <strong>방법을 모르겠는 분</strong></span></li>
+          <li><span class="mark"></span><span>"내가 <strong>다시 달릴 수 있을까?</strong>" 의문을 안고 있는 분</span></li>
+          <li><span class="mark"></span><span>자기 관리 구조가 필요하지만, <strong>혼자선 만들 자신이 없는 분</strong></span></li>
+          <li><span class="mark"></span><span>일상 속에서 <strong>슬로우조깅 5~10분이 원활히 가능한 분</strong></span></li>
         </ul>
+        <div class="aud-note">
+          <strong>모든 항목에 해당할 필요는 없어요.</strong> 한두 개라도 ‘내 얘기다’ 싶으시면 그룹 프로그램이 잘 맞습니다.
+        </div>
       </div>
 
-      <div class="feature-visual reveal">
-        <div class="phone">
-          <div class="phone-screen">
-            <div class="phone-status">
-              <span>9:41</span>
-              <div class="pills">
-                <span style="font-size:11px;">●●●●</span>
-                <span class="pill"></span>
-              </div>
-            </div>
-            <div class="widget-card">
-              <div class="wc-h">
-                <span class="ico-c"></span>
-                나의 회복 나침반
-              </div>
-              <div class="wc-title">
-                <svg class="heart" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>
-                활동 급증 주의
-              </div>
-              <div class="wc-sub">최근 평균 대비 오늘 활동량이 급증. 며칠은 같은 양으로 안정화 필요.</div>
-              <hr class="wc-line"/>
-              <div class="wc-row" style="font-weight: 700;">월요일 시작이네요. 조급해하지 않으셔도 돼요.</div>
-              <div class="wc-row" style="color: var(--ink-2);">현재 흐름 그대로 가시면 됩니다. 조급해하지 마세요.</div>
-              <div class="wc-tip">
-                <span class="bulb">💡</span>
-                오늘 보행수 <strong style="color: var(--ink);">6,500보</strong>, 적정선이에요.
-              </div>
-            </div>
-
-            <div style="margin: 0 18px 14px; padding: 12px 14px; background: #f7f9fb; border-radius: 14px; border: 1px solid #e6ecf1;">
-              <div style="font-size: 11px; color: var(--ink-3); letter-spacing: .12em; text-transform: uppercase; font-weight: 700;">TODAY · 5/19</div>
-              <div style="display:flex; gap: 16px; margin-top: 6px;">
-                <div><div style="font-size: 16px; font-weight: 800;">6,500</div><div style="font-size: 11px; color: var(--ink-3);">보행수</div></div>
-                <div><div style="font-size: 16px; font-weight: 800; color: var(--blue-700);">중간</div><div style="font-size: 11px; color: var(--ink-3);">컨디션</div></div>
-                <div><div style="font-size: 16px; font-weight: 800;">2.8</div><div style="font-size: 11px; color: var(--ink-3);">VAS</div></div>
-              </div>
-            </div>
+      <!-- 부적합 -->
+      <div class="aud-card aud-unfit reveal">
+        <div class="unfit-banner">
+          <span class="ub-icon">⚠</span>
+          <div>
+            <div class="ub-tag">필수 · 안전 체크</div>
+            <div class="ub-title">하나라도 해당되면, <span>그룹 신청 절대 불가</span></div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Widget proof showcase ===== -->
-<section class="widget-proof" id="widget-proof">
-  <div class="wrap">
-    <div class="wp-head reveal">
-      <div class="sec-eyebrow">Live algorithm · 매일 작동</div>
-      <h2 class="sec-title">그날의 안전선을,<br/>알고리즘이 매일 다시 계산합니다.</h2>
-      <p class="sec-sub">
-        기록자의 <strong style="color:#fff;">컨디션 · 통증 · 활동량 흐름</strong>을 종합 분석한 회복흐름 알고리즘이, 
-        그 날 <strong style="color:#fff;">안정적인 활동량을 안내</strong>합니다. 
-        단순 추천이 아닌, 회복기 의사결정의 도구입니다.
-      </p>
-      <span class="wp-live-tag">실제 운영중 · 매일 출력</span>
-    </div>
-
-    <!-- Flow diagram: Input → Algorithm → Output -->
-    <div class="wp-flow reveal">
-      <div class="wp-flow-title">How it works · 매일 작동 흐름</div>
-      <div class="wp-flow-grid">
-
-        <!-- Input -->
-        <div class="wp-stage-card">
-          <div class="wps-step">INPUT · 기록자 데이터</div>
-          <div class="wps-title">매일의 기록</div>
-          <ul class="wps-list">
-            <li>컨디션 5단계 (수행 전·중·후·다음날)</li>
-            <li>VAS 통증 점수 0~10</li>
-            <li>활동 시간 · 종류 · 보행수</li>
-            <li>외부변수 · 기상통 · 메모</li>
-          </ul>
-          <div class="wps-tag">→ <strong>기록자의 흐름</strong>이 만들어집니다</div>
-        </div>
-
-        <div class="wp-arrow">→</div>
-
-        <!-- Algorithm -->
-        <div class="wp-stage-card center">
-          <div class="wps-step">PROCESS · 회복흐름 알고리즘</div>
-          <div class="wps-title">1,000건 이상의 참여자 데이터로 학습된 모델이 계산</div>
-          <ul class="wps-list">
-            <li>활동량 추이 × 다음날 컨디션 매핑</li>
-            <li>통증 변화율 · 일관성 패턴 분석</li>
-            <li>외부변수 보정 · 안전선 추정</li>
-          </ul>
-          <div class="wps-tag">→ <strong>오늘의 적정 활동량</strong>이 도출됩니다</div>
-        </div>
-
-        <div class="wp-arrow">→</div>
-
-        <!-- Output -->
-        <div class="wp-stage-card right">
-          <div class="wps-step">OUTPUT · 안내</div>
-          <div class="wps-title">감소 · 유지 · 증진 신호</div>
-          <ul class="wps-list">
-            <li>오늘 무엇을 할 것인지</li>
-            <li>어느 강도까지가 안전한지</li>
-            <li>지금이 다음 단계로 갈 시점인지</li>
-          </ul>
-          <div class="wps-tag">→ <strong>매일 한 줄의 결정</strong>이 안내됩니다</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="wp-stage-eyebrow reveal"><span>실제 출력 예시 · 참여자 화면 캡쳐</span></div>
-
-    <div class="wp-stage">
-      <!-- 즉시 감소 -->
-      <div class="wp-col reveal" data-state="decrease">
-        <div class="wp-col-label">
-          <span class="wpl-dot"></span>
-          <span class="wpl-state">감소 신호</span>
-          <span class="wpl-scenario">안전선 초과 감지</span>
-        </div>
-        <div class="wp-shot">
-          <img src="img/widget-decrease.png" alt="회복 나침반 위젯 — 감소 신호 출력" />
-        </div>
-        <div class="wp-note">
-          참여자의 활동량이 <strong>최근 흐름 대비 안전선을 초과</strong>한 상태. 
-          알고리즘은 ‘무리한 누적’으로 판단해 <strong>즉시 페이스 감소</strong>를 안내합니다. 다음날 컨디션 악화 위험 차단.
-        </div>
-      </div>
-
-      <!-- 유지 -->
-      <div class="wp-col reveal" data-state="maintain">
-        <div class="wp-col-label">
-          <span class="wpl-dot"></span>
-          <span class="wpl-state">유지 신호</span>
-          <span class="wpl-scenario">안정 구간 정착</span>
-        </div>
-        <div class="wp-shot">
-          <img src="img/widget-maintain.png" alt="회복 나침반 위젯 — 유지 신호 출력" />
-        </div>
-        <div class="wp-note">
-          활동량이 <strong>안정 구간에 머무는 흐름</strong>. 
-          변화보다 누적이 우선인 시점으로 판단해 <strong>현재 페이스 유지</strong>를 안내합니다. 회복기 핵심 구간.
-        </div>
-      </div>
-
-      <!-- 증가 가능 -->
-      <div class="wp-col reveal" data-state="increase">
-        <div class="wp-col-label">
-          <span class="wpl-dot"></span>
-          <span class="wpl-state">증진 신호</span>
-          <span class="wpl-scenario">다음 단계 가능</span>
-        </div>
-        <div class="wp-shot">
-          <img src="img/widget-increase.png" alt="회복 나침반 위젯 — 증진 신호 출력" />
-        </div>
-        <div class="wp-note">
-          활동량과 컨디션이 <strong>안정 흐름 누적</strong>. 
-          알고리즘이 다음 단계로의 미세 증진 가능성을 식별, <strong>1~2일 확인 후 점진적 강도 증가</strong>를 안내합니다.
-        </div>
-      </div>
-    </div>
-
-    <div class="wp-callouts">
-      <div class="wp-call reveal">
-        <div class="wpc-ico">∑</div>
-        <h5>단순 추천이 아닌 계산</h5>
-        <p>‘일반론적 운동 가이드’가 아닌, <strong>개인 데이터로 매일 다시 계산</strong>되는 안전선. 같은 활동량이라도 다른 신호가 됩니다.</p>
-      </div>
-      <div class="wp-call reveal">
-        <div class="wpc-ico">⟳</div>
-        <h5>매일 다시 작동</h5>
-        <p>어제의 기록이 오늘의 안내를 바꿉니다. <strong>회복기 전체 흐름</strong>에서 누적된 데이터가 점점 정밀해집니다.</p>
-      </div>
-      <div class="wp-call reveal">
-        <div class="wpc-ico">⌖</div>
-        <h5>회복 의사결정 도구</h5>
-        <p>“오늘 움직일까 쉴까”의 <strong>매일의 결정 부담</strong>을 알고리즘이 대신 짊어집니다. 환자가 짊어진 인지 부하를 줄이는 게 본질입니다.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FEATURE 2 : Record App ===== -->
-<section class="section">
-  <div class="wrap">
-    <div class="feature-row reverse">
-      <div class="feature-visual reveal">
-        <div class="phone">
-          <div class="phone-screen">
-            <div class="phone-status">
-              <span>9:41</span>
-              <div class="pills">
-                <span style="font-size:11px;">●●●●</span>
-                <span class="pill"></span>
-              </div>
-            </div>
-            <div class="recordzone">
-              <div class="rec-h">오늘 기록</div>
-              <div class="rec-row">
-                <div class="rec-field"><div class="lbl">날짜</div>2026-05-19</div>
-                <div class="rec-field"><div class="lbl">활동</div>걷기</div>
-              </div>
-              <div class="rec-field" style="margin-bottom:8px;"><div class="lbl">활동 시간</div>25분</div>
-
-              <div class="rec-section-title">컨디션 기록 (5단계)</div>
-              <div class="rec-row">
-                <div class="rec-field"><div class="lbl">수행 전</div>보통</div>
-                <div class="rec-field"><div class="lbl">수행 중</div>보통</div>
-              </div>
-              <div class="rec-row">
-                <div class="rec-field"><div class="lbl">수행 직후</div>보통</div>
-                <div class="rec-field"><div class="lbl">다음날 아침</div>편안</div>
-              </div>
-
-              <div class="rec-section-title" style="margin-top:14px;">VAS 통증 점수</div>
-              <div class="vas-row">
-                <span class="vas-label">0</span>
-                <div class="vas-bar"></div>
-                <span class="vas-label">10</span>
-                <span class="vas-num">2.8</span>
-              </div>
-
-              <div class="rec-section-title" style="margin-top:14px;">필수 메모 3가지</div>
-              <div style="display:grid; gap: 6px;">
-                <div class="rec-field" style="font-size:10.5px; line-height:1.5;"><div class="lbl">1. 수행 소감</div>처음엔 무거운 느낌이 있었는데, 중반부터 점차 풀리는 느낌…</div>
-                <div class="rec-field" style="font-size:10.5px; line-height:1.5;"><div class="lbl">2. 최악의 순간</div>슬로우조깅 12분쯤 오른쪽 허리에 살짝 당김</div>
-                <div class="rec-field" style="font-size:10.5px; line-height:1.5;"><div class="lbl">3. 외부변수/상세기록</div>어제 잠을 5시간만 잠, 신발 새 거 신음</div>
-              </div>
-
-              <div class="rec-save">
-                <div class="b1">취소</div>
-                <div class="b2">기록 저장</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="feature-copy reveal">
-        <div class="feature-tag">FEATURE 02 · <span>매일의 기록지</span></div>
-        <h3 class="feature-title">정확하고 뚜렷한<br/>‘내 몸의 흐름’을 남깁니다.</h3>
-        <p class="feature-desc">
-          기존 방사통 범위 체크 등 1대1 프로그램의 기록 항목은 전부 유지됩니다.
-          위젯의 판단을 가능하게 하는, 가장 중요한 인풋이에요.
+        <p class="unfit-intro">
+          그룹 프로그램은 운영자의 직접 개입이 <strong>주 1회 라이브</strong>로 제한됩니다. 
+          정교한 일대일 관리가 필요한 상태에서는 안전을 보장할 수 없으며, 
+          <strong>해당 사례는 신청을 받지 않습니다.</strong>
         </p>
-        <ul class="feature-bullets">
-          <li>5단계 컨디션 기록 (수행 전·중·직후·다음날 아침)</li>
-          <li>VAS 통증 점수 0–10 · 보행수 · 외부변수 · 기상통</li>
-          <li>필수 메모 3가지 : 수행 소감 · 최악의 순간 · 외부변수</li>
+        <ul class="aud-list unfit-list">
+          <li><span class="mark"></span><span>가만히 있어도 <strong>순식간에 통증이 강하게 증가</strong>한다</span></li>
+          <li><span class="mark"></span><span><strong>대소변 실수</strong>를 한 적이 있다</span></li>
+          <li><span class="mark"></span><span><strong>땅에 발을 딛기 어렵다</strong></span></li>
+          <li><span class="mark"></span><span>하반신에 <strong>힘이 빠지거나 감각이 둔해진</strong> 상태다</span></li>
+          <li><span class="mark"></span><span>수술(고주파·내시경 등) 또는 시술(신경성형·풍선확장)을 <strong>받은 지 12주가 지나지 않았다</strong></span></li>
+          <li><span class="mark"></span><span><strong>슬로우조깅 자체가 어렵다</strong> (5~10분도 무리인 상태)</span></li>
         </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FEATURE 3 : Tracking ===== -->
-<section class="section dark">
-  <div class="wrap">
-    <div class="feature-row" style="border-bottom: 0;">
-      <div class="feature-copy reveal">
-        <div class="feature-tag" style="color: var(--blue-400);">FEATURE 03 · <span style="color:#98a6b7;">기간 추적</span></div>
-        <h3 class="feature-title" style="color:#fff;">기록에 따른 통증 &amp; 컨디션<br/>변동 추이를 추적·관리합니다.</h3>
-        <p class="feature-desc" style="color:#98a6b7;">
-          하루의 점이 아닌 ‘기간의 흐름’으로 회복을 봅니다.
-          7일 / 14일 / 전체 기간으로 통증·부하량·컨디션을 시각화해
-          “지금 줄어드는 추세인지” 한 눈에 알 수 있게 합니다.
-        </p>
-        <ul class="feature-bullets" style="color:#d6deea;">
-          <li style="color:#d6deea;">통증 추이 (VAS) — ↘ 우하향 = 회복 중</li>
-          <li style="color:#d6deea;">환산 부하량 + 컨디션 변화 그래프 (걷기 × 1.0 · 슬조 × 2.0 …)</li>
-          <li style="color:#d6deea;">평균 VAS · 기간 기록 · VAS 변화량 요약</li>
-        </ul>
-      </div>
-
-      <div class="feature-visual reveal">
-        <div style="position: relative; max-width: 420px; margin: 0 auto;">
-          <!-- Chart card 1: pain -->
-          <div class="chart-card" style="margin: 0;">
-            <div class="chart-h">
-              <span>기록 추이</span>
-              <span class="seg"><span>7일</span><span class="on">14일</span><span>전체</span></span>
-            </div>
-            <div class="chart-sub">총 6개 기록</div>
-            <div class="chart-title">● 통증 추이 (VAS) <small>↘ 우하향 = 회복 중</small></div>
-            <svg class="chart-svg" viewBox="0 0 320 120" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0" stop-color="#f3a350" stop-opacity=".35"/>
-                  <stop offset="1" stop-color="#f3a350" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-              <g stroke="#1d2733" stroke-width="1">
-                <line x1="0" y1="20" x2="320" y2="20"/>
-                <line x1="0" y1="50" x2="320" y2="50"/>
-                <line x1="0" y1="80" x2="320" y2="80"/>
-                <line x1="0" y1="110" x2="320" y2="110"/>
-              </g>
-              <path d="M10,90 C 60,82 80,70 110,55 S 150,18 180,28 S 230,98 260,100 S 290,80 310,72" fill="none" stroke="#f3a350" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10,90 C 60,82 80,70 110,55 S 150,18 180,28 S 230,98 260,100 S 290,80 310,72 L 310,120 L 10,120 Z" fill="url(#g1)"/>
-              <g fill="#f3a350">
-                <circle cx="10" cy="90" r="3"/>
-                <circle cx="110" cy="55" r="3"/>
-                <circle cx="180" cy="28" r="3"/>
-                <circle cx="260" cy="100" r="3"/>
-                <circle cx="310" cy="72" r="3"/>
-              </g>
-              <g fill="#66758a" font-size="9" font-family="Pretendard">
-                <text x="6" y="118">4/13</text>
-                <text x="100" y="118">4/20</text>
-                <text x="170" y="118">4/28</text>
-                <text x="240" y="118">5/04</text>
-                <text x="290" y="118">5/19</text>
-              </g>
-            </svg>
-          </div>
-
-          <!-- Chart card 2: condition + load (offset) -->
-          <div class="chart-card" style="margin-top: -10px; margin-left: 36px; transform: rotate(-1deg);">
-            <div class="chart-title" style="color:#a78cf2;">● 환산 부하량 + 컨디션 변화</div>
-            <div style="font-size:10.5px; color:#98a6b7; margin-bottom: 6px;">걷기×1.0 · 걷기+슬조×1.5 · 슬조×2.0 (활동시간 × 가중치)</div>
-            <svg class="chart-svg" viewBox="0 0 320 120" preserveAspectRatio="none" style="height:100px;">
-              <g stroke="#1d2733" stroke-width="1">
-                <line x1="0" y1="30" x2="320" y2="30"/>
-                <line x1="0" y1="60" x2="320" y2="60"/>
-                <line x1="0" y1="90" x2="320" y2="90"/>
-              </g>
-              <rect x="115" y="20" width="40" height="100" fill="#a78cf2" fill-opacity=".25" rx="3"/>
-              <!-- 운동 전 (blue) -->
-              <polyline points="10,80 70,82 130,75 195,68 250,60 310,52" fill="none" stroke="#6e9ab0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <!-- 다음날 (green) -->
-              <polyline points="10,65 70,60 130,40 195,55 250,45 310,30" fill="none" stroke="#5dd0a1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <g fill="#66758a" font-size="9" font-family="Pretendard">
-                <text x="6" y="115">4/13</text>
-                <text x="60" y="115">4/20</text>
-                <text x="120" y="115">4/28</text>
-                <text x="190" y="115">5/04</text>
-                <text x="290" y="115">5/19</text>
-              </g>
-            </svg>
-            <div style="display:flex; justify-content:space-between; margin-top: 6px; font-size: 10px; color:#98a6b7;">
-              <span>매우불편</span><span>불편</span><span>보통</span><span>편안</span><span>매우편안</span>
-            </div>
-          </div>
-
-          <!-- Summary -->
-          <div class="chart-summary">
-            <div class="chart-sum-row">
-              <div><div class="val orange">2.8</div><div class="lbl">평균 VAS</div></div>
-              <div><div class="val blue">6</div><div class="lbl">기간 기록</div></div>
-              <div><div class="val green">↓ 3.0</div><div class="lbl">VAS 변화</div></div>
-            </div>
-            <div class="chart-sum-msg">통증이 줄어드는 추세입니다. 잘 하고 있어요!</div>
-          </div>
+        <div class="aud-note unfit-note">
+          <strong>해당되시면</strong> 그룹이 아닌 <strong>회복 나침반 1대1 프로그램</strong>으로 안내드립니다. 그게 안전합니다.
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FEATURE 4 : Weekly Report ===== -->
-<section class="section alt">
-  <div class="wrap">
-    <div class="feature-row reverse" style="border-bottom: 0;">
-      <div class="feature-visual reveal">
-        <div class="phone" style="aspect-ratio: 9/16;">
-          <div class="phone-screen">
-            <div class="phone-status">
-              <span>9:41</span>
-              <div class="pills">
-                <span style="font-size:11px;">●●●●</span>
-                <span class="pill"></span>
-              </div>
-            </div>
-            <div style="padding: 6px 16px 0;">
-              <div style="font-size: 11px; color: var(--ink-3); font-weight: 700; letter-spacing: .12em; text-transform: uppercase;">SUN · WEEKLY REPORT</div>
-              <div style="font-size: 18px; font-weight: 800; letter-spacing: -.02em; margin-top: 4px;">이번 주 회복 점검</div>
-            </div>
-            <div class="report-deck">
-              <div class="report-card rc-pain">
-                <div class="rc-l">
-                  <div class="rc-t">↘ 통증 추이</div>
-                  <div class="rc-d">한 주간의 통증 추이 정보</div>
-                </div>
-                <span class="rc-edit">수정</span>
-              </div>
-              <div class="report-card rc-consist">
-                <div class="rc-l">
-                  <div class="rc-t">⌁ 수행 일관성</div>
-                  <div class="rc-d">한 주간의 수행 일관성 정보</div>
-                </div>
-                <span class="rc-edit">수정</span>
-              </div>
-              <div class="report-card rc-trigger">
-                <div class="rc-l">
-                  <div class="rc-t">⟳ 반복 트리거</div>
-                  <div class="rc-d">한 주간의 반복 트리거 사항</div>
-                </div>
-                <span class="rc-edit">수정</span>
-              </div>
-              <div class="report-card rc-signal">
-                <div class="rc-l">
-                  <div class="rc-t">⚠ 회복 신호 / 위험 신호</div>
-                  <div class="rc-d">한 주간의 회복 / 위험 신호 여부</div>
-                </div>
-                <span class="rc-edit">수정</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="feature-copy reveal">
-        <div class="feature-tag">FEATURE 04 · <span>주말 점검</span></div>
-        <h3 class="feature-title">한 주의 흐름을<br/>리포트로 받아봅니다.</h3>
-        <p class="feature-desc">
-          매주 일요일, 한 주간의 활동·컨디션·통증·트리거를 모아 회복 흐름에 관한 점검 리포트를 받아봅니다.
-          내 몸이 보내는 회복 신호와 위험 신호를 놓치지 않도록 정리해드려요.
-        </p>
-        <ul class="feature-bullets">
-          <li>통증 추이 · 수행 일관성 · 반복 트리거 항목 점검</li>
-          <li>회복 신호 / 위험 신호 표시로 다음 주 방향 설정</li>
-          <li>필요 시 코멘트 수정 → 라이브 토의로 연결</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FEATURE 5 : Live Talk ===== -->
-<section class="section">
-  <div class="wrap">
-    <div class="feature-row" style="border-bottom: 0;">
-      <div class="feature-copy reveal">
-        <div class="feature-tag">FEATURE 05 · <span>그룹 라이브 + 오픈채팅</span></div>
-        <h3 class="feature-title">주 1회 유튜브 라이브,<br/>매일의 오픈채팅방 인증.</h3>
-        <p class="feature-desc">
-          그 주의 고민 사항을 <strong>유튜브 라이브</strong>에서 회복연구소가 직접 풀어드립니다.
-          오픈채팅방은 매일의 <strong>활동 인증 전용 채널</strong>로 함께 움직이는 그룹의 힘을 끌어올립니다.
-        </p>
-        <ul class="feature-bullets">
-          <li>주 1회 <strong>유튜브 라이브</strong> — 회복연구소와 그룹원의 직접 소통</li>
-          <li>오픈채팅방은 <strong>활동 인증 전용</strong> (스마트워치 · 어플 · 활동사진)</li>
-          <li>같은 길을 걷는 그룹원과 활동량·통증 양상 공유</li>
-        </ul>
-      </div>
-      <div class="feature-visual reveal">
-        <div style="max-width: 420px; margin: 0 auto;">
-          <div class="live-card" style="padding: 0; overflow: hidden;">
-            <!-- Video preview -->
-            <div class="yt-stage">
-              <div class="yt-video">
-                <div class="yt-host">
-                  <div class="yt-avatar">회</div>
-                  <div class="yt-host-meta">
-                    <div class="yt-host-name">회복연구소</div>
-                    <div class="yt-host-status">방송 중</div>
-                  </div>
-                </div>
-                <span class="yt-live-badge">● LIVE</span>
-                <div class="yt-viewers">👁 24명 시청 중</div>
-              </div>
-              <div class="yt-meta">
-                <div class="yt-title">그룹 라이브 · 이번 주 회복 토의</div>
-                <div class="yt-sub">매주 1회, 회복연구소와 그룹원의 직접 소통</div>
-              </div>
-            </div>
-            <!-- Viewer-only chat -->
-            <div class="yt-chatpanel">
-              <div class="yt-chathead">
-                <span>실시간 채팅</span>
-                <span class="yt-dot"></span>
-              </div>
-              <div class="yt-chat">
-                <div class="ytc-row"><span class="ytc-name" style="color:#2196f3;">박○○</span><span class="ytc-msg">슬로우조깅 18분, 다음날 컨디션 ‘편안’이에요</span></div>
-                <div class="ytc-row"><span class="ytc-name" style="color:#9c27b0;">김○○</span><span class="ytc-msg">새벽 컨디션이 좀 불편한데… 오늘은 쉬는 게 맞을까요?</span></div>
-                <div class="ytc-row"><span class="ytc-name" style="color:#ff6f00;">이○○</span><span class="ytc-msg">위젯에 ‘감소 신호’ 떴는데 보행 어디까지 괜찮을까요?</span></div>
-                <div class="ytc-row"><span class="ytc-name" style="color:#4caf50;">정○○</span><span class="ytc-msg">감사합니다 다음 주에도 같이 해요!</span></div>
-              </div>
-            </div>
-          </div>
-
-          <div style="margin-top: 18px; padding: 18px 22px; background: var(--paper); border: 1px solid var(--line); border-radius: 18px;">
-            <div style="font-size: 12px; color: var(--blue-700); font-weight: 700; letter-spacing: .12em; text-transform: uppercase;">오픈채팅방 · 활동 인증</div>
-            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
-              <div style="padding: 10px 12px; border-radius: 12px; background: var(--blue-50); font-size: 12.5px;">⌚ 스마트워치<br/><span style="color: var(--ink-3); font-size: 11.5px;">or 어플 · 활동사진</span></div>
-              <div style="padding: 10px 12px; border-radius: 12px; background: var(--blue-50); font-size: 12.5px;">📊 활동량 + 통증<br/><span style="color: var(--ink-3); font-size: 11.5px;">양상 공유</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== VOD (Weekly Guide Videos) ===== -->
-<section class="vod-section" id="vod">
-  <div class="wrap">
-    <div class="vod-head reveal">
-      <div class="sec-eyebrow">Weekly guide · VOD</div>
-      <h2 class="sec-title">주차별 가이드 영상,<br/>회복연구소가 직접 진행합니다.</h2>
-      <p class="sec-sub">
-        매주의 방향, 알고리즘이 작동하는 원리, 그 주에 일어날 변화 ─
-        <strong style="color:#fff;">그 주에 알아야 할 모든 맥락</strong>을 회복연구소가 영상으로 직접 짚어드립니다.
-      </p>
-      <div class="vod-meta">
-        <span><strong>5~10분</strong> 분량</span>
-        <span class="sep">·</span>
-        <span>주차별 가이드 영상</span>
-        <span class="sep">·</span>
-        <span>앱 내 <strong>카드 형식</strong>으로 탑재</span>
-      </div>
-    </div>
-
-    <div class="vod-grid">
-      <!-- Left: data analysis video (large) -->
-      <div class="vod-shot reveal">
-        <img src="img/vod-data.jpg" alt="회복연구소 주차별 가이드 영상 — 알고리즘 데이터 분석편" />
-        <span class="vod-badge">분석편 · v.2.1</span>
-        <div class="vod-play"></div>
-        <div class="vod-caption">
-          <div class="vc-week">알고리즘 해설편</div>
-          <div class="vc-title">컨디션 조합 분포도와<br/>외부변수·보행수 경보 시스템</div>
-        </div>
-      </div>
-
-      <!-- Right: vertical stack of intro + 2 feature cards -->
-      <div class="vod-side">
-        <div class="vod-shot reveal" style="aspect-ratio: 16 / 9;">
-          <img src="img/vod-intro.jpg" alt="회복연구소 주차별 가이드 영상 — 1주차 안내" />
-          <span class="vod-badge">1주차 안내</span>
-          <div class="vod-play"></div>
-          <div class="vod-caption">
-            <div class="vc-week">Week 01 · 시작</div>
-            <div class="vc-title">한 번도 해본 적 없던<br/>내 몸의 반응 관찰</div>
-          </div>
-        </div>
-
-        <div class="vod-feature reveal">
-          <div class="vf-num">왜 영상으로 안내하나요</div>
-          <h4>맥락 없는 회복은 길을 잃습니다.</h4>
-          <p>그 주에 <strong>무엇을 왜 하는지</strong>, 알고리즘은 <strong>무엇을 보고 판단하는지</strong>, 변화의 사인은 무엇인지 — 텍스트로는 전달되지 않는 맥락을 영상이 채웁니다.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Curriculum (3 stages × 4 weeks) ===== -->
+<!-- 원본 유지: 12주 커리큘럼 -->
 <section class="curriculum-section" id="curriculum">
   <div class="wrap">
     <div class="curr-head reveal">
@@ -3768,205 +3038,60 @@
   </div>
 </section>
 
-<!-- ===== Audience + Safety Screening ===== -->
-<section class="audience-section" id="audience">
+<!-- 원본 유지: VOD -->
+<section class="vod-section" id="vod">
   <div class="wrap">
-    <div class="aud-head reveal">
-      <div class="sec-eyebrow">Who is this for</div>
-      <h2 class="sec-title">이 프로그램이 맞는지<br/>먼저 확인해주세요.</h2>
-      <p class="sec-sub" style="margin: 0 auto;">
-        그룹 프로그램은 운영자의 개입이 <strong>주 1회 라이브 방송</strong>에 집중되는 구조입니다. 
-        그만큼 <strong>일상 속에서 무리없이 움직이실 수 있는 분</strong>에게 적합해요. <br/><strong style="color: var(--danger);">안전이 최우선이기 때문에</strong>, 신청 전 자기 점검을 권합니다.
+    <div class="vod-head reveal">
+      <div class="sec-eyebrow">Weekly guide · VOD</div>
+      <h2 class="sec-title">주차별 가이드 영상,<br/>회복연구소가 직접 진행합니다.</h2>
+      <p class="sec-sub">
+        매주의 방향, 알고리즘이 작동하는 원리, 그 주에 일어날 변화 ─
+        <strong style="color:#fff;">그 주에 알아야 할 모든 맥락</strong>을 회복연구소가 영상으로 직접 짚어드립니다.
       </p>
+      <div class="vod-meta">
+        <span><strong>5~10분</strong> 분량</span>
+        <span class="sep">·</span>
+        <span>주차별 가이드 영상</span>
+        <span class="sep">·</span>
+        <span>앱 내 <strong>카드 형식</strong>으로 탑재</span>
+      </div>
     </div>
 
-    <div class="aud-split">
-      <!-- 적합 -->
-      <div class="aud-card aud-fit reveal">
-        <span class="ac-tag">이런 분께 권합니다</span>
-        <h3>총체적으로 혼란스러운 디스크 회복기에 있는 분</h3>
-        <p>회복 나침반은 ‘다음 한 걸음’이 보이지 않는 분들을 위해 설계됐어요. 다음 항목에 자신을 비춰보세요.</p>
-        <ul class="aud-list">
-          <li><span class="mark"></span><span>디스크 통증에서 헤어나오지 못하고, <strong>병원만 수십 곳 다니며</strong> 이 고통에 매몰된 분</span></li>
-          <li><span class="mark"></span><span>어떻게 움직여야 하는지, 어떻게 빠져나와야 하는지 <strong>방법을 모르겠는 분</strong></span></li>
-          <li><span class="mark"></span><span>"내가 <strong>다시 달릴 수 있을까?</strong>" 의문을 안고 있는 분</span></li>
-          <li><span class="mark"></span><span>자기 관리 구조가 필요하지만, <strong>혼자선 만들 자신이 없는 분</strong></span></li>
-          <li><span class="mark"></span><span>일상 속에서 <strong>슬로우조깅 5분 이상이 원활히 가능한 분</strong></span></li>
-        </ul>
-        <div class="aud-note">
-          <strong>모든 항목에 해당할 필요는 없어요.</strong> 한두 개라도 ‘내 얘기다’ 싶으시면 그룹 프로그램이 잘 맞습니다.
+    <div class="vod-grid">
+      <!-- Left: data analysis video (large) -->
+      <div class="vod-shot reveal">
+        <img src="img/vod-data.jpg" alt="회복연구소 주차별 가이드 영상 — 알고리즘 데이터 분석편" />
+        <span class="vod-badge">분석편 · v.2.1</span>
+        <div class="vod-play"></div>
+        <div class="vod-caption">
+          <div class="vc-week">알고리즘 해설편</div>
+          <div class="vc-title">컨디션 조합 분포도와<br/>외부변수·보행수 경보 시스템</div>
         </div>
       </div>
 
-      <!-- 부적합 -->
-      <div class="aud-card aud-unfit reveal">
-        <div class="unfit-banner">
-          <span class="ub-icon">⚠</span>
-          <div>
-            <div class="ub-tag">필수 · 안전 체크</div>
-            <div class="ub-title">하나라도 해당되면, <span>그룹 신청 절대 불가</span></div>
+      <!-- Right: vertical stack of intro + 2 feature cards -->
+      <div class="vod-side">
+        <div class="vod-shot reveal" style="aspect-ratio: 16 / 9;">
+          <img src="img/vod-intro.jpg" alt="회복연구소 주차별 가이드 영상 — 1주차 안내" />
+          <span class="vod-badge">1주차 안내</span>
+          <div class="vod-play"></div>
+          <div class="vod-caption">
+            <div class="vc-week">Week 01 · 시작</div>
+            <div class="vc-title">한 번도 해본 적 없던<br/>내 몸의 반응 관찰</div>
           </div>
         </div>
-        <p class="unfit-intro">
-          그룹 프로그램은 운영자의 직접 개입이 <strong>주 1회 라이브</strong>로 제한됩니다. 
-          정교한 일대일 관리가 필요한 상태에서는 안전을 보장할 수 없으며, 
-          <strong>해당 사례는 신청을 받지 않습니다.</strong>
-        </p>
-        <ul class="aud-list unfit-list">
-          <li><span class="mark"></span><span>가만히 있어도 <strong>순식간에 통증이 강하게 증가</strong>한다</span></li>
-          <li><span class="mark"></span><span><strong>대소변 실수</strong>를 한 적이 있다</span></li>
-          <li><span class="mark"></span><span><strong>땅에 발을 딛기 어렵다</strong></span></li>
-          <li><span class="mark"></span><span>하반신에 <strong>힘이 빠지거나 감각이 둔해진</strong> 상태다</span></li>
-          <li><span class="mark"></span><span>수술(고주파·내시경 등) 또는 시술(신경성형·풍선확장)을 <strong>받은 지 12주가 지나지 않았다</strong></span></li>
-        </ul>
-        <div class="aud-note unfit-note">
-          <strong>해당되시면</strong> 그룹이 아닌 <strong>회복 나침반 1대1 프로그램</strong>으로 안내드립니다. 그게 안전합니다.
+
+        <div class="vod-feature reveal">
+          <div class="vf-num">왜 영상으로 안내하나요</div>
+          <h4>맥락 없는 회복은 길을 잃습니다.</h4>
+          <p>그 주에 <strong>무엇을 왜 하는지</strong>, 알고리즘은 <strong>무엇을 보고 판단하는지</strong>, 변화의 사인은 무엇인지 — 텍스트로는 전달되지 않는 맥락을 영상이 채웁니다.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== Pricing / Value ===== -->
-<section class="price-section" id="pricing">
-  <div class="wrap">
-
-    <!-- Header -->
-    <div class="price-head reveal">
-      <span class="free-tag">회복 나침반 그룹 프로그램 · 상시 모집 중</span>
-      <h2 class="price-title">
-        4주 동안 함께 만드는<br/>
-        <span class="price-pop">병원 전 회복 구조</span>
-      </h2>
-      <p class="price-sub">
-        혼자 헤매던 길에서, 매일 안정적인 흐름을 함께 잡아갑니다.
-      </p>
-    </div>
-
-    <!-- Price card -->
-    <div class="price-card reveal">
-      <div class="pc-left">
-        <div class="pc-new">
-          <span class="pc-num">79,000</span><span class="pc-won">원</span><span class="pc-per">/ 4주</span>
-        </div>
-        <div class="pc-tagline">신청 즉시 시작 · 주 1회 라이브 (총 4회) · 4주 단위 결제</div>
-        <div style="margin-top:10px; font-size:13px; color:#059669; font-weight:600;">✓ 12주 이상 참여자는 59,000원 적용</div>
-        <a class="btn-primary pc-cta" href="./apply.html" target="_blank" rel="noopener">
-          지금 시작하기
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-      <div class="pc-spec">
-        <div class="ps-item"><strong>4주</strong><span>프로그램 기간</span></div>
-        <div class="ps-item"><strong>4회</strong><span>주 1회 라이브</span></div>
-        <div class="ps-item"><strong>상시</strong><span>모집</span></div>
-        <div class="ps-item"><strong>v2.1</strong><span>나침반 위젯</span></div>
-      </div>
-    </div>
-
-    <!-- Value stack -->
-    <div class="value-stack-head reveal">
-      <div class="sec-eyebrow">What's included</div>
-      <h3>이 가격에 들어있는 6가지</h3>
-    </div>
-    <div class="value-stack">
-      <div class="vs-row reveal">
-        <div class="vs-l">
-          <div class="vs-n">01 / 매일</div>
-          <h4>회복비서 나침반 위젯 v2.1</h4>
-          <p>1대1 프로그램에서 나온 <strong>1,000건 이상의 실제 참여자 기록 데이터</strong>를 분석한 알고리즘이 매일 회복 비서가 되어 안정적인 흐름을 안내합니다.</p>
-        </div>
-        <div class="vs-r"><span class="vs-val">매일 동작</span></div>
-      </div>
-
-      <div class="vs-row reveal">
-        <div class="vs-l">
-          <div class="vs-n">02 / 평생</div>
-          <h4>회복연구소의 가이드북 <span class="vs-tag-inline">평생 제공</span></h4>
-          <p>회복 여정의 맥락을 정확히 이해할 수 있는, 연구소가 정리한 핵심 가이드. <strong>한 번 받으시면 평생 소장 + 평생 업데이트</strong>를 누리실 수 있습니다.</p>
-        </div>
-        <div class="vs-r"><span class="vs-val">평생 + 업데이트</span></div>
-      </div>
-
-      <div class="vs-row reveal">
-        <div class="vs-l">
-          <div class="vs-n">03 / 주 1회</div>
-          <h4>그룹 라이브 토의 (총 4회)</h4>
-          <p>그 주의 고민 사항을 연구소와 그룹원들이 다 함께 풀어봅니다. 같은 길을 걷는 사람들과의 공통 문제 해결.</p>
-        </div>
-        <div class="vs-r"><span class="vs-val">라이브 4회</span></div>
-      </div>
-
-      <div class="vs-row reveal">
-        <div class="vs-l">
-          <div class="vs-n">04 / 일상</div>
-          <h4>오픈채팅방 · 활동 인증 제도</h4>
-          <p>스마트워치·어플·활동사진 등 어떤 형태로든 매일의 움직임을 인증. 함께 움직이는 그룹의 힘으로 '혼자가 아닌' 루틴이 만들어집니다.</p>
-        </div>
-        <div class="vs-r"><span class="vs-val">매일 동행</span></div>
-      </div>
-
-      <div class="vs-row reveal">
-        <div class="vs-l">
-          <div class="vs-n">05 / 주말</div>
-          <h4>주말 점검 리포트</h4>
-          <p>한 주의 <strong>통증 추이 · 수행 일관성 · 반복 트리거 · 회복 신호 / 위험 신호</strong>를 모아 보내드립니다. 다음 주의 방향이 명확해집니다.</p>
-        </div>
-        <div class="vs-r"><span class="vs-val">리포트 4회</span></div>
-      </div>
-
-      <div class="vs-row reveal">
-        <div class="vs-l">
-          <div class="vs-n">06 / 판단</div>
-          <h4>우리의 8가지 프로토콜</h4>
-          <p>참여자들의 회복 흐름을 분석해서 상황별 판단 기준을 만들었습니다. <strong>시작 기준 정하기, 슬로우조깅 도입 시점, 통증이 심해졌을 때, 늘리는 속도 정하기, 제자리걸음 느낌일 때, 졸업 후 혼자 해도 될까, 다시 아파졌을 때, 거리·페이스 목표</strong>까지 8가지 상황별 프로토콜로 안내합니다.</p>
-        </div>
-        <div class="vs-r"><span class="vs-val">프로토콜 8종</span></div>
-      </div>
-    </div>
-
-    <!-- Compare -->
-    <div class="compare-head reveal">
-      <div class="sec-eyebrow">A different path</div>
-      <h3>혼자 헤매는 길의 비용</h3>
-      <p>다른 치료의 가치를 평가하려는 게 아닙니다. '병원 전 단계의 자기 관리 구조'가 없을 때, 같은 흐름이 어떻게 반복되는지를 비용으로 보여드릴 뿐입니다.</p>
-    </div>
-
-    <div class="compare-grid">
-      <div class="cmp-card reveal"><div class="cmp-h">도수치료 (월 4회)</div><div class="cmp-p">28~60만원 / 월</div><div class="cmp-s">회당 7~15만원</div></div>
-      <div class="cmp-card reveal"><div class="cmp-h">체형교정 (월 4회)</div><div class="cmp-p">32~60만원 / 월</div><div class="cmp-s">회당 8~15만원</div></div>
-      <div class="cmp-card reveal"><div class="cmp-h">필라테스 1:1 (월 8회)</div><div class="cmp-p">56~96만원 / 월</div><div class="cmp-s">회당 7~12만원</div></div>
-      <div class="cmp-card reveal"><div class="cmp-h">신경차단주사</div><div class="cmp-p">10~25만원 / 회</div><div class="cmp-s">반복 시 수십만원~</div></div>
-      <div class="cmp-card reveal"><div class="cmp-h">디스크 시술</div><div class="cmp-p">200~500만원</div><div class="cmp-s">시술 종류별 상이</div></div>
-      <div class="cmp-card cmp-bad reveal"><div class="cmp-h">디스크 수술</div><div class="cmp-p">500~1,500만원</div><div class="cmp-s">관리 부재 시 재발 위험</div></div>
-    </div>
-
-    <div class="compare-conclusion reveal">
-      <div class="conc-eye">결국 필요한 건</div>
-      <blockquote>
-        신경차단주사를 몇십 번, 수술을 몇 번 받더라도<br/>
-        <strong>관리 방식 없이 일상으로 돌아간다면</strong>, 같은 상황만 반복됩니다.
-      </blockquote>
-      <h4>병원 전 단계에서, <em>스스로 관리할 수 있는 구조</em>를 만드는 것.</h4>
-      <p class="conc-price">그 구조를 4주 동안 함께 만드는 비용 — <strong>79,000원 / 4주</strong></p>
-    </div>
-
-    <!-- Why this price -->
-    <div class="why-price reveal">
-      <div class="wp-tag">가격에 대한 안내</div>
-      <h4>왜 79,000원인가요?</h4>
-      <p>
-        회복은 12주의 여정이고, 4주씩 결제로 함께 가는 구조입니다.
-        12주 이상 이어가시면 <strong>59,000원</strong>이 적용됩니다.
-      </p>
-      <p style="color:#98a6b7; font-size: 13.5px;">
-        ※ 12주를 모두 이어가시면 <strong style="color:#fff;">12주 풀 커리큘럼이 237,000원</strong>.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FAQ ===== -->
+<!-- 원본 유지: FAQ -->
 <section class="faq-section" id="faq">
   <div class="wrap">
     <div class="faq-head reveal">
@@ -3988,6 +3113,7 @@
         <div class="faq-a">
           <p>신청 후 <strong>오픈채팅방으로 안내 공지</strong>를 받으시고, <strong>앱에 로그인</strong>하시면 됩니다.</p>
           <p>앱에 들어오시면 몇 가지 진단 질문이 펼쳐져요. 그 질문에 답하시는 것만으로 <strong>‘나의 적정 시작 기준’</strong>이 자동 설정됩니다.</p>
+          <p>시작 전 <strong>오리엔테이션 영상</strong>을 보내드립니다. 진행 방식과 안내사항이 <strong>그 안에 전부 담겨 있어요.</strong></p>
           <div class="faq-callout">→ 그 시작 기준부터 <strong>아주 작게</strong> 시작하시면 됩니다.</div>
         </div>
       </details>
@@ -4048,7 +3174,7 @@
   </div>
 </section>
 
-<!-- ===== Disclaimer ===== -->
+<!-- 원본 유지: 주의사항 -->
 <section class="section">
   <div class="wrap">
     <div class="sec-head reveal" style="text-align:center; margin: 0 auto;">
@@ -4084,211 +3210,60 @@
   </div>
 </section>
 
-<!-- ===== Final CTA ===== -->
-<section class="final-cta" id="apply">
-  <div class="wrap" style="position: relative;">
-    <div class="reveal">
-      <span class="free-tag" style="background: rgba(217,119,87,.18); color: #f3b599;">회복나침반 그룹 프로그램 · 상시 모집 중</span>
-      <h2>혼자 끝없는 도돌이표 대신,<br/>함께 회복 방향으로.</h2>
-      <p>지금이 가장 좋은 시작점이에요.</p>
+<!-- ===== 여기까지 원본 유지 ===== -->
 
-      <a class="btn-accent" href="./apply.html" target="_blank" rel="noopener" id="applyBtn">
-        신청하기 · 79,000원
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
-
-      <div class="meta-line">
-        <span><span class="dot"></span> 상시 모집 중</span>
-        <span>· 상시 모집</span>
+<!-- 10 -->
+<section class="vs">
+  <div class="wrap">
+    <h2 class="rv">지금 두 갈래 중<br>하나를 고르시는 겁니다.</h2>
+    <div class="vs-grid rv">
+      <div class="vs-col vs-a">
+        <h3>참으면서<br>그대로 두는 쪽</h3>
+        <p>좋아졌다 나빠졌다를 반복합니다. 뭘 해도 되는지 몰라서 다 조심합니다. 포기한 것들은 계속 포기한 채로 남습니다.</p>
+      </div>
+      <div class="vs-mid">VS</div>
+      <div class="vs-col vs-b">
+        <h3>오늘부터<br>하나씩 되찾는 쪽</h3>
+        <p>오늘 뭘 하면 되는지 알고 시작합니다. 막히면 같이 풉니다. 못 하던 것이 하나씩 되기 시작합니다.</p>
       </div>
     </div>
+    <p class="vs-close rv">아무것도 하지 않는다면,<br>아무도 구해주지 않더라고요.</p>
   </div>
 </section>
 
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <h2 class="rv">허리디스크 회복을<br>오늘부터 만들어가신다면.</h2>
+    <p class="lead rv" style="margin-bottom:36px">회복나침반 그룹 프로그램은 상시 모집합니다.</p>
+    <a class="btn rv" href="./apply.html">참여 신청하기</a>
+    <small class="rv">신청하시면 시작 안내를 문자로 보내드립니다.</small>
+  </div>
+</section>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.14});
+  document.querySelectorAll('.rv').forEach(function(el,i){
+    el.style.transitionDelay=(Math.min(i,3)*70)+'ms'; io.observe(el);
+  });
+  // 기존 랜딩에서 가져온 섹션들은 .reveal 로 숨어 있다. 같은 방식으로 드러낸다.
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
 <footer>
   © 2026 허리디스크 회복연구소 · Disc Recovery Lab. 본 페이지는 회복 경험 기반 참고 자료이며, 전문가 상담을 대체하지 않습니다.
 </footer>
-
-<!-- ===== Tweaks Panel (정밀 조절) ===== -->
-<div id="tweaks-root"></div>
-<style id="tweaks-override"></style>
-
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-<script type="text/babel" src="tweaks-panel.jsx"></script>
-
-<script type="text/babel">
-  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-    "heroSize": 76,
-    "titleSize": 43,
-    "bodySize": 17,
-    "smallSize": 14.5,
-    "buttonSize": 16,
-    "letterSpacing": -3.5,
-    "radius": 22,
-    "primaryColor": "#4a7a93",
-    "accentColor": "#d97757",
-    "inkColor": "#1d2730",
-    "bgColor": "#f7f6f3"
-  }/*EDITMODE-END*/;
-
-  // helpers
-  function hexToRgb(hex) {
-    const m = hex.replace('#','').match(/.{2}/g);
-    if (!m) return [0,0,0];
-    return m.map(h => parseInt(h,16));
-  }
-  function rgbToHex([r,g,b]) {
-    return '#' + [r,g,b].map(n => Math.max(0, Math.min(255, n|0)).toString(16).padStart(2,'0')).join('');
-  }
-  function mix(c1, c2, t) {
-    const a = hexToRgb(c1), b = hexToRgb(c2);
-    return rgbToHex([a[0]+(b[0]-a[0])*t, a[1]+(b[1]-a[1])*t, a[2]+(b[2]-a[2])*t]);
-  }
-  function lighten(hex, t) { return mix(hex, '#ffffff', t); }
-  function darken(hex, t)  { return mix(hex, '#000000', t); }
-
-  function applyTweaks(t) {
-    const blue900 = darken(t.primaryColor, .25);
-    const blue700 = t.primaryColor;
-    const blue500 = lighten(t.primaryColor, .15);
-    const blue400 = lighten(t.primaryColor, .28);
-    const blue200 = lighten(t.primaryColor, .65);
-    const blue50  = lighten(t.primaryColor, .88);
-
-    const accentSoft = lighten(t.accentColor, .82);
-    const bg2 = lighten(t.bgColor, .35);
-
-    const css = `
-      :root {
-        --blue-900: ${blue900};
-        --blue-700: ${blue700};
-        --blue-500: ${blue500};
-        --blue-400: ${blue400};
-        --blue-200: ${blue200};
-        --blue-50:  ${blue50};
-        --accent: ${t.accentColor};
-        --accent-soft: ${accentSoft};
-        --ink: ${t.inkColor};
-        --ink-2: #46535e;
-        --ink-3: #7a8893;
-        --bg: ${t.bgColor};
-        --bg-2: ${bg2};
-        --paper: #ffffff;
-        --line: #e6e8eb;
-        --danger: #c1556a;
-        --r-sm: 8px; --r-md: 14px; --r-lg: 22px; --r-xl: 32px;
-        --shadow-sm: 0 1px 2px rgba(20,40,60,.04), 0 2px 6px rgba(20,40,60,.04);
-        --shadow-md: 0 6px 18px rgba(30,60,90,.08), 0 1px 4px rgba(30,60,90,.06);
-        --shadow-lg: 0 24px 60px -20px rgba(30,60,90,.25), 0 6px 20px rgba(30,60,90,.08);
-      }
-      .h-display { font-size: ${t.heroSize}px !important; letter-spacing: ${t.letterSpacing/100}em !important; }
-      .sec-title { font-size: ${t.titleSize}px !important; }
-      .feature-title { font-size: ${Math.max(20, t.titleSize - 12)}px !important; }
-      .h-lede, .sec-sub, .feature-desc { font-size: ${t.bodySize}px !important; }
-      .feature-bullets li, .problem-card p, .pillar p, .disc-card p, .ask-card p { font-size: ${t.smallSize}px !important; }
-      .btn-primary, .btn-accent { font-size: ${t.buttonSize}px !important; }
-      .problem-card, .pillar, .ask-card, .disc-card, .why-banner { border-radius: ${t.radius}px !important; }
-      .free-title { font-size: ${Math.round(t.titleSize * 1.3)}px !important; }
-      .final-cta h2 { font-size: ${Math.round(t.titleSize * 1.27)}px !important; }
-      .why-title { font-size: ${Math.round(t.titleSize * 0.87)}px !important; }
-
-      @media (max-width: 760px) {
-        .h-display { font-size: ${Math.round(t.heroSize * 0.52)}px !important; letter-spacing: -.025em !important; }
-        .sec-title { font-size: ${Math.round(t.titleSize * 0.7)}px !important; }
-        .feature-title { font-size: ${Math.round(Math.max(20, t.titleSize - 12) * 0.75)}px !important; }
-        .h-lede, .sec-sub, .feature-desc { font-size: ${Math.max(14, t.bodySize - 2)}px !important; }
-        .feature-bullets li, .problem-card p, .pillar p, .disc-card p, .ask-card p { font-size: ${Math.max(13, t.smallSize - 1)}px !important; }
-        .btn-primary, .btn-accent { font-size: ${Math.max(14, t.buttonSize - 1)}px !important; }
-        .free-title { font-size: ${Math.round(t.titleSize * 1.0)}px !important; }
-        .final-cta h2 { font-size: ${Math.round(t.titleSize * 0.95)}px !important; }
-        .why-title { font-size: ${Math.round(t.titleSize * 0.7)}px !important; }
-      }
-      @media (max-width: 480px) {
-        .h-display { font-size: ${Math.round(t.heroSize * 0.42)}px !important; }
-        .sec-title { font-size: ${Math.round(t.titleSize * 0.62)}px !important; }
-        .free-title { font-size: ${Math.round(t.titleSize * 0.85)}px !important; }
-        .final-cta h2 { font-size: ${Math.round(t.titleSize * 0.78)}px !important; }
-      }
-    `;
-    document.getElementById('tweaks-override').textContent = css;
-  }
-
-  function App() {
-    const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
-    React.useEffect(() => { applyTweaks(t); }, [t]);
-
-    return (
-      <TweaksPanel title="정밀 조절">
-        <TweakSection label="텍스트 크기" />
-        <TweakSlider label="히어로 제목" value={t.heroSize} min={32} max={110} step={1} unit="px"
-                     onChange={(v) => setTweak('heroSize', v)} />
-        <TweakSlider label="섹션 제목" value={t.titleSize} min={22} max={70} step={1} unit="px"
-                     onChange={(v) => setTweak('titleSize', v)} />
-        <TweakSlider label="본문 (큰 단락)" value={t.bodySize} min={13} max={24} step={0.5} unit="px"
-                     onChange={(v) => setTweak('bodySize', v)} />
-        <TweakSlider label="본문 (작은 단락)" value={t.smallSize} min={11} max={20} step={0.5} unit="px"
-                     onChange={(v) => setTweak('smallSize', v)} />
-        <TweakSlider label="버튼 글자" value={t.buttonSize} min={12} max={22} step={0.5} unit="px"
-                     onChange={(v) => setTweak('buttonSize', v)} />
-        <TweakSlider label="자간 (제목)" value={t.letterSpacing} min={-6} max={2} step={0.1} unit="%"
-                     onChange={(v) => setTweak('letterSpacing', v)} />
-
-        <TweakSection label="모양" />
-        <TweakSlider label="카드 모서리" value={t.radius} min={0} max={40} step={1} unit="px"
-                     onChange={(v) => setTweak('radius', v)} />
-
-        <TweakSection label="색상" />
-        <TweakColor label="브랜드 블루" value={t.primaryColor}
-                    options={['#4a7a93','#2e4d5e','#5d8aa8','#3a6b8c','#264e70','#1f6a8c','#7a5aa8','#1f8a5b']}
-                    onChange={(v) => setTweak('primaryColor', v)} />
-        <TweakColor label="포인트 (CTA)" value={t.accentColor}
-                    options={['#d97757','#e0884b','#c1556a','#d4a017','#2c8a6a','#3a6b8c','#7a5aa8','#1d2730']}
-                    onChange={(v) => setTweak('accentColor', v)} />
-        <TweakColor label="본문 색 (먹)" value={t.inkColor}
-                    options={['#1d2730','#0f1620','#2d2a26','#1a1a1a','#3d4a5c']}
-                    onChange={(v) => setTweak('inkColor', v)} />
-        <TweakColor label="배경 톤" value={t.bgColor}
-                    options={['#f7f6f3','#ffffff','#f4f1ea','#eef4f7','#f0ede5','#f5f7f9']}
-                    onChange={(v) => setTweak('bgColor', v)} />
-      </TweaksPanel>
-    );
-  }
-
-  // Apply once before mount so first paint is correct even if panel is closed
-  applyTweaks(TWEAK_DEFAULTS);
-
-  ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<App />);
-</script>
-
 <script>
-  // Topbar shadow on scroll
-  const tb = document.getElementById('topbar');
-  window.addEventListener('scroll', () => {
-    tb.classList.toggle('scrolled', window.scrollY > 8);
+// 최후 방어: 2초 안에 드러나지 않은 .reveal 이 있으면 강제로 보이게 한다.
+setTimeout(function(){
+  document.querySelectorAll('.reveal:not(.in)').forEach(function(el){
+    var r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight * 3) el.classList.add('in');
   });
-
-  // Scroll-reveal
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  // Apply button links directly to Google Form (handled via href)
+}, 2000);
 </script>
-
 </body>
 </html>
-
-<style id="__om-edit-overrides">
-.stat-lbl >div { font-size: 15px !important }
-.stat-lbl >div { font-size: 200px !important }
-.stat-lbl >div { font-size: 20px !important }
-</style>
