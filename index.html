@@ -2682,7 +2682,9 @@ h2{font-size:clamp(25px,4.7vw,39px)}
 .btn:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
 .cta small{display:block;margin-top:18px;font-size:13.5px;color:var(--ink-3)}
 
-.rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+/* 등장 애니메이션은 쓰지 않는다. 스크롤 감지가 한 번이라도 어긋나면
+   내용이 통째로 안 보이는 사고가 나므로, 콘텐츠는 항상 보이게 고정한다. */
+.rv{opacity:1;transform:none}
 .rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 
