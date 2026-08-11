@@ -3258,12 +3258,15 @@ h2{font-size:clamp(25px,4.7vw,39px)}
 </footer>
 <script>
 // 최후 방어: 2초 안에 드러나지 않은 .reveal 이 있으면 강제로 보이게 한다.
-setTimeout(function(){
-  document.querySelectorAll('.reveal:not(.in)').forEach(function(el){
-    var r = el.getBoundingClientRect();
-    if (r.top < window.innerHeight * 3) el.classList.add('in');
+// 빠르게 스크롤하면 관찰이 놓칠 수 있다. 지나간 위치의 요소는 무조건 드러낸다.
+function forceReveal(){
+  document.querySelectorAll('.rv:not(.in), .reveal:not(.in)').forEach(function(el){
+    if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
   });
-}, 2000);
+}
+window.addEventListener('scroll', forceReveal, { passive: true });
+setTimeout(forceReveal, 1500);
+window.addEventListener('load', function(){ setTimeout(forceReveal, 300); });
 </script>
 </body>
 </html>
