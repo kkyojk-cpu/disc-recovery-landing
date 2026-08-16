@@ -2686,6 +2686,41 @@ h2{font-size:clamp(25px,4.7vw,39px)}
 .usp-note{margin-top:28px;font-size:15.5px;color:var(--ink-2)}
 .usp-note b{color:var(--ink);font-weight:800}
 
+/* ── 스테이지맵 (실제 앱 화면) ─────────────────────────────────────── */
+.roadmap{display:grid;grid-template-columns:1fr 300px;gap:48px;align-items:center;
+  margin-top:64px;padding-top:56px;border-top:1px solid var(--line)}
+.roadmap-copy h3{margin:12px 0 18px;font-size:clamp(23px,3.2vw,31px);font-weight:800;
+  line-height:1.35;letter-spacing:-.5px;color:var(--ink)}
+.roadmap-copy p{margin:0 0 14px;font-size:16px;line-height:1.8;color:var(--ink-2)}
+.roadmap-copy p:last-child{margin:0}
+.roadmap-copy b{color:var(--ink);font-weight:800}
+
+.roadmap-phone{justify-self:center}
+.roadmap-screen{width:280px;height:520px;border-radius:30px;overflow:hidden;background:#fff;
+  border:9px solid #1d2730;box-shadow:var(--shadow-lg);display:flex;flex-direction:column}
+.roadmap-bar{flex-shrink:0;padding:12px 16px 13px;background:#064e3b;color:#fff}
+.roadmap-bar-k{display:block;font-size:9.5px;font-weight:800;letter-spacing:2px;color:#10b981;margin-bottom:2px}
+.roadmap-bar-t{display:block;font-size:20px;font-weight:900;letter-spacing:-.5px}
+.roadmap-bar-t i{font-style:normal;font-size:12px;font-weight:700;color:#10b981}
+.roadmap-view{flex:1;position:relative;overflow:hidden;background:#eaf3fb}
+.roadmap-view img{position:absolute;left:0;top:0;width:100%;display:block;
+  animation:roadmapScroll 34s linear infinite alternate}
+@keyframes roadmapScroll{
+  from{transform:translateY(calc(-100% + 455px))}   /* 1단계(맨 아래)에서 시작 */
+  to{transform:translateY(0)}                        /* 12단계(맨 위)까지 */
+}
+@media (prefers-reduced-motion: reduce){
+  .roadmap-view img{animation:none;transform:translateY(calc(-100% + 455px))}
+}
+@media (max-width:860px){
+  .roadmap{grid-template-columns:1fr;gap:32px;margin-top:48px;padding-top:44px}
+  .roadmap-screen{width:250px;height:460px}
+  @keyframes roadmapScroll{
+    from{transform:translateY(calc(-100% + 395px))}
+    to{transform:translateY(0)}
+  }
+}
+
 /* 9 비용 */
 .cost2{background:var(--bg)}
 .ptable{width:100%;border-collapse:collapse;margin-top:38px;background:var(--paper);
@@ -2846,7 +2881,7 @@ h2{font-size:clamp(25px,4.7vw,39px)}
     <div class="steps">
       <div class="step rv">
         <div class="st-k">매일매일</div>
-        <div class="st-b">전용 <b>모바일 앱</b>을 드립니다. 그 안의 <b>회복비서 나침반 위젯</b>이 오늘 얼마나 움직이면 되는지 매일 알려줍니다. 무리인지 부족인지 판단하실 필요 없습니다.</div>
+        <div class="st-b">전용 <b>모바일 앱</b>을 드립니다. 앱을 켜면 <b>오늘 할 활동량이 이미 정해져 있습니다.</b> 12단계 중 지금 내 자리에 맞춰서요. 무리인지 부족인지 판단하실 필요 없습니다.</div>
       </div>
       <div class="step rv">
         <div class="st-k">하루에 한 번</div>
@@ -2913,6 +2948,34 @@ h2{font-size:clamp(25px,4.7vw,39px)}
       <span>혼자 해도 될 때는 언제인지</span>
     </div>
     <p class="usp-note rv">교과서에서 가져온 게 아닙니다. <b>실제 참여자 회복 데이터에서 뽑아낸 기준입니다.</b></p>
+
+    <!-- 스테이지맵 — 실제 앱 화면. 지도가 천천히 흐른다 -->
+    <div class="roadmap rv">
+      <div class="roadmap-copy">
+        <div class="eyebrow" style="color:var(--blue-700)">앱을 켜면 이 화면입니다</div>
+        <h3>오늘 어디까지 할지,<br>정해져 있습니다.</h3>
+        <p>
+          회복 과정을 <b>12단계</b>로 나눠뒀습니다.
+          앱을 켜면 지금 내 자리가 지도 위에 있고, 오늘 할 활동량이 이미 정해져 있습니다.
+        </p>
+        <p>
+          <b>얼마나 해야 할지 매일 고민하지 않으셔도 됩니다.</b>
+          몸이 준비되면 다음 자리로 올라가고, 아니면 그 자리에 머뭅니다.
+          날짜가 아니라 몸의 반응이 기준입니다.
+        </p>
+      </div>
+      <div class="roadmap-phone">
+        <div class="roadmap-screen">
+          <div class="roadmap-bar">
+            <span class="roadmap-bar-k">그룹프로그램</span>
+            <span class="roadmap-bar-t">회복 <i>12단계</i></span>
+          </div>
+          <div class="roadmap-view">
+            <img src="stagemap.jpg" alt="회복 12단계 지도 — 1단계부터 12단계까지" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2947,10 +3010,10 @@ h2{font-size:clamp(25px,4.7vw,39px)}
       </div>
 
       <div class="arms">
-        <div class="arm"><span>1</span><p><b>무리하는 날이 없어집니다.</b> 재발은 대개 “좀 괜찮아져서 무리한 날”에 옵니다. 위젯이 매일 그 선을 잡아줍니다.</p></div>
+        <div class="arm"><span>1</span><p><b>무리하는 날이 없어집니다.</b> 재발은 대개 “좀 괜찮아져서 무리한 날”에 옵니다. 오늘 할 만큼이 매일 정해져 나오니 그 선을 넘을 일이 없습니다.</p></div>
         <div class="arm"><span>2</span><p><b>버티는 힘 자체가 커집니다.</b> 6분 뛰던 분이 30분을 뜁니다. 통증만 준 게 아니라 몸이 감당하는 범위가 넓어진 겁니다.</p></div>
         <div class="arm"><span>3</span><p><b>다시 아파져도 대처법이 있습니다.</b> 예전엔 그때가 무너지는 지점이었습니다. 이제는 순서가 있습니다.</p></div>
-        <div class="arm hi"><span>4</span><p><b>마지막엔 프로그램 없이도 됩니다.</b> 12주 3단계의 끝은 위젯 없이도 적정 강도를 아는 상태입니다. 관리하는 힘이 몸에 남습니다.</p></div>
+        <div class="arm hi"><span>4</span><p><b>마지막엔 프로그램 없이도 됩니다.</b> 12단계의 끝은 앱이 정해주지 않아도 적정 강도를 아는 상태입니다. 관리하는 힘이 몸에 남습니다.</p></div>
       </div>
       <div class="pbox">
         <div class="pb-l">회복나침반 그룹</div>
@@ -3029,11 +3092,11 @@ h2{font-size:clamp(25px,4.7vw,39px)}
 <section class="curriculum-section" id="curriculum">
   <div class="wrap">
     <div class="curr-head reveal">
-      <div class="sec-eyebrow">12-week curriculum</div>
-      <h2 class="sec-title">회복은 12주의 여정입니다.<br/><span style="color:var(--blue-700);">4주씩, 함께 걸어갑니다.</span></h2>
+      <div class="sec-eyebrow">12 stages</div>
+      <h2 class="sec-title">회복은 12단계로 올라갑니다.<br/><span style="color:var(--blue-700);">지금 자리에서, 한 칸씩.</span></h2>
       <p class="sec-sub" style="max-width: 680px;">
-        4주 만에 모든 것을 끝낸다는 약속은 드리지 않습니다. 회복 나침반의 커리큘럼은 
-        <strong>1~7기 참여자의 1,000건 이상 기록 데이터</strong>를 기반으로 설계된, 12주의 3단계 여정입니다.
+        몇 주 만에 끝난다는 약속은 드리지 않습니다. 이 12단계는
+        <strong>1~7기 참여자의 1,000건 이상 기록 데이터</strong>에서 역산해, 실제 사람들이 지나온 자리를 그대로 옮긴 것입니다.
       </p>
     </div>
 
@@ -3041,62 +3104,62 @@ h2{font-size:clamp(25px,4.7vw,39px)}
       <div class="cp-mark">⚑</div>
       <div class="cp-body">
         <div class="cp-tag">핵심 원칙</div>
-        <p>주차는 <strong>시간 기준이 아닌, 몸의 반응 기준</strong>으로 운영됩니다. 준비가 되지 않으면 해당 단계에 머뭅니다. 무리해서 다음 단계로 넘어가지 않아요.</p>
+        <p>올라가는 기준은 <strong>날짜가 아니라 몸의 반응</strong>입니다. 준비가 되지 않으면 그 단계에 머뭅니다. 무리해서 다음으로 넘어가지 않아요. 빠른 분은 한 달, 대부분은 두세 달에 걸쳐 올라갑니다.</p>
       </div>
     </div>
 
     <div class="curr-grid">
       <div class="curr-card reveal">
         <div class="cc-head">
-          <span class="cc-stage">1단계</span>
-          <span class="cc-weeks">4주</span>
+          <span class="cc-stage">1구역</span>
+          <span class="cc-weeks">1~6단계</span>
         </div>
-        <h3 class="cc-title">내 몸 알아가기</h3>
-        <p class="cc-sub">현재 상태 파악 + 기록 습관</p>
+        <h3 class="cc-title">걷기와 함께 가는 길</h3>
+        <p class="cc-sub">아주 짧게 시작해서 몸 반응 보기</p>
         <div class="cc-meta">
           <span class="cc-cohort">그룹</span>
-          <span class="cc-price">79,000원</span>
+          <span class="cc-price">여기서 시작합니다</span>
         </div>
         <ul class="cc-list">
-          <li>기록지 앱 사용 정착</li>
-          <li>회복비서 나침반 위젯 적응</li>
-          <li>VAS · 컨디션 · 외부변수 인지</li>
+          <li>슬로우조깅을 아주 짧게 시작</li>
+          <li>걷기로 그날 몸 반응 관찰</li>
+          <li>기록이 습관으로 자리잡는 구간</li>
         </ul>
       </div>
 
       <div class="curr-card reveal">
         <div class="cc-head">
-          <span class="cc-stage">2단계</span>
-          <span class="cc-weeks">4주</span>
+          <span class="cc-stage">2구역</span>
+          <span class="cc-weeks">7~9단계</span>
         </div>
-        <h3 class="cc-title">슬조 늘려가기</h3>
-        <p class="cc-sub">도입 + 적응 + 패턴 확인</p>
+        <h3 class="cc-title">걷기를 줄여가는 길</h3>
+        <p class="cc-sub">가장 많이 멈춰 서는 구간</p>
         <div class="cc-meta">
           <span class="cc-cohort">그룹</span>
-          <span class="cc-price">79,000원</span>
+          <span class="cc-price">고비 구간</span>
         </div>
         <ul class="cc-list">
-          <li>슬로우조깅 점진적 도입</li>
-          <li>활동량 × 컨디션 패턴 확인</li>
-          <li>주말 리포트로 흐름 분석</li>
+          <li>슬로우조깅 시간이 늘어남</li>
+          <li>함께 걷던 시간이 줄어듦</li>
+          <li>기록으로 흐름을 확인하며 통과</li>
         </ul>
       </div>
 
       <div class="curr-card reveal cc-final">
         <div class="cc-head">
-          <span class="cc-stage">3단계</span>
-          <span class="cc-weeks">4주</span>
+          <span class="cc-stage">3구역</span>
+          <span class="cc-weeks">10~12단계</span>
         </div>
-        <h3 class="cc-title">혼자서도 할 수 있게</h3>
-        <p class="cc-sub">단독 안착 + 자기 관리</p>
+        <h3 class="cc-title">달리기로만 채우는 길</h3>
+        <p class="cc-sub">혼자서도 할 수 있게</p>
         <div class="cc-meta">
           <span class="cc-cohort">그룹</span>
-          <span class="cc-price">79,000원</span>
+          <span class="cc-price">마지막 구간</span>
         </div>
         <ul class="cc-list">
-          <li>스스로 흐름 판단 가능</li>
-          <li>위젯 없이도 적정 강도 감각</li>
-          <li>일상의 회복 관리 구조 안착</li>
+          <li>걷기 없이 슬로우조깅만으로</li>
+          <li>무리하는 날 없이 이어가는 상태</li>
+          <li>프로그램 없이도 판단하는 감각</li>
         </ul>
       </div>
     </div>
@@ -3111,11 +3174,11 @@ h2{font-size:clamp(25px,4.7vw,39px)}
 
     <div class="curr-total reveal">
       <div class="ct-l">
-        <div class="ct-tag">12주 풀 커리큘럼</div>
-        <div class="ct-eq">79,000 × 3 = <strong>237,000원</strong></div>
+        <div class="ct-tag">참여 방식</div>
+        <div class="ct-eq"><strong>4주 단위</strong> · 79,000원</div>
       </div>
       <div class="ct-r">
-        <p>12주 풀 커리큘럼을 <strong>237,000원</strong>에 마칠 수 있습니다.</p>
+        <p>단계는 몸의 반응에 따라 올라가고, <strong>참여는 4주 단위</strong>로 이어가시면 됩니다. 12주 이상 이어가시는 분은 <strong>59,000원</strong>입니다.</p>
       </div>
     </div>
   </div>
@@ -3212,7 +3275,7 @@ h2{font-size:clamp(25px,4.7vw,39px)}
         <div class="faq-a">
           <p>네, 어려운 건 하나도 없습니다. 시작 기준에 맞춰 <strong>활동을 수행</strong>하시고, <strong>컨디션 체크와 메모</strong>를 꾸준히만 해주세요.</p>
           <p>그 다음은 도구가 도와드립니다 ─</p>
-          <p>· <strong>나침반 위젯</strong>이 매일의 흐름을 안내해드리고<br/>· <strong>회복연구소가 직접 제작한 주차별 가이드 영상(VOD)</strong>이 주차별로 제공됩니다.</p>
+          <p>· <strong>12단계 회복 지도</strong>가 오늘 할 활동량을 안내해드리고<br/>· <strong>회복연구소가 직접 제작한 주차별 가이드 영상(VOD)</strong>이 주차별로 제공됩니다.</p>
           <div class="faq-callout">→ <strong>안내에 맞춰 꾸준히만</strong> 해주시면 됩니다.</div>
         </div>
       </details>
