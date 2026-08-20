@@ -1,342 +1,316 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="내 활동구간 확인하기 — 회복연구소">
-  <meta property="og:description" content="지금 할 수 있는 활동을 선택하면 맞춤 회복 방향을 알려드립니다.">
-  <title>내 활동구간 확인하기 — 회복연구소</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>내 자리 확인하기 — 회복나침반</title>
+<meta name="description" content="세 가지만 여쭙고, 지금 어디에서 시작하시면 되는지 알려드립니다."/>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"/>
+<style>
+  :root{
+    --blue-900:#2e4d5e; --blue-700:#4a7a93; --blue-500:#6e9ab0;
+    --blue-200:#cfe0e8; --blue-50:#eef4f7;
+    --ink:#1d2730; --ink-2:#46535e; --ink-3:#7a8893;
+    --line:#e6e8eb; --bg:#f7f6f3; --paper:#ffffff;
+    --accent:#d97757; --accent-soft:#fbece4; --danger:#c1556a;
+    --r-md:14px; --r-lg:22px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Pretendard Variable",Pretendard,-apple-system,"Malgun Gothic",sans-serif;
+    font-size:16px; line-height:1.7; word-break:keep-all;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:600px; margin:0 auto; padding:0 20px 80px}
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
-      background: #f4f6f4;
-      color: #1a1a1a;
-      min-height: 100vh;
-    }
+  header{padding:44px 0 8px}
+  .back{
+    display:inline-flex; align-items:center; gap:6px; text-decoration:none;
+    color:var(--ink-3); font-size:14px; font-weight:600; margin-bottom:26px;
+  }
+  .step{font-size:12.5px; font-weight:800; letter-spacing:.12em; color:var(--blue-500)}
+  h1{font-size:26px; line-height:1.42; font-weight:800; margin:10px 0 10px; letter-spacing:-.02em}
+  .lede{color:var(--ink-2); font-size:15.5px; margin:0}
 
-    .container {
-      max-width: 560px;
-      margin: 0 auto;
-      padding: 0 20px 80px;
-    }
+  /* 진행 표시 — 세 칸이면 세 칸이라고 보여드린다 */
+  .bar{display:flex; gap:6px; margin:26px 0 30px}
+  .bar i{flex:1; height:4px; border-radius:2px; background:var(--line)}
+  .bar i.on{background:var(--blue-700)}
 
-    /* ── Header ── */
-    .site-header {
-      text-align: center;
-      padding: 36px 0 8px;
-    }
+  .q{font-size:20px; font-weight:800; line-height:1.5; margin:0 0 8px; letter-spacing:-.01em}
+  .q-sub{color:var(--ink-3); font-size:14px; margin:0 0 20px}
 
-    .site-header .brand {
-      font-size: 13px;
-      font-weight: 700;
-      color: #3a8f6e;
-      letter-spacing: 1px;
-    }
+  .opts{display:flex; flex-direction:column; gap:10px}
+  .opt{
+    display:flex; align-items:flex-start; gap:12px; width:100%; text-align:left;
+    background:var(--paper); border:1.5px solid var(--line); border-radius:var(--r-md);
+    padding:16px 16px; font:inherit; color:var(--ink); cursor:pointer;
+    transition:border-color .15s, background .15s, transform .06s;
+  }
+  .opt:hover{border-color:var(--blue-200); background:#fff}
+  .opt:active{transform:scale(.995)}
+  .opt.sel{border-color:var(--blue-700); background:var(--blue-50)}
+  .opt input{margin:0; position:absolute; opacity:0; pointer-events:none}
+  .box{
+    flex:0 0 22px; height:22px; margin-top:2px; border-radius:6px;
+    border:1.5px solid var(--line); background:#fff; position:relative;
+  }
+  .opt.sel .box{border-color:var(--blue-700); background:var(--blue-700)}
+  .opt.sel .box::after{
+    content:""; position:absolute; left:7px; top:3px; width:5px; height:10px;
+    border:solid #fff; border-width:0 2px 2px 0; transform:rotate(45deg);
+  }
+  .opt .t{flex:1}
+  .opt .t b{display:block; font-weight:700; font-size:15.5px; line-height:1.5}
 
-    /* ── Hero ── */
-    .hero {
-      text-align: center;
-      padding: 28px 0 36px;
-    }
+  /* 답 옆에 어느 쪽인지 그대로 보여드린다 — 고르는 순간 참여자도 안다 */
+  .tag{
+    display:inline-block; margin-top:7px; font-size:11.5px; font-weight:800;
+    letter-spacing:.02em; padding:3px 9px; border-radius:999px;
+  }
+  .tag.group{background:var(--blue-50); color:var(--blue-700)}
+  .tag.solo{background:var(--accent-soft); color:#a8522f}
+  .tag.stop{background:#fbe9ec; color:var(--danger)}
 
-    .hero h1 {
-      font-size: 24px;
-      font-weight: 800;
-      line-height: 1.45;
-      color: #111;
-      margin-bottom: 14px;
-    }
+  .next{
+    width:100%; margin-top:26px; padding:17px; border:0; border-radius:var(--r-md);
+    background:var(--blue-900); color:#fff; font:inherit; font-size:17px; font-weight:800;
+    cursor:pointer; transition:opacity .15s;
+  }
+  .next:disabled{background:var(--line); color:#b3bcc4; cursor:default}
 
-    .hero p {
-      font-size: 15px;
-      color: #666;
-      line-height: 1.7;
-    }
-
-    /* ── Cards ── */
-    .cards {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .card {
-      background: #fff;
-      border: 2px solid #e2e8e2;
-      border-radius: 18px;
-      padding: 22px 20px;
-      cursor: pointer;
-      transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
-      -webkit-tap-highlight-color: transparent;
-      user-select: none;
-    }
-
-    .card:active {
-      transform: scale(0.985);
-    }
-
-    .card.selected {
-      border-color: #3a8f6e;
-      background: #f0faf5;
-      box-shadow: 0 4px 20px rgba(58, 143, 110, 0.15);
-    }
-
-    .card-step {
-      font-size: 11px;
-      font-weight: 700;
-      color: #3a8f6e;
-      letter-spacing: 0.8px;
-      margin-bottom: 7px;
-    }
-
-    .card-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: #111;
-      line-height: 1.35;
-    }
-
-    .card-sub {
-      font-size: 13px;
-      color: #999;
-      margin-top: 5px;
-    }
-
-    /* ── Result ── */
-    .result {
-      display: none;
-      margin-top: 36px;
-    }
-
-    .result.visible {
-      display: block;
-      animation: rise 0.35s ease;
-    }
-
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .result-box {
-      background: #fff;
-      border-radius: 20px;
-      padding: 28px 24px;
-      margin-bottom: 28px;
-      border-left: 5px solid #3a8f6e;
-    }
-
-    .result-tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 700;
-      color: #3a8f6e;
-      background: #e8f7f0;
-      border-radius: 30px;
-      padding: 4px 12px;
-      letter-spacing: 0.5px;
-      margin-bottom: 16px;
-    }
-
-    .result-body {
-      font-size: 15px;
-      color: #222;
-      line-height: 1.85;
-    }
-
-    .result-body strong {
-      color: #1e6e50;
-      font-weight: 700;
-    }
-
-    .result-body .rule {
-      background: #f0faf5;
-      border-radius: 12px;
-      padding: 14px 16px;
-      margin-top: 16px;
-      font-size: 14px;
-      color: #2a5c44;
-      line-height: 1.75;
-    }
-
-    /* ── Video ── */
-    .video-section {
-      background: #fff;
-      border-radius: 20px;
-      padding: 24px 20px;
-    }
-
-    .video-label {
-      font-size: 12px;
-      font-weight: 700;
-      color: #3a8f6e;
-      letter-spacing: 0.5px;
-      margin-bottom: 6px;
-    }
-
-    .video-title {
-      font-size: 17px;
-      font-weight: 700;
-      color: #111;
-      margin-bottom: 4px;
-    }
-
-    .video-desc {
-      font-size: 13px;
-      color: #888;
-      margin-bottom: 16px;
-    }
-
-    .video-wrap {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      border-radius: 12px;
-      overflow: hidden;
-      background: #000;
-    }
-
-    .video-wrap iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: none;
-    }
-  </style>
+  /* ── 결과 ── */
+  .res{background:var(--paper); border:1px solid var(--line); border-radius:var(--r-lg); padding:30px 24px}
+  .res .eyebrow{font-size:12.5px; font-weight:800; letter-spacing:.12em; margin:0 0 12px}
+  .res h2{font-size:24px; line-height:1.45; font-weight:800; margin:0 0 16px; letter-spacing:-.02em}
+  .res p{color:var(--ink-2); font-size:15.5px; margin:0 0 14px}
+  .res p:last-of-type{margin-bottom:0}
+  .quote{
+    background:var(--bg); border-left:3px solid var(--blue-500); border-radius:0 10px 10px 0;
+    padding:14px 16px; margin:0 0 18px; font-size:15px; color:var(--ink-2);
+  }
+  .quote b{color:var(--ink)}
+  .cta{
+    display:block; width:100%; margin-top:24px; padding:18px; border-radius:var(--r-md);
+    text-align:center; text-decoration:none; font-size:17px; font-weight:800;
+  }
+  .cta.go{background:var(--blue-900); color:#fff}
+  .cta.talk{background:var(--accent); color:#fff}
+  .cta.hos{background:var(--danger); color:#fff}
+  .note{color:var(--ink-3); font-size:13.5px; margin-top:16px; text-align:center}
+  .again{
+    display:block; width:100%; margin-top:12px; padding:14px; background:none;
+    border:1px solid var(--line); border-radius:var(--r-md); color:var(--ink-3);
+    font:inherit; font-size:14.5px; font-weight:700; cursor:pointer;
+  }
+  .hide{display:none}
+  @media (max-width:400px){ h1{font-size:23px} .q{font-size:18.5px} }
+</style>
 </head>
 <body>
+<div class="wrap">
 
-<div class="container">
+  <header>
+    <a class="back" href="./index.html">← 돌아가기</a>
+    <p class="step" id="stepLabel">3가지만 여쭙겠습니다</p>
+    <h1 id="title">지금 어디에서<br>시작하시면 되는지 알려드립니다</h1>
+    <p class="lede" id="lede">답에 따라 그룹 프로그램과 1:1 나침반 중 맞는 쪽으로 안내드립니다.</p>
+    <div class="bar" id="bar"><i class="on"></i><i></i><i></i></div>
+  </header>
 
-  <div class="site-header">
-    <div class="brand">회복연구소</div>
-  </div>
-
-  <div class="hero">
-    <h1>당신의 활동구간은<br>어디에 있나요?</h1>
-    <p>지금 내 상태에 맞는 구간을 선택하면<br>회복 방향을 바로 알려드립니다.</p>
-  </div>
-
-  <div class="cards">
-    <div class="card" onclick="choose(1)">
-      <div class="card-step">구간 1</div>
-      <div class="card-title">걷기 10분 이상</div>
-      <div class="card-sub">슬로우조깅은 아직 어렵다</div>
+  <!-- ① 안전 확인 -->
+  <section id="q1">
+    <p class="q">지금 이런 상태가 있으신가요?</p>
+    <p class="q-sub">해당하는 것을 모두 골라주세요.</p>
+    <div class="opts" id="o1">
+      <label class="opt"><input type="checkbox" value="danger"><span class="box"></span>
+        <span class="t"><b>가만히 있어도 통증이 급격히 심해집니다</b><span class="tag stop">병원 먼저</span></span></label>
+      <label class="opt"><input type="checkbox" value="danger"><span class="box"></span>
+        <span class="t"><b>대소변 실수를 한 적이 있습니다</b><span class="tag stop">병원 먼저</span></span></label>
+      <label class="opt"><input type="checkbox" value="danger"><span class="box"></span>
+        <span class="t"><b>하반신에 힘이 빠지거나 감각이 둔합니다</b><span class="tag stop">병원 먼저</span></span></label>
+      <label class="opt"><input type="checkbox" value="danger"><span class="box"></span>
+        <span class="t"><b>수술·시술 후 12주가 지나지 않았습니다</b><span class="tag stop">병원 먼저</span></span></label>
+      <label class="opt"><input type="checkbox" value="none"><span class="box"></span>
+        <span class="t"><b>위에 해당하는 것이 없습니다</b></span></label>
     </div>
+    <button class="next" id="n1" disabled>다음</button>
+  </section>
 
-    <div class="card" onclick="choose(2)">
-      <div class="card-step">구간 2</div>
-      <div class="card-title">슬로우조깅 10분 미만</div>
-      <div class="card-sub">또는 걷기 20분 이상 가능</div>
+  <!-- ② 지금 할 수 있는 것 -->
+  <section id="q2" class="hide">
+    <p class="q">지금 슬로우조깅을 몇 분쯤 하실 수 있나요?</p>
+    <p class="q-sub">해보신 적 없으면 마지막을 골라주세요.</p>
+    <div class="opts" id="o2">
+      <label class="opt"><input type="radio" name="a2" value="group"><span class="box"></span>
+        <span class="t"><b>5분 이상 어렵지 않습니다</b><span class="tag group">그룹</span></span></label>
+      <label class="opt"><input type="radio" name="a2" value="solo"><span class="box"></span>
+        <span class="t"><b>1~4분 정도, 그 이상은 힘듭니다</b><span class="tag solo">1:1</span></span></label>
+      <label class="opt"><input type="radio" name="a2" value="solo"><span class="box"></span>
+        <span class="t"><b>뛰는 건 아직 못 합니다 — 걷기만 가능합니다</b><span class="tag solo">1:1</span></span></label>
     </div>
+    <button class="next" id="n2" disabled>다음</button>
+  </section>
 
-    <div class="card" onclick="choose(3)">
-      <div class="card-step">구간 3</div>
-      <div class="card-title">슬로우조깅 15분 이상 가능</div>
-      <div class="card-sub">슬조를 꾸준히 이어가고 있다</div>
+  <!-- ③ 혼자 해본 경험 -->
+  <section id="q3" class="hide">
+    <p class="q">혼자 해보신 적 있으신가요?</p>
+    <p class="q-sub">가장 가까운 것 하나만 골라주세요.</p>
+    <div class="opts" id="o3">
+      <label class="opt"><input type="radio" name="a3" value="group"><span class="box"></span>
+        <span class="t"><b>아직 안 해봤습니다 · 이제 시작합니다</b><span class="tag group">그룹</span></span></label>
+      <label class="opt"><input type="radio" name="a3" value="group"><span class="box"></span>
+        <span class="t"><b>해봤고 그럭저럭 이어가고 있습니다</b><span class="tag group">그룹</span></span></label>
+      <label class="opt"><input type="radio" name="a3" value="solo" data-say="해봤는데 통증이 올라와 계속 멈췄다"><span class="box"></span>
+        <span class="t"><b>해봤는데 통증이 올라와 계속 멈췄습니다</b><span class="tag solo">1:1</span></span></label>
+      <label class="opt"><input type="radio" name="a3" value="solo" data-say="뭘 얼마나 해야 할지 몰라 못 이어갔다"><span class="box"></span>
+        <span class="t"><b>뭘 얼마나 해야 할지 몰라 못 이어갔습니다</b><span class="tag solo">1:1</span></span></label>
     </div>
-  </div>
+    <button class="next" id="n3" disabled>결과 보기</button>
+  </section>
 
-  <!-- 결과 1 -->
-  <div class="result" id="result-1">
-    <div class="result-box">
-      <span class="result-tag">구간 1 · 회복 진입</span>
-      <div class="result-body">
-        <p>걷기 10분에서 통증이 심하지 않다면,<br>
-        <strong>3일마다 3분씩</strong> 늘려 나가세요.</p>
-
-        <p style="margin-top:14px;">또는 걷기 10분을 70%로 줄여<br>
-        <strong>걷기 7분 × 하루 3회</strong>로 나눠 수행하는 방법도 있습니다.</p>
-
-        <div class="rule">
-          걷기 20분 활동량을 확보한 뒤에는<br>
-          <strong>슬로우조깅 1~3분을 걷기 앞에 선행</strong>하는 것으로 전환합니다.
-        </div>
-      </div>
+  <!-- 결과 -->
+  <section id="rHos" class="hide">
+    <div class="res">
+      <p class="eyebrow" style="color:var(--danger)">먼저 하실 일이 있습니다</p>
+      <h2>운동보다 진료가 먼저입니다</h2>
+      <p>고르신 항목은 운동으로 풀 수 있는 신호가 아닙니다. 신경이 눌리고 있다는 뜻일 수 있어, 그 상태로 뛰면 더 나빠집니다.</p>
+      <p><b>병원에서 확인부터 받으세요.</b> 진료 후 괜찮다는 이야기를 들으시면 그때 다시 오셔도 됩니다. 저희는 그대로 있습니다.</p>
+      <a class="cta hos" href="./index.html">프로그램 내용만 둘러보기</a>
+      <button class="again" onclick="restart()">다시 확인하기</button>
     </div>
-    <div class="video-section">
-      <div class="video-label">모범 영상</div>
-      <div class="video-title">슬로우조깅 바르게 하는 법</div>
-      <div class="video-desc">보폭과 속도를 집중해서 보세요</div>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/UbhYPR7ccHg" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
+  </section>
 
-  <!-- 결과 2 -->
-  <div class="result" id="result-2">
-    <div class="result-box">
-      <span class="result-tag">구간 2 · 전환 단계</span>
-      <div class="result-body">
-        <p>슬로우조깅과 걷기를 <strong>함께</strong> 이어나가면서<br>
-        슬조 시간을 <strong>10분대까지 천천히 적응</strong>시켜 가세요.</p>
-
-        <p style="margin-top:14px;">그와 동시에 걷기 시간은 조금씩 줄여나갑니다.</p>
-
-        <div class="rule">
-          <strong>최소 3일 이상 컨디션이 괜찮을 때만</strong> 소폭 증진하세요.<br>
-          서두르지 않는 것이 핵심입니다.
-        </div>
-      </div>
+  <section id="rGroup" class="hide">
+    <div class="res">
+      <p class="eyebrow" style="color:var(--blue-700)">회복로드 그룹 프로그램</p>
+      <h2>혼자 따라가실 수 있습니다</h2>
+      <p>12단계 회복로드를 앱이 안내합니다. 오늘 할 만큼만 알려드리고 시간도 재드립니다. 다음 단계로 갈지도 앱이 정합니다.</p>
+      <p>주차별 가이드 영상, 오픈채팅방, 주 1회 라이브를 함께합니다.</p>
+      <a class="cta go" href="./apply.html">79,000원 · 바로 신청하기</a>
+      <p class="note">28일 단위입니다. 회복되시면 나가시면 됩니다.</p>
+      <button class="again" onclick="restart()">다시 확인하기</button>
     </div>
-    <div class="video-section">
-      <div class="video-label">모범 영상</div>
-      <div class="video-title">슬로우조깅 바르게 하는 법</div>
-      <div class="video-desc">보폭과 속도를 집중해서 보세요</div>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/UbhYPR7ccHg" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
+  </section>
 
-  <!-- 결과 3 -->
-  <div class="result" id="result-3">
-    <div class="result-box">
-      <span class="result-tag">구간 3 · 안정 단계</span>
-      <div class="result-body">
-        <p>슬로우조깅을 무한정 늘려나가지 마세요.<br>
-        <strong>25~30분을 안전장치로 제한</strong>하는 것을 권장합니다.</p>
-
-        <div class="rule">
-          슬조를 많이 한다고 회복이 빠른 게 아닙니다.<br>
-          <strong>나에게 적정한 만큼</strong>이 회복을 가장 빠르게 만들어 줍니다.
-        </div>
-      </div>
+  <section id="rSolo" class="hide">
+    <div class="res">
+      <p class="eyebrow" style="color:var(--accent)">1:1 회복 나침반</p>
+      <h2>혼자 하시면 또 멈추실 겁니다</h2>
+      <div class="quote" id="soloQuote">방금 <b>해봤는데 통증이 올라와 계속 멈췄다</b>고 하셨습니다.</div>
+      <p>그때 필요한 건 자료가 아니라 <b>멈춘 그 지점에서 얼마나 줄일지 정해주는 사람</b>입니다.</p>
+      <p>1:1은 앱이 단계를 올리지 않습니다. <b>매일 기록을 보고 회복연구소가 직접 정합니다.</b></p>
+      <a class="cta talk" href="./apply.html?track=solo">상담 신청하기</a>
+      <p class="note">미팅 일정을 함께 정한 뒤 시작합니다.</p>
+      <button class="again" onclick="restart()">다시 확인하기</button>
     </div>
-    <div class="video-section">
-      <div class="video-label">모범 영상</div>
-      <div class="video-title">슬로우조깅 바르게 하는 법</div>
-      <div class="video-desc">보폭과 속도를 집중해서 보세요</div>
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/UbhYPR7ccHg" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
+  </section>
 
 </div>
 
 <script>
-  function choose(n) {
-    document.querySelectorAll('.card').forEach(function(c) {
-      c.classList.remove('selected');
-    });
-    document.querySelectorAll('.card')[n - 1].classList.add('selected');
+(function(){
+  var A = { danger:false, a2:null, a3:null, say:"" };
 
-    document.querySelectorAll('.result').forEach(function(r) {
-      r.classList.remove('visible');
-    });
-
-    var target = document.getElementById('result-' + n);
-    target.classList.add('visible');
-
-    setTimeout(function() {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 80);
+  function paint(el){
+    var lab = el.closest(".opt");
+    if (el.type === "checkbox") { lab.classList.toggle("sel", el.checked); }
+    else {
+      var g = document.getElementsByName(el.name);
+      for (var i=0;i<g.length;i++) g[i].closest(".opt").classList.remove("sel");
+      lab.classList.add("sel");
+    }
   }
-</script>
 
+  /* ① 안전 확인 — "해당 없음" 과 나머지는 같이 고를 수 없다 */
+  var o1 = document.querySelectorAll('#o1 input');
+  o1.forEach(function(el){
+    el.addEventListener("change", function(){
+      if (el.value === "none" && el.checked) {
+        o1.forEach(function(x){ if (x !== el) { x.checked = false; x.closest(".opt").classList.remove("sel"); } });
+      } else if (el.value === "danger" && el.checked) {
+        o1.forEach(function(x){ if (x.value === "none") { x.checked = false; x.closest(".opt").classList.remove("sel"); } });
+      }
+      paint(el);
+      var any = false; o1.forEach(function(x){ if (x.checked) any = true; });
+      document.getElementById("n1").disabled = !any;
+    });
+  });
+
+  document.querySelectorAll('#o2 input, #o3 input').forEach(function(el){
+    el.addEventListener("change", function(){
+      paint(el);
+      var n = el.name === "a2" ? "n2" : "n3";
+      document.getElementById(n).disabled = false;
+    });
+  });
+
+  function show(id){
+    ["q1","q2","q3","rHos","rGroup","rSolo"].forEach(function(s){
+      document.getElementById(s).classList.add("hide");
+    });
+    document.getElementById(id).classList.remove("hide");
+    window.scrollTo({ top:0, behavior:"smooth" });
+  }
+  function bar(n){
+    var b = document.getElementById("bar").children;
+    for (var i=0;i<b.length;i++) b[i].className = i < n ? "on" : "";
+  }
+  function head(step, title, lede){
+    document.getElementById("stepLabel").textContent = step;
+    document.getElementById("title").innerHTML = title;
+    document.getElementById("lede").textContent = lede;
+  }
+
+  document.getElementById("n1").onclick = function(){
+    var d = false;
+    document.querySelectorAll('#o1 input').forEach(function(x){ if (x.checked && x.value === "danger") d = true; });
+    A.danger = d;
+    if (d) { finish(); return; }
+    bar(2); head("2번째 질문", "지금 하실 수 있는 만큼을<br>여쭙겠습니다", "무리해서 대답하지 않으셔도 됩니다.");
+    show("q2");
+  };
+  document.getElementById("n2").onclick = function(){
+    A.a2 = document.querySelector('input[name=a2]:checked').value;
+    bar(3); head("마지막 질문", "혼자 해보셨을 때<br>어떠셨나요", "이 답이 두 프로그램을 가르는 가장 큰 기준입니다.");
+    show("q3");
+  };
+  document.getElementById("n3").onclick = function(){
+    var el = document.querySelector('input[name=a3]:checked');
+    A.a3 = el.value;
+    A.say = el.getAttribute("data-say") || "";
+    finish();
+  };
+
+  /* 판정 — 점수를 매기지 않는다.
+     1번에 걸리면 무조건 병원. 나머지 둘에서 1:1 이 하나라도 나오면 1:1. */
+  function finish(){
+    document.getElementById("bar").style.display = "none";
+    if (A.danger) {
+      head("확인 결과", "먼저 병원에<br>가보셔야 합니다", "");
+      show("rHos"); return;
+    }
+    if (A.a2 === "solo" || A.a3 === "solo") {
+      head("확인 결과", "1:1 나침반이<br>맞으실 것 같습니다", "");
+      if (A.say) {
+        document.getElementById("soloQuote").innerHTML =
+          '방금 <b>' + A.say + '</b>고 하셨습니다.';
+      } else {
+        document.getElementById("soloQuote").innerHTML =
+          '방금 <b>아직 5분을 이어가기 어렵다</b>고 하셨습니다.';
+      }
+      show("rSolo"); return;
+    }
+    head("확인 결과", "그룹 프로그램으로<br>시작하시면 됩니다", "");
+    show("rGroup");
+  }
+
+  window.restart = function(){
+    location.reload();
+  };
+})();
+</script>
 </body>
 </html>
