@@ -18,14 +18,20 @@
     .card-sub { font-size: 13.5px; color: rgba(255,255,255,.85); line-height: 1.6; }
     .card-body { padding: 28px; }
 
-    .back-btn { display: flex; align-items: center; gap: 5px; background: none; border: none; font-size: 13px;
-                font-weight: 600; color: #94a3b8; cursor: pointer; font-family: inherit; padding: 0; margin-bottom: 20px; text-decoration: none; }
-    .back-btn:hover { color: #475569; }
+    .back-btn { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 600;
+                color: #94a3b8; text-decoration: none; margin-bottom: 20px; }
 
-    .said { background: #fdf5f1; border: 1.5px solid #f0cdbb; border-radius: 14px; padding: 16px 18px; margin-bottom: 24px; }
-    .said .t { font-size: 12px; font-weight: 800; color: #a8522f; margin-bottom: 8px; letter-spacing: .02em; }
-    .said .q { font-size: 14px; color: #7c3f22; line-height: 1.7; font-weight: 600; }
-    .said .w { margin-top: 10px; padding-top: 10px; border-top: 1px solid #f0cdbb; font-size: 13px; color: #6b4230; line-height: 1.7; }
+    /* 가격을 여기서 보여드린다. 상담 뒤에 처음 들으면 놀라신다. */
+    .price { background: #fdf5f1; border: 1.5px solid #f0cdbb; border-radius: 16px;
+             padding: 18px 20px; margin-bottom: 24px; text-align: center; }
+    .price .k { font-size: 12.5px; font-weight: 800; color: #a8522f; letter-spacing: .04em; margin-bottom: 7px; }
+    .price .v { font-size: 30px; font-weight: 800; color: #7c3f22; letter-spacing: -.03em; line-height: 1.15; }
+    .price .v span { font-size: 15px; font-weight: 700; margin-left: 4px; }
+    .price .w { margin-top: 9px; font-size: 13px; color: #8a5a41; line-height: 1.65; }
+
+    .said { background: #f8fafc; border-left: 3px solid #d97757; border-radius: 0 10px 10px 0;
+            padding: 14px 16px; margin-bottom: 24px; font-size: 13.5px; color: #475569; line-height: 1.7; }
+    .said b { color: #1a1a2e; }
 
     .field { margin-bottom: 20px; }
     .field label { display: block; font-size: 13px; font-weight: 700; color: #374151; margin-bottom: 7px; }
@@ -33,34 +39,24 @@
     .field input { width: 100%; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 13px 14px;
                    font-size: 15px; font-family: inherit; outline: none; transition: border-color .2s; color: #1a1a2e; }
     .field input:focus { border-color: #d97757; }
-    .field .hint { margin-top: 6px; font-size: 12.5px; color: #94a3b8; line-height: 1.6; }
 
-    .flow { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 18px 20px; margin-bottom: 22px; }
-    .flow .t { font-size: 13px; font-weight: 800; color: #334155; margin-bottom: 12px; }
-    .flow ol { margin: 0; padding-left: 18px; }
-    .flow li { font-size: 13.5px; color: #475569; line-height: 1.8; margin-bottom: 4px; }
-    .flow li b { color: #1a1a2e; }
-
-    .agree { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 24px; cursor: pointer; }
+    .agree { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 22px; cursor: pointer; }
     .agree input { width: 20px; height: 20px; margin-top: 1px; accent-color: #d97757; flex-shrink: 0; }
     .agree span { font-size: 13px; color: #475569; line-height: 1.65; }
+    .agree b { color: #1a1a2e; }
+
+    .guide { background: #fffbeb; border: 1.5px solid #fde68a; border-radius: 14px;
+             padding: 15px 17px; margin-bottom: 18px; }
+    .guide p { font-size: 13.5px; color: #854d0e; line-height: 1.75; margin: 0; }
+    .guide b { color: #713f12; }
 
     .submit { width: 100%; border: 0; border-radius: 14px; padding: 17px; font-family: inherit;
-              font-size: 16.5px; font-weight: 800; color: #fff; background: #d97757; cursor: pointer; transition: background .15s; }
-    .submit:hover { background: #c9663f; }
+              font-size: 16.5px; font-weight: 800; color: #3b1e00; background: #fee500; cursor: pointer;
+              transition: background .15s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .submit:hover { background: #f7dc00; }
     .submit:disabled { background: #e2e8f0; color: #b3bcc4; cursor: default; }
-
-    .done { text-align: center; padding: 8px 0 4px; }
-    .done .ic { font-size: 46px; margin-bottom: 14px; }
-    .done h2 { font-size: 21px; font-weight: 800; margin-bottom: 12px; line-height: 1.45; }
-    .done p { font-size: 14.5px; color: #475569; line-height: 1.8; margin-bottom: 10px; }
-    .done .next { background: #fdf5f1; border: 1.5px solid #f0cdbb; border-radius: 14px;
-                  padding: 16px 18px; margin-top: 18px; text-align: left; }
-    .done .next b { display: block; font-size: 13px; color: #a8522f; margin-bottom: 8px; }
-    .done .next p { font-size: 13.5px; color: #6b4230; margin: 0; line-height: 1.75; }
-    .home { display: inline-block; margin-top: 22px; color: #94a3b8; font-size: 13.5px; text-decoration: none; font-weight: 600; }
-    .hidden { display: none; }
     .err { margin-top: 12px; font-size: 13px; color: #c1556a; font-weight: 700; text-align: center; }
+    .hidden { display: none; }
   </style>
 </head>
 <body>
@@ -68,78 +64,57 @@
     <div class="card-header">
       <div class="card-eyebrow">1:1 Recovery Compass</div>
       <div class="card-title">상담 신청</div>
-      <div class="card-sub">먼저 이야기를 나눈 뒤 시작합니다. 바로 결제하지 않으셔도 됩니다.</div>
+      <div class="card-sub">매일 기록을 회복연구소가 직접 보고 단계를 정합니다.</div>
     </div>
 
     <div class="card-body">
-      <!-- 신청 -->
-      <div id="form">
-        <a class="back-btn" href="./quiz.html">← 다시 확인하기</a>
+      <a class="back-btn" href="./quiz.html">← 다시 확인하기</a>
 
-        <!-- 자가진단에서 고르신 답을 그대로 돌려드린다. 왜 1:1 인지가 여기서 읽힌다. -->
-        <div class="said" id="said">
-          <div class="t">방금 이렇게 답하셨습니다</div>
-          <div class="q" id="saidQ">혼자 하다 계속 막히신다고 하셨습니다.</div>
-          <div class="w">그때 필요한 건 자료가 아니라 <b>멈춘 그 지점에서 얼마나 줄일지 정해주는 사람</b>입니다.
-            1:1은 앱이 단계를 올리지 않습니다. 매일 기록을 보고 회복연구소가 직접 정합니다.</div>
-        </div>
-
-        <div class="field">
-          <label for="nm">성함 <span class="req">*</span></label>
-          <input id="nm" type="text" placeholder="홍길동" autocomplete="name">
-        </div>
-
-        <div class="field">
-          <label for="ph">연락처 <span class="req">*</span></label>
-          <input id="ph" type="tel" placeholder="010-0000-0000" autocomplete="tel" inputmode="numeric">
-          <p class="hint">이 번호로 미팅 일정을 잡기 위해 연락드립니다.</p>
-        </div>
-
-        <div class="flow">
-          <div class="t">신청하시면 이렇게 진행됩니다</div>
-          <ol>
-            <li><b>연락드립니다</b> — 보통 하루 안에</li>
-            <li><b>미팅 일정을 함께 정합니다</b> — 지금 상태와 그동안의 경과를 여쭙습니다</li>
-            <li><b>시작 여부를 그때 정하십니다</b> — 안 맞으면 그룹을 권해드립니다</li>
-          </ol>
-        </div>
-
-        <label class="agree">
-          <input id="ag" type="checkbox">
-          <span>연락을 위해 성함과 연락처를 수집하는 데 동의합니다.
-            상담 후 시작하지 않으시면 <b>즉시 파기</b>합니다.</span>
-        </label>
-
-        <button class="submit" id="go" disabled>상담 신청하기</button>
-        <p class="err hidden" id="err">잠시 문제가 있었습니다. 다시 눌러주세요.</p>
+      <div class="price">
+        <div class="k">1:1 회복 나침반</div>
+        <div class="v">199,000<span>원 / 4주</span></div>
+        <div class="w">상담 후에 시작 여부를 정하십니다.<br>안 맞으시면 그룹을 권해드립니다.</div>
       </div>
 
-      <!-- 완료 -->
-      <div id="done" class="hidden">
-        <div class="done">
-          <div class="ic">🧭</div>
-          <h2>신청이 접수됐습니다</h2>
-          <p>남겨주신 번호로 곧 연락드리겠습니다.</p>
-          <div class="next">
-            <b>연락이 늦어지면</b>
-            <p>카카오톡 채널 <b>회복연구소</b>로 성함을 남겨주세요.
-              놓치지 않도록 바로 확인하겠습니다.</p>
-          </div>
-          <a class="home" href="./index.html">← 처음으로</a>
-        </div>
+      <!-- 자가진단에서 고르신 답을 그대로 돌려드린다. 왜 1:1 인지가 여기서 읽힌다. -->
+      <div class="said" id="said">방금 <b>혼자 하다 계속 막힌다</b>고 하셨습니다.</div>
+
+      <div class="field">
+        <label for="nm">성함 <span class="req">*</span></label>
+        <input id="nm" type="text" placeholder="홍길동" autocomplete="name">
       </div>
+
+      <div class="field">
+        <label for="ph">연락처 <span class="req">*</span></label>
+        <input id="ph" type="tel" placeholder="010-0000-0000" autocomplete="tel" inputmode="numeric">
+      </div>
+
+      <label class="agree">
+        <input id="ag" type="checkbox">
+        <span><b>개인정보 수집 및 이용에 동의합니다.</b><br>
+          수집 항목은 성함·연락처이며, 상담 연락에만 씁니다.
+          시작하지 않으시면 즉시 파기합니다.</span>
+      </label>
+
+      <div class="guide">
+        <p>아래 <b>상담 신청하기</b>를 누르시면 카카오톡 채널이 열립니다.<br>
+          채팅으로 <b>성함을 적어주시면</b> 상담 도와드리겠습니다.</p>
+      </div>
+
+      <button class="submit" id="go" disabled>상담 신청하기</button>
+      <p class="err hidden" id="err">잠시 문제가 있었습니다. 다시 눌러주세요.</p>
     </div>
   </div>
 
 <script>
 (function(){
   var API = "https://recovery-log-production.up.railway.app";
+  var KAKAO = "http://pf.kakao.com/_xmnxfyn";
 
-  /* 자가진단에서 고르신 말을 그대로 받아 보여준다.
-     ?say=... 로 넘어온다. 없으면 일반 문장을 쓴다. */
+  /* 자가진단에서 고르신 말을 그대로 받아 보여준다. ?say=... 로 넘어온다. */
   try {
     var say = new URLSearchParams(location.search).get("say");
-    if (say) document.getElementById("saidQ").textContent = "“" + say + "” 고 하셨습니다.";
+    if (say) document.getElementById("said").innerHTML = "방금 <b>" + say + "</b>고 하셨습니다.";
   } catch (e) {}
 
   var nm = document.getElementById("nm");
@@ -149,7 +124,8 @@
   var err = document.getElementById("err");
 
   function ready(){
-    go.disabled = !(nm.value.trim().length >= 2 && ph.value.replace(/\D/g,"").length >= 10 && ag.checked);
+    go.disabled = !(nm.value.trim().length >= 2
+      && ph.value.replace(/\D/g,"").length >= 10 && ag.checked);
   }
   [nm, ph].forEach(function(el){ el.addEventListener("input", ready); });
   ag.addEventListener("change", ready);
@@ -163,8 +139,13 @@
 
   go.addEventListener("click", function(){
     go.disabled = true;
-    go.textContent = "보내는 중…";
+    go.textContent = "여는 중…";
     err.classList.add("hidden");
+
+    /* 팝업 차단을 피하려면 창을 먼저 열어야 한다. 누른 그 순간에만 열린다.
+       저장을 기다렸다가 열면 브라우저가 막는다. */
+    var win = window.open(KAKAO, "_blank");
+
     fetch(API + "/api/apply-submit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -178,9 +159,9 @@
     .then(function(r){
       // fetch 는 400 을 받아도 예외를 던지지 않는다. 직접 확인해야 조용히 사라지지 않는다.
       if (!r.ok) throw new Error(String(r.status));
-      document.getElementById("form").classList.add("hidden");
-      document.getElementById("done").classList.remove("hidden");
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      go.textContent = "상담 신청 완료 ✓";
+      // 창이 막혔으면 이 탭에서라도 카톡으로 보낸다
+      if (!win || win.closed) location.href = KAKAO;
     })
     .catch(function(){
       go.disabled = false;
