@@ -146,9 +146,9 @@
     <div class="opts" id="o2">
       <label class="opt"><input type="radio" name="a2" value="group"><span class="box"></span>
         <span class="t"><b>5분 이상 어렵지 않습니다</b><span class="tag group">그룹</span></span></label>
-      <label class="opt"><input type="radio" name="a2" value="solo"><span class="box"></span>
+      <label class="opt"><input type="radio" name="a2" value="solo" data-say="1~4분 정도, 그 이상은 힘들다"><span class="box"></span>
         <span class="t"><b>1~4분 정도, 그 이상은 힘듭니다</b><span class="tag solo">1:1</span></span></label>
-      <label class="opt"><input type="radio" name="a2" value="solo"><span class="box"></span>
+      <label class="opt"><input type="radio" name="a2" value="solo" data-say="뛰는 건 아직 못 한다 — 걷기만 가능하다"><span class="box"></span>
         <span class="t"><b>뛰는 건 아직 못 합니다 — 걷기만 가능합니다</b><span class="tag solo">1:1</span></span></label>
     </div>
     <button class="next" id="n2" disabled>다음</button>
@@ -202,7 +202,7 @@
       <div class="quote" id="soloQuote">방금 <b>해봤는데 통증이 올라와 계속 멈췄다</b>고 하셨습니다.</div>
       <p>그때 필요한 건 자료가 아니라 <b>멈춘 그 지점에서 얼마나 줄일지 정해주는 사람</b>입니다.</p>
       <p>1:1은 앱이 단계를 올리지 않습니다. <b>매일 기록을 보고 회복연구소가 직접 정합니다.</b></p>
-      <a class="cta talk" href="./apply.html?track=solo">상담 신청하기</a>
+      <a class="cta talk" id="soloGo" href="./apply-1to1.html">상담 신청하기</a>
       <p class="note">미팅 일정을 함께 정한 뒤 시작합니다.</p>
       <button class="again" onclick="restart()">다시 확인하기</button>
     </div>
@@ -212,7 +212,7 @@
 
 <script>
 (function(){
-  var A = { danger:false, a2:null, a3:null, say:"" };
+  var A = { danger:false, a2:null, a3:null, say:"", say2:"" };
 
   function paint(el){
     var lab = el.closest(".opt");
@@ -273,7 +273,9 @@
     show("q2");
   };
   document.getElementById("n2").onclick = function(){
-    A.a2 = document.querySelector('input[name=a2]:checked').value;
+    var e2 = document.querySelector('input[name=a2]:checked');
+    A.a2 = e2.value;
+    A.say2 = e2.getAttribute("data-say") || "";
     bar(3); head("마지막 질문", "혼자 해보셨을 때<br>어떠셨나요", "이 답이 두 프로그램을 가르는 가장 큰 기준입니다.");
     show("q3");
   };
@@ -294,13 +296,12 @@
     }
     if (A.a2 === "solo" || A.a3 === "solo") {
       head("확인 결과", "1:1 나침반이<br>맞으실 것 같습니다", "");
-      if (A.say) {
-        document.getElementById("soloQuote").innerHTML =
-          '방금 <b>' + A.say + '</b>고 하셨습니다.';
-      } else {
-        document.getElementById("soloQuote").innerHTML =
-          '방금 <b>아직 5분을 이어가기 어렵다</b>고 하셨습니다.';
-      }
+      var said = A.say || A.say2 || "아직 5분을 이어가기 어렵다";
+      document.getElementById("soloQuote").innerHTML =
+        '방금 <b>' + said + '</b>고 하셨습니다.';
+      // 상담 폼에서도 같은 말을 그대로 보여드린다. 두 번 설명하지 않으시게.
+      document.getElementById("soloGo").href =
+        './apply-1to1.html?say=' + encodeURIComponent(said);
       show("rSolo"); return;
     }
     head("확인 결과", "그룹 프로그램으로<br>시작하시면 됩니다", "");
